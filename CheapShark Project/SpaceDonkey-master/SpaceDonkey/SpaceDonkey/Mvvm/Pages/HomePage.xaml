@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:z="clr-namespace:FunctionZero.zBind.z;assembly=FunctionZero.zBind"
              x:Class="SpaceDonkey.Mvvm.Pages.HomePage"
-             Title="Space Donkey!">
+             Title="CheapShark!">
     <ContentPage.Content>
         <Grid RowDefinitions="Auto, Auto, *, Auto">
             <!--<DatePicker Grid.Row="0" Date="{Binding PictureDate}"/>
