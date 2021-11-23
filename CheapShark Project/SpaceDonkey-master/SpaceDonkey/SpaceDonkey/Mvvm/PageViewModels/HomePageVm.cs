@@ -9,6 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace SpaceDonkey.Mvvm.PageViewModels
 {
@@ -36,13 +37,29 @@ namespace SpaceDonkey.Mvvm.PageViewModels
             PictureDate = DateTime.Now;
         }
 
+        protected async void FindDealOfTheDay()
+        {
+            var result = await _apodService.GetApodAsyncStart();
+
+            if (result.status == Services.Rest.ResultStatus.Success)
+            {
+                ApodData = result.payload.FirstOrDefault();
+            }
+            else
+            {
+                ApodData = null;
+            }
+        }
+
         protected override async void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             base.OnPropertyChanged(propertyName);
 
             if(propertyName == nameof(PictureDate))
             {
-                var result = await _apodService.GetApodAsync(PictureDate);
+                //var result = await _apodService.GetApodAsync(PictureDate);
+
+                var result = await _apodService.GetApodAsyncStart();
 
                 if (result.status == Services.Rest.ResultStatus.Success)
                 {
@@ -54,7 +71,22 @@ namespace SpaceDonkey.Mvvm.PageViewModels
                 }
             }
         }
+        /*protected async void OnTextChanged(object sender, EventArgs e)
+        {
+            SearchBar searchBar = (SearchBar)sender;
 
-        
+            var result = await _apodService.GetApodAsyncStart();
+
+            if (result.status == Services.Rest.ResultStatus.Success)
+            {
+                ApodData = result.payload.FirstOrDefault();
+            }
+            else
+            {
+                ApodData = null;
+            }
+        }*/
+
+
     }
 }

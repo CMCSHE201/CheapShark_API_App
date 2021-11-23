@@ -22,7 +22,9 @@ namespace SpaceDonkey.Services.Rest
 
         public async Task<(ResultStatus status, TResponse payload, string rawResponse)> GetAsync<TResponse>(string path)
         {
-            string uri = Path.Combine(_host, path);
+            //string uri = Path.Combine(_host, path);
+
+            string uri = path;
 
             HttpResponseMessage response = await _httpClient.GetAsync(Sanitise(uri));
 

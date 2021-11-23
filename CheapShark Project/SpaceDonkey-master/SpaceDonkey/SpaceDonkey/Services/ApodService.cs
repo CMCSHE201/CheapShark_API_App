@@ -27,9 +27,9 @@ namespace SpaceDonkey.Services
             return await _restService.GetAsync<IEnumerable<ApodResponse>>(_apiPath + $"?start_date={pictureDate.ToString("yyyy-MM-dd")}&end_date={pictureDate.ToString("yyyy-MM-dd")}&api_key={_apiKey}");
         }
 
-        /*public async Task<(ResultStatus status, IEnumerable<ApodResponse> payload, string rawResponse)> GetApodAsyncStart()
+        public async Task<(ResultStatus status, IEnumerable<ApodResponse> payload, string rawResponse)> GetApodAsyncStart()
         {
-            return await _restService.GetAsync<IEnumerable<ApodResponse>>(_apiPath + "?storeID=1&sortBy=Savings&pageSize=1");
-        }*/
+            return await _restService.GetAsync<IEnumerable<ApodResponse>>(_apiPath + "/api/1.0/deals/?storeID=1&sortBy=Savings&pageSize=1");
+        }
     }
 }
