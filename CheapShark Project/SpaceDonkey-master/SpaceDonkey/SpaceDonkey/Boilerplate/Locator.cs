@@ -32,7 +32,7 @@ namespace SpaceDonkey.Boilerplate
 
         private ApodService GetApodService()
         {
-            return new ApodService(_iocc.GetInstance<IRestService>(), ApiConstants.ApodServiceEndpoint, ApiConstants.ApiKey);
+            return new ApodService(_iocc.GetInstance<IRestService>(), ApiConstants.BaseApiUrl, ApiConstants.ApiKey);
         }
 
         private IRestService GetRestService()

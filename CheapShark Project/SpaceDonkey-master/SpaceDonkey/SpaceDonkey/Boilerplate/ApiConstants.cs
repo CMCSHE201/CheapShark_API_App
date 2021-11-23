@@ -6,8 +6,8 @@ namespace SpaceDonkey.Boilerplate
 {
     public class ApiConstants
     {
-        public const string BaseApiUrl = "https://api.nasa.gov";
+        public const string BaseApiUrl = "https://www.cheapshark.com";
         public const string ApiKey = "96CZNUQO24dd4RHsHyQndZ2e7DLpAQSpOMGr2K4U";
-        public const string ApodServiceEndpoint = "planetary/apod";
+        public const string ApodServiceEndpoint = "/api/1.0/deals";
     }
 }

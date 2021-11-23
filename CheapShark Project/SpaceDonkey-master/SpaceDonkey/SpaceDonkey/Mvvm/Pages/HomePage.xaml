@@ -11,8 +11,10 @@
             <Label Grid.Row="2" Text="No Data" IsVisible="{z:Bind 'ApodData == null'}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
             <Label Grid.Row="3" Text="{Binding ApodData.Explanation}" />-->
             <Label Grid.Row="0" Text="Navigation Bar" HorizontalOptions="CenterAndExpand" />
-            <Label Grid.Row="1" Text="Search Bar" HorizontalOptions="CenterAndExpand" />
-            <Label Grid.Row="3" Text="Deal of the day!" HorizontalOptions="CenterAndExpand" />
+            <SearchBar Grid.Row="1" HorizontalOptions="CenterAndExpand" WidthRequest="1000"/>
+            <Label Grid.Row="3" Text="Deal of the Day!" HorizontalOptions="CenterAndExpand" />
+            <Label Grid.Row="4" Text="Batman: Arkham City - £9.99" HorizontalOptions="CenterAndExpand" />
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>
