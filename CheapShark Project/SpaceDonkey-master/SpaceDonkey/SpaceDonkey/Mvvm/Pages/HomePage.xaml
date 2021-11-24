@@ -6,10 +6,11 @@
     <ContentPage.Content>
         <Grid RowDefinitions="Auto, Auto, *, Auto" HorizontalOptions="FillAndExpand">
             <Label Grid.Row="0" Text="(Navigation Bar Placeholder)" HorizontalOptions="FillAndExpand"/>
-            <SearchBar Grid.Row="1" Placeholder="Search..." HorizontalOptions="FillAndExpand"/>
+            <SearchBar Grid.Row="1" x:Name="sb_Search" Placeholder="Search..." HorizontalOptions="FillAndExpand"/>
+            <Label Grid.Row="2" x:Name="search_Result_Text" HorizontalOptions="CenterAndExpand" TextColor="Red"/>
 
-            
-            <StackLayout Grid.Row="2" HorizontalOptions="FillAndExpand">
+
+            <StackLayout Grid.Row="3" HorizontalOptions="FillAndExpand">
                 <Label HorizontalOptions="CenterAndExpand">Deal of the day</Label>
                 <Label HorizontalOptions="CenterAndExpand">{Game Name}</Label>
                 <Image Source="" BackgroundColor="DarkGray" Aspect="AspectFit"/>
