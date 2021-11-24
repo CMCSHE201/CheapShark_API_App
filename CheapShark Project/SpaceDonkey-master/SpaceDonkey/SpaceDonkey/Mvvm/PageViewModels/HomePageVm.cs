@@ -19,6 +19,8 @@ namespace SpaceDonkey.Mvvm.PageViewModels
         private DateTime _pictureDate;
         private readonly ApodService _apodService;
 
+        public string dealOfTheDay;
+
         public ApodResponse ApodData
         {
             get => _apodData;
@@ -35,6 +37,16 @@ namespace SpaceDonkey.Mvvm.PageViewModels
         {
             _apodService = apodService;
             PictureDate = DateTime.Now;
+        }
+        private void InitSearchBar()
+        {
+            SearchBar sb_search = new SearchBar { Placeholder = "Search..." };
+            sb_search.SearchButtonPressed += (s, e) => SearchDeal(sb_search.Text);
+        }
+
+        private void SearchDeal(string text)
+        {
+            dealOfTheDay = text;
         }
 
         protected async void FindDealOfTheDay()

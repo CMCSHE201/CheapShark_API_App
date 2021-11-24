@@ -11,9 +11,9 @@
             <Label Grid.Row="2" Text="No Data" IsVisible="{z:Bind 'ApodData == null'}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
             <Label Grid.Row="3" Text="{Binding ApodData.Explanation}" />-->
             <Label Grid.Row="0" Text="Navigation Bar" HorizontalOptions="CenterAndExpand" />
-            <SearchBar Grid.Row="1" HorizontalOptions="CenterAndExpand" WidthRequest="800" Placeholder="Search..." HorizontalTextAlignment="Center"/>
+            <SearchBar Grid.Row="1" x:Name="sb_search" HorizontalOptions="CenterAndExpand" WidthRequest="800" Placeholder="Search..." HorizontalTextAlignment="Center"/>
             <Label Grid.Row="3" Text="Deal of the Day!" HorizontalOptions="CenterAndExpand" />
-            <Label Grid.Row="4" Text="{Binding ApodData.Title}"  HorizontalOptions="CenterAndExpand" />
+            <Label Grid.Row="4" x:Name="search_Result"  HorizontalOptions="CenterAndExpand" />
 
         </Grid>
     </ContentPage.Content>
