@@ -4,15 +4,17 @@
              x:Class="SpaceDonkey.Mvvm.Pages.HomePage"
              Title="CheapShark!">
     <ContentPage.Content>
-        <Grid RowDefinitions="Auto, Auto, *, Auto">
-            <!--<DatePicker Grid.Row="0" Date="{Binding PictureDate}"/>
-            <Label Grid.Row="1" Text="{Binding ApodData.Title}" HorizontalOptions="CenterAndExpand" />
-            <Image Grid.Row="2" Source="{Binding ApodData.Url}" IsVisible="{z:Bind 'ApodData != null'}"/>
-            <Label Grid.Row="2" Text="No Data" IsVisible="{z:Bind 'ApodData == null'}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-            <Label Grid.Row="3" Text="{Binding ApodData.Explanation}" />-->
-            <Label Grid.Row="0" Text="Navigation Bar" HorizontalOptions="CenterAndExpand" />
-            <Label Grid.Row="1" Text="Search Bar" HorizontalOptions="CenterAndExpand" />
-            <Label Grid.Row="3" Text="Deal of the day!" HorizontalOptions="CenterAndExpand" />
+        <Grid RowDefinitions="Auto, Auto, *, Auto" HorizontalOptions="FillAndExpand">
+            <Label Grid.Row="0" Text="(Navigation Bar Placeholder)" HorizontalOptions="FillAndExpand"/>
+            <SearchBar Grid.Row="1" Placeholder="Search..." HorizontalOptions="FillAndExpand"/>
+
+            
+            <StackLayout Grid.Row="2" HorizontalOptions="FillAndExpand">
+                <Label HorizontalOptions="CenterAndExpand">Deal of the day</Label>
+                <Label HorizontalOptions="CenterAndExpand">{Game Name}</Label>
+                <Image Source="" BackgroundColor="DarkGray" Aspect="AspectFit"/>
+            </StackLayout>
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>
