@@ -5,16 +5,10 @@
              Title="Space Donkey!">
     <ContentPage.Content>
         <Grid RowDefinitions="Auto, Auto, *, Auto">
-            <!--<DatePicker Grid.Row="0" Date="{Binding PictureDate}"/>
-            <Label Grid.Row="1" Text="{Binding ApodData.Title}" HorizontalOptions="CenterAndExpand" />
-            <Image Grid.Row="2" Source="{Binding ApodData.Url}" IsVisible="{z:Bind 'ApodData != null'}"/>
-            <Label Grid.Row="2" Text="No Data" IsVisible="{z:Bind 'ApodData == null'}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-            <Label Grid.Row="3" Text="{Binding ApodData.Explanation}" />-->
             <Label Grid.Row="0" Text="Navigation Bar" HorizontalOptions="CenterAndExpand" />
             <SearchBar Grid.Row="1" x:Name="sb_search" HorizontalOptions="CenterAndExpand" WidthRequest="800" Placeholder="Search..." HorizontalTextAlignment="Center"/>
-            <Label Grid.Row="3" Text="Deal of the Day!" HorizontalOptions="CenterAndExpand" />
-            <Label Grid.Row="4" x:Name="search_Result"  HorizontalOptions="CenterAndExpand" />
-
+            <Label Grid.Row="3" x:Name="search_Result"  HorizontalOptions="CenterAndExpand" />
+            <Label Grid.Row="5" Text="Deal of the Day!" HorizontalOptions="CenterAndExpand" TextColor="Red"/>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
