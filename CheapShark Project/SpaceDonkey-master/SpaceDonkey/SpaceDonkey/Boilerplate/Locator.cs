@@ -1,9 +1,9 @@
 ﻿using FunctionZero.MvvmZero;
 using SimpleInjector;
-using SpaceDonkey.Mvvm.Pages;
-using SpaceDonkey.Mvvm.PageViewModels;
-using SpaceDonkey.Services;
-using SpaceDonkey.Services.Rest;
+using csApiApp.Mvvm.Pages;
+using csApiApp.Mvvm.PageViewModels;
+using csApiApp.Services;
+using csApiApp.Services.Rest;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace SpaceDonkey.Boilerplate
+namespace csApiApp.Boilerplate
 {
     public class Locator
     {
@@ -23,11 +23,9 @@ namespace SpaceDonkey.Boilerplate
 
             _iocc.Register<IPageServiceZero>(GetPageService, Lifestyle.Singleton);
             _iocc.Register<HomePage>(Lifestyle.Singleton);
-            _iocc.Register<HomePageVm>(Lifestyle.Singleton);
+            _iocc.Register<HomePageModel>(Lifestyle.Singleton);
             _iocc.Register<IRestService>(GetRestService, Lifestyle.Singleton);
-            _iocc.Register<ApodService>(GetApodService, Lifestyle.Singleton);
-
-            
+            //_iocc.Register<ApodService>(GetApodService, Lifestyle.Singleton);
         }
 
         private ApodService GetApodService()
@@ -51,12 +49,12 @@ namespace SpaceDonkey.Boilerplate
         {
             // Create and assign a top-level NavigationPage.
             // If you use a FlyoutPage instead then its Detail item will need to be a NavigationPage
-            // and you will need to modify the 'navigationGetter' provided to the PageServiceZero instance to 
+            // and you will need to modify the 'navigationGetter' provided to the PageServiceZero instance to
             // something like this:
             // () => ((FlyoutPage)App.Current.MainPage).Detail.Navigation
             App.Current.MainPage = new NavigationPage();
             // Ask the PageService to assemble and present our HomePage ...
-            await _iocc.GetInstance<IPageServiceZero>().PushPageAsync<HomePage, HomePageVm>((vm) => {/* Optionally interact with the vm, e.g. to inject seed-data */ });
+            await _iocc.GetInstance<IPageServiceZero>().PushPageAsync<HomePage, HomePageModel>((vm) => {/* Optionally interact with the vm, e.g. to inject seed-data */ });
         }
 
         private IPageServiceZero GetPageService()
