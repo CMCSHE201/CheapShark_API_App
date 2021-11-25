@@ -23,25 +23,9 @@ namespace SpaceDonkey.Boilerplate
 
             _iocc.Register<IPageServiceZero>(GetPageService, Lifestyle.Singleton);
             _iocc.Register<HomePage>(Lifestyle.Singleton);
-            _iocc.Register<HomePageVm>(Lifestyle.Singleton);
-            _iocc.Register<IRestService>(GetRestService, Lifestyle.Singleton);
-            _iocc.Register<ApodService>(GetApodService, Lifestyle.Singleton);
-
-            
-        }
-
-        private ApodService GetApodService()
-        {
-            return new ApodService(_iocc.GetInstance<IRestService>(), ApiConstants.ApodServiceEndpoint, ApiConstants.ApiKey);
-        }
-
-        private IRestService GetRestService()
-        {
-            var httpClient = new HttpClient();
-            // Configure the client.
-            httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
-
-            return new RestService(httpClient, ApiConstants.BaseApiUrl);
+            _iocc.Register<HomePageModel>(Lifestyle.Singleton);
+            //_iocc.Register<IRestService>(GetRestService, Lifestyle.Singleton);
+            //_iocc.Register<ApodService>(GetApodService, Lifestyle.Singleton);
         }
 
         /// <summary>
@@ -51,7 +35,7 @@ namespace SpaceDonkey.Boilerplate
         {
             // Create and assign a top-level NavigationPage.
             // If you use a FlyoutPage instead then its Detail item will need to be a NavigationPage
-            // and you will need to modify the 'navigationGetter' provided to the PageServiceZero instance to 
+            // and you will need to modify the 'navigationGetter' provided to the PageServiceZero instance to
             // something like this:
             // () => ((FlyoutPage)App.Current.MainPage).Detail.Navigation
             App.Current.MainPage = new NavigationPage();
