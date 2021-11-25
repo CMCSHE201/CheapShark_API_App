@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SpaceDonkey.Models
+namespace csApiApp.Models
 {
-    class GameResultClass
+    internal class GameResultClass
     {
         public int gameID;
         public int steamAppID;
@@ -14,25 +14,46 @@ namespace SpaceDonkey.Models
         public string internalName;
         public string thumbnailLink;
 
-        public int getGameID() { return gameID; }
-        public void setGameID(int id) { gameID = id; }
+        public int getGameID()
+        { return gameID; }
 
-        public int getSteamAppID() { return steamAppID; }
-        public void setSteamAppID(int id) { steamAppID = id; }
+        public void setGameID(int id)
+        { gameID = id; }
 
-        public float getCheapestDeal() { return cheapestDeal; }
-        public void setCheapestDeal(float price) { cheapestDeal = price; }
+        public int getSteamAppID()
+        { return steamAppID; }
 
-        public string getCheapestDealID() { return cheapestDealID; }
-        public void setCheapestDealID(string id) { cheapestDealID = id; }
+        public void setSteamAppID(int id)
+        { steamAppID = id; }
 
-        public string getExternalName() { return externalName; }
-        public void setExternalName(string name) { externalName = name; }
+        public float getCheapestDeal()
+        { return cheapestDeal; }
 
-        public string getInternalName() { return internalName; }
-        public void setInternalName(string name) { internalName = name; }
+        public void setCheapestDeal(float price)
+        { cheapestDeal = price; }
 
-        public string getThumbnailLink() { return thumbnailLink; }
-        public void setThumbnailLink(string link) { thumbnailLink = link; }
+        public string getCheapestDealID()
+        { return cheapestDealID; }
+
+        public void setCheapestDealID(string id)
+        { cheapestDealID = id; }
+
+        public string getExternalName()
+        { return externalName; }
+
+        public void setExternalName(string name)
+        { externalName = name; }
+
+        public string getInternalName()
+        { return internalName; }
+
+        public void setInternalName(string name)
+        { internalName = name; }
+
+        public string getThumbnailLink()
+        { return thumbnailLink; }
+
+        public void setThumbnailLink(string link)
+        { thumbnailLink = link; }
     }
 }

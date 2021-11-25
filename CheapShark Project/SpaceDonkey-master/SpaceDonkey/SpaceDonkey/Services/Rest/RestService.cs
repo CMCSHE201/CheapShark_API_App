@@ -7,9 +7,9 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpaceDonkey.Services.Rest
+namespace csApiApp.Services.Rest
 {
-    class RestService : IRestService
+    internal class RestService : IRestService
     {
         private readonly HttpClient _httpClient;
         private readonly string _host;
@@ -60,7 +60,6 @@ namespace SpaceDonkey.Services.Rest
 
                 // Return a response of type TResult.
                 return (ResultStatus.Success, result, rawData);
-
             }
             else
             {

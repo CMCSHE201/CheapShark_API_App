@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SpaceDonkey.Models.Apod
+namespace csApiApp.Models.Apod
 {
     public class ApodResponse
     {
