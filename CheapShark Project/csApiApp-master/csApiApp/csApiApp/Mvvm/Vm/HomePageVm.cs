@@ -1,6 +1,5 @@
 ﻿using FunctionZero.CommandZero;
 using csApiApp.Models.Apod;
-using csApiApp.Mvvm.ViewModels;
 using csApiApp.Services;
 using System;
 using System.Collections.Generic;
@@ -10,9 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace csApiApp.Mvvm.PageViewModels
+namespace csApiApp.Mvvm.Vm
 {
-    public class HomePageVm : SpaceDonkeyBaseVm
+    public class HomePageVm : BaseVm
     {
         private ApodResponse _apodData;
         private DateTime _pictureDate;
