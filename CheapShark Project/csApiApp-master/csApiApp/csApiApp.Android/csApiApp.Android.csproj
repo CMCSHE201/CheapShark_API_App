@@ -87,7 +87,7 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SpaceDonkey\csApiApp.csproj">
+    <ProjectReference Include="..\csApiApp\csApiApp.csproj">
       <Project>{F94C0510-AD9C-43F3-8F8C-ACAF9B5DF3BC}</Project>
       <Name>csApiApp</Name>
     </ProjectReference>
