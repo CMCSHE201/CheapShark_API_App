@@ -1,7 +1,7 @@
 ﻿using FunctionZero.MvvmZero;
 using SimpleInjector;
 using csApiApp.Mvvm.Pages;
-using csApiApp.Mvvm.PageViewModels;
+using csApiApp.Mvvm.Vm;
 using csApiApp.Services;
 using csApiApp.Services.Rest;
 using System;
