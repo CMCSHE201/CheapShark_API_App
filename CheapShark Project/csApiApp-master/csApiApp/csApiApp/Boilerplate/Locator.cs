@@ -24,13 +24,7 @@ namespace csApiApp.Boilerplate
             _iocc.Register<IPageServiceZero>(GetPageService, Lifestyle.Singleton);
             _iocc.Register<HomePage>(Lifestyle.Singleton);
             _iocc.Register<HomePageVm>(Lifestyle.Singleton);
-            _iocc.Register<IRestService>(GetRestService, Lifestyle.Singleton);
-            _iocc.Register<ApodService>(GetApodService, Lifestyle.Singleton);
-        }
-
-        private ApodService GetApodService()
-        {
-            return new ApodService(_iocc.GetInstance<IRestService>(), ApiConstants.ApodServiceEndpoint, ApiConstants.ApiKey);
+            //_iocc.Register<IRestService>(GetRestService, Lifestyle.Singleton);
         }
 
         private IRestService GetRestService()
@@ -39,7 +33,7 @@ namespace csApiApp.Boilerplate
             // Configure the client.
             httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
 
-            return new RestService(httpClient, ApiConstants.BaseApiUrl);
+            return new RestService(httpClient, "");
         }
 
         /// <summary>
