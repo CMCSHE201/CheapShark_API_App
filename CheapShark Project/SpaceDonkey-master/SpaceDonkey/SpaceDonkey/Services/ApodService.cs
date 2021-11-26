@@ -1,12 +1,12 @@
-﻿using SpaceDonkey.Models.Apod;
-using SpaceDonkey.Services.Rest;
+﻿using csApiApp.Models.Apod;
+using csApiApp.Services.Rest;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpaceDonkey.Services
+namespace csApiApp.Services
 {
     public class ApodService
     {
@@ -21,9 +21,8 @@ namespace SpaceDonkey.Services
             _apiKey = apiKey;
         }
 
-        public async Task<(ResultStatus status, IEnumerable<ApodResponse>payload, string rawResponse)> GetApodAsync(DateTime pictureDate)
+        public async Task<(ResultStatus status, IEnumerable<ApodResponse> payload, string rawResponse)> GetApodAsync(DateTime pictureDate)
         {
-
             return await _restService.GetAsync<IEnumerable<ApodResponse>>(_apiPath + $"?start_date={pictureDate.ToString("yyyy-MM-dd")}&end_date={pictureDate.ToString("yyyy-MM-dd")}&api_key={_apiKey}");
         }
     }

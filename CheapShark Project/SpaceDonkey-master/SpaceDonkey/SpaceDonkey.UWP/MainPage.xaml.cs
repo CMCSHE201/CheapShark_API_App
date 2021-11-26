@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace SpaceDonkey.UWP
+namespace csApiApp.UWP
 {
     public sealed partial class MainPage
     {
@@ -21,7 +21,7 @@ namespace SpaceDonkey.UWP
         {
             this.InitializeComponent();
 
-            LoadApplication(new SpaceDonkey.App());
+            LoadApplication(new csApiApp.App());
         }
     }
 }

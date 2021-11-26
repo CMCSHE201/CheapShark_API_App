@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SpaceDonkey.Boilerplate
+namespace csApiApp.Boilerplate
 {
     public class ApiConstants
     {

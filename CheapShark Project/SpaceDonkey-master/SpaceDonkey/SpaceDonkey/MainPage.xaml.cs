@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace SpaceDonkey
+namespace csApiApp
 {
     public partial class MainPage : ContentPage
     {

@@ -1,9 +1,9 @@
 ﻿using FunctionZero.MvvmZero;
 using SimpleInjector;
-using SpaceDonkey.Mvvm.Pages;
-using SpaceDonkey.Mvvm.PageViewModels;
-using SpaceDonkey.Services;
-using SpaceDonkey.Services.Rest;
+using csApiApp.Mvvm.Pages;
+using csApiApp.Mvvm.PageViewModels;
+using csApiApp.Services;
+using csApiApp.Services.Rest;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace SpaceDonkey.Boilerplate
+namespace csApiApp.Boilerplate
 {
     public class Locator
     {
@@ -26,8 +26,6 @@ namespace SpaceDonkey.Boilerplate
             _iocc.Register<HomePageVm>(Lifestyle.Singleton);
             _iocc.Register<IRestService>(GetRestService, Lifestyle.Singleton);
             _iocc.Register<ApodService>(GetApodService, Lifestyle.Singleton);
-
-            
         }
 
         private ApodService GetApodService()
@@ -51,7 +49,7 @@ namespace SpaceDonkey.Boilerplate
         {
             // Create and assign a top-level NavigationPage.
             // If you use a FlyoutPage instead then its Detail item will need to be a NavigationPage
-            // and you will need to modify the 'navigationGetter' provided to the PageServiceZero instance to 
+            // and you will need to modify the 'navigationGetter' provided to the PageServiceZero instance to
             // something like this:
             // () => ((FlyoutPage)App.Current.MainPage).Detail.Navigation
             App.Current.MainPage = new NavigationPage();

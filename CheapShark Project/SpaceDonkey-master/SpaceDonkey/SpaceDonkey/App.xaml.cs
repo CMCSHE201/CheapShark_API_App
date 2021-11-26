@@ -1,14 +1,15 @@
-﻿using SpaceDonkey.Boilerplate;
+﻿using csApiApp.Boilerplate;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace SpaceDonkey
+namespace csApiApp
 {
     public partial class App : Application
     {
         public App()
         {
+            
             InitializeComponent();
 
             // Create our Locator instance and tell it about the Application instance ...

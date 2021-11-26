@@ -1,7 +1,7 @@
 ﻿using FunctionZero.CommandZero;
-using SpaceDonkey.Models.Apod;
-using SpaceDonkey.Mvvm.ViewModels;
-using SpaceDonkey.Services;
+using csApiApp.Models.Apod;
+using csApiApp.Mvvm.ViewModels;
+using csApiApp.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace SpaceDonkey.Mvvm.PageViewModels
+namespace csApiApp.Mvvm.PageViewModels
 {
     public class HomePageVm : SpaceDonkeyBaseVm
     {
@@ -40,7 +40,7 @@ namespace SpaceDonkey.Mvvm.PageViewModels
         {
             base.OnPropertyChanged(propertyName);
 
-            if(propertyName == nameof(PictureDate))
+            if (propertyName == nameof(PictureDate))
             {
                 var result = await _apodService.GetApodAsync(PictureDate);
 

@@ -7,8 +7,8 @@
     <ProjectGuid>{90F304F9-1E93-428B-9FA8-36B84462D868}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SpaceDonkey.UWP</RootNamespace>
-    <AssemblyName>SpaceDonkey.UWP</AssemblyName>
+    <RootNamespace>csApiApp.UWP</RootNamespace>
+    <AssemblyName>csApiApp.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>

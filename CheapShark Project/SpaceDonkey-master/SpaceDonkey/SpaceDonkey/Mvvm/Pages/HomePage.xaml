@@ -1,21 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:z="clr-namespace:FunctionZero.zBind.z;assembly=FunctionZero.zBind"
-             x:Class="SpaceDonkey.Mvvm.Pages.HomePage"
+             x:Class="csApiApp.Mvvm.Pages.HomePage"
              Title="CheapShark!">
     <ContentPage.Content>
         <Grid RowDefinitions="Auto, Auto, *, Auto" HorizontalOptions="FillAndExpand">
-            <Label Grid.Row="0" Text="(Navigation Bar Placeholder)" HorizontalOptions="FillAndExpand"/>
-            <SearchBar Grid.Row="1" x:Name="sb_Search" Placeholder="Search..." HorizontalOptions="FillAndExpand"/>
-            <Label Grid.Row="2" x:Name="search_Result_Text" HorizontalOptions="CenterAndExpand" TextColor="Red"/>
-
+            <Label Grid.Row="0" Text="(Navigation Bar Placeholder)" HorizontalOptions="FillAndExpand" />
+            <SearchBar Grid.Row="1" x:Name="sb_Search" Placeholder="Search..." HorizontalOptions="FillAndExpand" />
+            <Label Grid.Row="2" x:Name="search_Result_Text" HorizontalOptions="CenterAndExpand" TextColor="Red" />
 
             <StackLayout Grid.Row="3" HorizontalOptions="FillAndExpand">
                 <Label HorizontalOptions="CenterAndExpand">Deal of the day</Label>
                 <Label HorizontalOptions="CenterAndExpand">{Game Name}</Label>
-                <Image Source="" BackgroundColor="DarkGray" Aspect="AspectFit"/>
+                <Image Source="" BackgroundColor="DarkGray" Aspect="AspectFit" />
             </StackLayout>
-
         </Grid>
     </ContentPage.Content>
 </ContentPage>
