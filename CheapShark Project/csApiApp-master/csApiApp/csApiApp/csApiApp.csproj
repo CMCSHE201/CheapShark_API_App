@@ -20,11 +20,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Mvvm\Pages\AboutPage.xaml">
+    <EmbeddedResource Update="Mvvm\View\AboutPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Mvvm\Pages\HomePage.xaml">
+    <EmbeddedResource Update="Mvvm\View\HomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Mvvm\Model\" />
   </ItemGroup>
 </Project>
