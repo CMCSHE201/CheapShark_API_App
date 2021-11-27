@@ -28,8 +28,8 @@ namespace csApiApp.Mvvm.Pages
 
         private void SearchDeal(string text)
         {
-            search_Result = text;
-            search_Result_Text.Text = search_Result;
+            //search_Result = text;
+            //search_Result_Text.Text = search_Result;
         }
     }
 }
