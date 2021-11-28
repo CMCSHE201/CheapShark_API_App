@@ -10,9 +10,6 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
 
         <ContentView Grid.Row="0" ControlTemplate="{StaticResource navbar}"></ContentView>
 
@@ -20,16 +17,18 @@
 
         <Label Grid.Row="2" HorizontalOptions="Center">Deal of the day!</Label>
 
-        <Grid Grid.Row="3" Margin="10" Padding="5" BackgroundColor="Gray">
+        <Grid Grid.Row="3" Margin="10" Padding="5" BackgroundColor="Gray" >
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
             </Grid.RowDefinitions>
-            
-            <BoxView HeightRequest="250" Grid.Row="0" Grid.ColumnSpan="2" Color="Blue"></BoxView>
-            <Button Grid.Row="1" Grid.Column="0" Text="View More"></Button>
-            <Button Grid.Row="1" Grid.Column="1" Text="Add to Cart"></Button>
+
+            <Label Grid.Row="0" Text="[Game Name] - [Price]"></Label>
+            <Image Aspect="AspectFit" Grid.Row="1" Grid.ColumnSpan="2" Source="{Binding DodImage}"></Image>
+            <Button Grid.Row="2" Grid.Column="0" Text="View More"></Button>
+            <Button Grid.Row="2" Grid.Column="1" Text="Add to Cart"></Button>
         </Grid>
     </Grid>
 </ContentPage>
