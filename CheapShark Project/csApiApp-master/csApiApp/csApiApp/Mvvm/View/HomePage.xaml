@@ -8,14 +8,28 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
-        <ContentView ControlTemplate="{StaticResource navbar}"></ContentView>
+        <ContentView Grid.Row="0" ControlTemplate="{StaticResource navbar}"></ContentView>
 
         <SearchBar Grid.Row="1" Margin="10" x:Name="sb_Search" Placeholder="Search..." />
-        <Grid Grid.Row="2">
-            <Label Grid.Row="0" HorizontalOptions="Center">Deal of the day</Label>
-            <Image Grid.Row="1" Source="../assets/cs-img-template.png"></Image>
+
+        <Label Grid.Row="2" HorizontalOptions="Center">Deal of the day!</Label>
+
+        <Grid Grid.Row="3" Margin="10" Padding="5" BackgroundColor="Gray">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <BoxView HeightRequest="250" Grid.Row="0" Grid.ColumnSpan="2" Color="Blue"></BoxView>
+            <Button Grid.Row="1" Grid.Column="0" Text="View More"></Button>
+            <Button Grid.Row="1" Grid.Column="1" Text="Add to Cart"></Button>
         </Grid>
     </Grid>
 </ContentPage>

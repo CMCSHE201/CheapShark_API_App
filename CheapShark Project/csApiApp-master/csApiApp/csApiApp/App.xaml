@@ -9,7 +9,7 @@
              CornerRadius="0"
              HasShadow="False">
 
-                <Label>Navbar</Label>
+                <Label>-Navbar placeholder-</Label>
                 
             </Frame>
         </ControlTemplate>
