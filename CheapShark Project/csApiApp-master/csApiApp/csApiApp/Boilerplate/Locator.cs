@@ -27,14 +27,14 @@ namespace csApiApp.Boilerplate
             //_iocc.Register<IRestService>(GetRestService, Lifestyle.Singleton);
         }
 
-        private IRestService GetRestService()
+        /*private IRestService GetRestService()
         {
             var httpClient = new HttpClient();
             // Configure the client.
             httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
 
             return new RestService(httpClient, "");
-        }
+        }*/
 
         /// <summary>
         /// This is called once during application startup
