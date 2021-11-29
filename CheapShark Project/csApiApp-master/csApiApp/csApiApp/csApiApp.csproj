@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -10,6 +10,14 @@
     <DebugType>portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\test2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\test2.png" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FunctionZero.MvvmZero" Version="2.2.4" />
@@ -30,5 +38,6 @@
 
   <ItemGroup>
     <Folder Include="Mvvm\Model\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
 </Project>
