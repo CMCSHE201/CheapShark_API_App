@@ -17,7 +17,7 @@
 
             <SearchBar Grid.Row="1" Margin="10" x:Name="sb_Search" Placeholder="Search..." />
 
-            <Label Grid.Row="2" HorizontalOptions="Center">Deal of the day!</Label>
+            <Label Grid.Row="2" x:Name="dealOfTheDayText" HorizontalOptions="Center">Deal of the day!</Label>
 
             <Grid Grid.Row="3" Margin="10" Padding="5" BackgroundColor="Gray">
 
