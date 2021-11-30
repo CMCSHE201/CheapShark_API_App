@@ -17,18 +17,6 @@ namespace csApiApp.Mvvm.Pages
         public HomePage()
         {
             InitializeComponent();
-            InitSearchBar();
-        }
-
-        private void InitSearchBar()
-        {
-            sb_Search.SearchButtonPressed += (s, e) => SearchDeal(sb_Search.Text);
-        }
-
-        private void SearchDeal(string text)
-        {
-            //search_Result = text;
-            //search_Result_Text.Text = search_Result;
         }
     }
 }

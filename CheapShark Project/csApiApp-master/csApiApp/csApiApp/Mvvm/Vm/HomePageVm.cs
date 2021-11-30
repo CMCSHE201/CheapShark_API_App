@@ -15,9 +15,30 @@ namespace csApiApp.Mvvm.Vm
     public class HomePageVm : BaseVm
     {
         public ImageSource DodImage { get; set; }
-        public string DodName { get; set; }
-        public string DodOrigPrice { get; set; }
-        public string DodCurrentPrice { get; set; }
+
+        private string _dodName;
+
+        public string DodName
+        {
+            get => _dodName;
+            set => base.SetProperty(ref _dodName, value);
+        }
+
+        private string _dodOrigPrice;
+
+        public string DodOrigPrice
+        {
+            get => _dodOrigPrice;
+            set => base.SetProperty(ref _dodOrigPrice, value);
+        }
+
+        private string _dodCurrentPrice;
+
+        public string DodCurrentPrice
+        {
+            get => _dodCurrentPrice;
+            set => base.SetProperty(ref _dodCurrentPrice, value);
+        }
 
         public HomePageVm()
         {
