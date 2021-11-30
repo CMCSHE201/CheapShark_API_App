@@ -15,6 +15,8 @@
                 <RowDefinition Height="auto"></RowDefinition>
             </Grid.RowDefinitions>
 
+            <Label Text="{Binding Count}" />
+
             <SearchBar Grid.Row="1" Margin="10" x:Name="sb_Search" Placeholder="Search..." />
 
             <Label Grid.Row="2" HorizontalOptions="Center">Deal of the day!</Label>
@@ -35,6 +37,7 @@
                     <Label FontSize="24" Text="{Binding DodOrigPrice}" TextDecorations="Strikethrough" />
                     <Label FontSize="24" Text="/" />
                     <Label FontSize="24" Text="{Binding DodCurrentPrice}" />
+                    <Label FontSize="16" Text="{Binding DodSaving}" HorizontalTextAlignment="End" Margin="10"/>
                 </StackLayout>
 
                 <Button Grid.Row="3" Grid.Column="0" Text="View More" />
