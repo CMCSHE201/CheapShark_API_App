@@ -1,13 +1,7 @@
-﻿using FunctionZero.MvvmZero;
-using SimpleInjector;
-using csApiApp.Mvvm.Pages;
+﻿using csApiApp.Mvvm.Pages;
 using csApiApp.Mvvm.Vm;
-using csApiApp.Services;
-using csApiApp.Services.Rest;
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Text;
+using FunctionZero.MvvmZero;
+using SimpleInjector;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 

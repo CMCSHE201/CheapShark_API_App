@@ -1,7 +1,5 @@
 ﻿using csApiApp.Boilerplate;
-using System;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace csApiApp
 {
@@ -9,7 +7,6 @@ namespace csApiApp
     {
         public App()
         {
-            
             InitializeComponent();
 
             // Create our Locator instance and tell it about the Application instance ...
