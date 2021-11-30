@@ -59,7 +59,7 @@ namespace csApiApp.Mvvm.Vm
 
         private async void InitDealOfTheDay()
         {
-            List<GameResultClass> dealsOfTheDay = await _restService.GetDealsAsync(Constants.DealOfTheDayEndpoint);
+            List<GameResultClass> dealsOfTheDay = await _csAPI.GetDealsAsync(Constants.DealOfTheDayEndpoint);
             DodName = dealsOfTheDay[0].Title;
             DodOrigPrice = $"£{dealsOfTheDay[0].NormalPrice}";
             DodCurrentPrice = $"£{dealsOfTheDay[0].SalePrice}";

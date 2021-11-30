@@ -9,11 +9,11 @@ using Xamarin.Forms;
 
 namespace csApiApp
 {
-    public class RestService
+    public class cheapSharkAPI
     {
-        HttpClient _client;
+        private HttpClient _client;
 
-        public RestService()
+        public cheapSharkAPI()
         {
             _client = new HttpClient();
 

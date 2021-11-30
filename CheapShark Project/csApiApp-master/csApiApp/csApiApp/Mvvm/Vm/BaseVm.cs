@@ -2,11 +2,11 @@
 {
     public class BaseVm : FunctionZero.MvvmZero.MvvmZeroBaseVm
     {
-        public RestService _restService;
+        public cheapSharkAPI _csAPI;
 
         public BaseVm()
         {
-            _restService = new RestService();
+            _csAPI = new cheapSharkAPI();
         }
     }
 }
