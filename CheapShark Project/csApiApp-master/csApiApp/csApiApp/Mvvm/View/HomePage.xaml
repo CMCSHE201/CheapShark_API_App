@@ -11,6 +11,8 @@
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
             </Grid.RowDefinitions>
 
             <!--<ContentView Grid.Row="0" ControlTemplate="{StaticResource navbar}"></ContentView>-->
@@ -31,6 +33,12 @@
                 <Image Aspect="AspectFit" Grid.Row="1" Grid.ColumnSpan="2" Source="{Binding DodImage}"></Image>
                 <Button Grid.Row="2" Grid.Column="0" Text="View More"></Button>
                 <Button Grid.Row="2" Grid.Column="1" Text="Add to Cart"></Button>
+            </Grid>
+
+            <Label HeightRequest="25" HorizontalOptions="Center" Grid.Row="4" Text="Temp Nav" />
+            
+            <Grid Grid.Row="5">
+                <Button Grid.Row="0" Text="About" HeightRequest="50" />
             </Grid>
         </Grid>
     </ContentPage.Content>
