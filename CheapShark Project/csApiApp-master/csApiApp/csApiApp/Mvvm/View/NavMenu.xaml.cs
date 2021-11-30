@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace csApiApp.Mvvm.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class NavMenu : MasterDetailPage
+    public partial class NavMenu : FlyoutPage
     {
         public NavMenu()
         {
