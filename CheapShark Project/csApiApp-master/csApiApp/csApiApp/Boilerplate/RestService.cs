@@ -24,27 +24,7 @@ namespace csApiApp
             }
         }
 
-        public async Task<List<DealResultClass>> GetDealsAsync(string uri)
-        {
-            List<DealResultClass> repositories = null;
-            try
-            {
-                HttpResponseMessage response = await _client.GetAsync(uri);
-                if (response.IsSuccessStatusCode)
-                {
-                    string content = await response.Content.ReadAsStringAsync();
-                    repositories = JsonConvert.DeserializeObject<List<DealResultClass>>(content);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("\tERROR {0}", ex.Message);
-            }
-
-            return repositories;
-        }
-
-        public async Task<List<GameResultClass>> GetGamesAsync(string uri)
+        public async Task<List<GameResultClass>> GetDealsAsync(string uri)
         {
             List<GameResultClass> repositories = null;
             try

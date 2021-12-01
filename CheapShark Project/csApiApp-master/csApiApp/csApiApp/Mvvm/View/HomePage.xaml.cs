@@ -27,18 +27,18 @@ namespace csApiApp.Mvvm.Pages
 
         private void InitSearchBar()
         {
-            sb_Search.SearchButtonPressed += (s, e) => SearchGame(sb_Search.Text);
+            sb_Search.SearchButtonPressed += (s, e) => SearchDeal(sb_Search.Text);
         }
 
-        private async void SearchGame(string text)
+        private void SearchDeal(string text)
         {
-            string url = Constants.searchStartPoint + text + Constants.searchEndPoint;
-            List<GameResultClass> searchResults = await _restService.GetGamesAsync(url);
+            //search_Result = text;
+            //search_Result_Text.Text = search_Result;
         }
 
         private async void InitDealOfTheDay()
         {
-            List<DealResultClass> dealsOfTheDay = await _restService.GetDealsAsync(Constants.dealOfTheDayEndpoint);
+            List<GameResultClass> dealsOfTheDay = await _restService.GetDealsAsync(Constants.DealOfTheDayEndpoint);
             dealOfTheDayText.Text = "Deal of the Day! - " + dealsOfTheDay[0].Title + " - Normal Price: " + dealsOfTheDay[0].NormalPrice + " - Sale Price: " + dealsOfTheDay[0].SalePrice;
             //collectionView.ItemsSource = dealOfTheDay;
         }
