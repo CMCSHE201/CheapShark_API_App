@@ -10,7 +10,7 @@
                         <ImageCell Height="25"
                                    Text="{Binding MenuTitle}"
                                    Detail="{Binding MenuDetail}"
-                                   ImageSource="{Binding icon}" >
+                                   ImageSource="{Binding Icon}" >
                         </ImageCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

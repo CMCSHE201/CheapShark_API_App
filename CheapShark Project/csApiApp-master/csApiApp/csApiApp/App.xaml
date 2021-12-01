@@ -4,14 +4,6 @@
              x:Class="csApiApp.App">
     <Application.Resources>
 
-        <ControlTemplate x:Key="navbar">
-            <Frame Padding="20"
-             BackgroundColor="Gray"
-             CornerRadius="0"
-             HasShadow="False">
-
-                <Label>-Navbar placeholder-</Label>
-            </Frame>
-        </ControlTemplate>
+        
     </Application.Resources>
 </Application>

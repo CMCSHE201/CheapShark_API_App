@@ -16,24 +16,25 @@ namespace csApiApp.Mvvm.View
         {
             InitializeComponent();
             MyMenu();
-
         }
+
         public void MyMenu()
         {
-            Detail = new NavigationPage(new Pages.HomePage());
+            Detail = new NavigationPage(new View.HomePage());
             List<Menu> menu = new List<Menu>
             {
-                new Menu{ Page = new Pages.HomePage(), MenuTitle="Home", MenuDetail="", Icon=""},
-                new Menu{ Page = new Pages.HomePage(), MenuTitle="Games",  MenuDetail="All Games", Icon=""},
-                new Menu{ Page = new Pages.HomePage(), MenuTitle="Search",  MenuDetail="Search deals", Icon=""},
-                new Menu{ Page = new Pages.HomePage(), MenuTitle="Search by Store",  MenuDetail="List of deals available at a specific store", Icon=""},
-                new Menu{ Page = new Pages.HomePage(), MenuTitle="Search by Genre", MenuDetail="List of deals organised by Genre", Icon=""},
-                new Menu{ Page = new Pages.HomePage(), MenuTitle="Best Deals", MenuDetail="List of the best available deals", Icon=""},
+                new Menu{ Page = new View.HomePage(), MenuTitle="Home", MenuDetail="", Icon=""},
+                new Menu{ Page = new View.HomePage(), MenuTitle="Games",  MenuDetail="All Games", Icon=""},
+                new Menu{ Page = new View.HomePage(), MenuTitle="Search",  MenuDetail="Search deals", Icon=""},
+                new Menu{ Page = new View.HomePage(), MenuTitle="Search by Store",  MenuDetail="List of deals available at a specific store", Icon=""},
+                new Menu{ Page = new View.HomePage(), MenuTitle="Search by Genre", MenuDetail="List of deals organised by Genre", Icon=""},
+                new Menu{ Page = new View.HomePage(), MenuTitle="Best Deals", MenuDetail="List of the best available deals", Icon=""},
                 new Menu{ Page = new View.Settings(), MenuTitle="Settings", MenuDetail="Change app settings", Icon=""},
-                new Menu{ Page = new Pages.HomePage(), MenuTitle="About", MenuDetail="About us", Icon=""}
+                new Menu{ Page = new View.HomePage(), MenuTitle="About", MenuDetail="About us", Icon=""}
             };
             ListMenu.ItemsSource = menu;
         }
+
         private void ListMenu_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem is Menu menu)
@@ -42,6 +43,7 @@ namespace csApiApp.Mvvm.View
                 Detail = new NavigationPage(menu.Page);
             }
         }
+
         public class Menu
         {
             public string MenuTitle
@@ -49,6 +51,7 @@ namespace csApiApp.Mvvm.View
                 get;
                 set;
             }
+
             public string MenuDetail
             {
                 get;
