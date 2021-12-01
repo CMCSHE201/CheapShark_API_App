@@ -1,4 +1,4 @@
-﻿using csApiApp.Mvvm.Pages;
+﻿using csApiApp.Mvvm.View;
 using csApiApp.Mvvm.Vm;
 using FunctionZero.CommandZero;
 using FunctionZero.MvvmZero;
@@ -68,6 +68,7 @@ namespace csApiApp.Mvvm.Vm
         }
 
         public ICommand AboutPageCommand { get; }
+        public ICommand ViewDetailsCommand { get; }
 
         public HomePageVm(IPageServiceZero pageService)
         {
@@ -77,7 +78,8 @@ namespace csApiApp.Mvvm.Vm
             DodImage = ImageSource.FromResource("csApiApp.Images.test2.png");
             InitDealOfTheDay();
 
-            AboutPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<AboutPage, AboutPageVm>((vm) => vm.Init())).SetName("About Us.").Build();
+            ViewDetailsCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<GameDetailsPage, GameDetailsPageVm>((vm) => vm.Init())).SetName("View Details").Build();
+            AboutPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<AboutPage, AboutPageVm>((vm) => vm.Init())).SetName("About Us").Build();
         }
 
         private void MainTimerCallback(object obj)
