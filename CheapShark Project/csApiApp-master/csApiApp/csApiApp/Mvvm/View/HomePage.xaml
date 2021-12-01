@@ -1,36 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:z="clr-namespace:FunctionZero.zBind.z;assembly=FunctionZero.zBind"
              x:Class="csApiApp.Mvvm.Pages.HomePage"
              Title="csAPIApp">
 
     <ContentPage.Content>
         <Grid Margin="10">
             <Grid.RowDefinitions>
+                <RowDefinition Height="15"></RowDefinition>
+                <RowDefinition Height="55"></RowDefinition>
+                <RowDefinition Height="15"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition Height="auto"></RowDefinition>
-                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="75"></RowDefinition>
+
             </Grid.RowDefinitions>
 
-            <Label Text="{Binding Count}" />
+            <Label Grid.Row="0" Text="{Binding Count}" />
 
-            <SearchBar Grid.Row="1" Margin="10" x:Name="sb_Search" Placeholder="Search..." />
+            <SearchBar Grid.Row="1" Margin="10" x:Name="sb_Search" Placeholder="Search..." PlaceholderColor="LightSlateGray"/>
 
             <Label Grid.Row="2" HorizontalOptions="Center">Deal of the day!</Label>
 
-            <Grid Grid.Row="3" Margin="5" Padding="15" BackgroundColor="Gray">
+            <Grid Grid.Row="3">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"></RowDefinition>
                     <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="25"></RowDefinition>
                     <RowDefinition Height="40"></RowDefinition>
                 </Grid.RowDefinitions>
 
-                <Label Text="{Binding DodName}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" HorizontalTextAlignment="Center" />
-                <Label FontSize="16" Text="{Binding DodSaving}" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="End"/>
+                <Label Text="{Binding DodName}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" HorizontalTextAlignment="Center" FontAttributes="Bold" HeightRequest="40" />
+                <Label FontSize="16" Text="{Binding DodSaving}" TranslationX="{z:Bind Cos(Count / 30.0) * 5}" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="End" Margin="0,0,15,0"/>
 
                 <Image Aspect="AspectFit" Grid.Row="1" Grid.ColumnSpan="2" Source="{Binding DodImage}" />
 
@@ -44,11 +46,11 @@
                 <Button Grid.Row="3" Grid.Column="1" Text="Add to Wishlist" />
             </Grid>
 
-            <Label HeightRequest="25" HorizontalOptions="Center" Grid.Row="4" Text="Temp Nav" />
-
-            <Grid Grid.Row="5">
-                <Button Command="{Binding AboutPageCommand}" Text="{Binding AboutPageCommand.Text}" Grid.Row="0" HeightRequest="60" />
-            </Grid>
+            <StackLayout Grid.Row="4">
+                <BoxView Color="Red" HeightRequest="1" Margin="5"/>
+                <Label HorizontalOptions="Center" Text="Temp Nav" />
+                <Button Command="{Binding AboutPageCommand}" Text="{Binding AboutPageCommand.Text}" />
+            </StackLayout>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
