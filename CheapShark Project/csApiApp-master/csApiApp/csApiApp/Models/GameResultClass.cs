@@ -5,13 +5,26 @@ namespace csApiApp
 {
     public class GameResultClass
     {
-        [JsonProperty("title")]
-        public string Title { get; set; }
+        [JsonProperty("gameID")]
+        public int GameID { get; set; }
 
-        [JsonProperty("normalPrice")]
-        public float NormalPrice { get; set; }
+        [JsonProperty("steamAppID")]
+        public int SteamAppID { get; set; }
 
-        [JsonProperty("salePrice")]
-        public float SalePrice { get; set; }
+        [JsonProperty("cheapest")]
+        public float Cheapest { get; set; }
+
+        [JsonProperty("cheapestDealID")]
+        public string CheapestDealID { get; set; }
+
+        [JsonProperty("external")]
+        public string External { get; set; }
+
+        [JsonProperty("internalName")]
+        public string InternalName { get; set; }
+
+        [JsonProperty("thumb")]
+        public string Thumbnail { get; set; }
+
     }
 }
