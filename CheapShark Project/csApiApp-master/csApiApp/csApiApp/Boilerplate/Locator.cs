@@ -1,4 +1,4 @@
-﻿using csApiApp.Mvvm.Pages;
+﻿using csApiApp.Mvvm.View;
 using csApiApp.Mvvm.Vm;
 using FunctionZero.MvvmZero;
 using SimpleInjector;
@@ -20,6 +20,8 @@ namespace csApiApp.Boilerplate
             _iocc.Register<HomePageVm>(Lifestyle.Singleton);
             _iocc.Register<AboutPage>(Lifestyle.Singleton);
             _iocc.Register<AboutPageVm>(Lifestyle.Singleton);
+            _iocc.Register<GameDetailsPage>(Lifestyle.Singleton);
+            _iocc.Register<GameDetailsPageVm>(Lifestyle.Singleton);
             _iocc.Register<cheapSharkAPI>(Lifestyle.Singleton);
         }
 
