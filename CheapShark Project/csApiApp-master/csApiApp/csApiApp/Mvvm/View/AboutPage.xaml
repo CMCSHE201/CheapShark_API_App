@@ -1,12 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="csApiApp.Mvvm.Pages.AboutPage">
+             x:Class="csApiApp.Mvvm.Pages.AboutPage"
+             Title="About Us">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="About Us!"
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Margin="25">
 
             <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel nisi elementum, auctor turpis quis, porta lectus. Donec tellus erat, tristique sed mi eu, molestie consectetur eros. Maecenas nisi massa, posuere sit amet vulputate at, lobortis et magna. Sed rhoncus massa nec lobortis egestas. Mauris lectus nisl, fringilla ac dictum eget, feugiat non elit. Sed vitae purus rutrum, sodales massa eu, viverra nibh. Duis varius leo sed sollicitudin rutrum. Mauris eleifend sit amet enim et placerat. Curabitur a nibh in nibh hendrerit tristique fermentum nec lorem. In quis mi mollis, consectetur arcu sit amet, aliquam felis. Sed sed aliquet sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam vehicula vestibulum felis et tempor. Aenean id pharetra lacus, eu rhoncus risus.
 

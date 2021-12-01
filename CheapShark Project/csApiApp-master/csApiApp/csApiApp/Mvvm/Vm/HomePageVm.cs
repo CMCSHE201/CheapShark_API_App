@@ -1,21 +1,29 @@
-﻿using FunctionZero.CommandZero;
-using csApiApp.Services;
+﻿using csApiApp.Mvvm.Pages;
+using csApiApp.Mvvm.Vm;
+using FunctionZero.CommandZero;
+using FunctionZero.MvvmZero;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
-using System.Diagnostics;
 
 namespace csApiApp.Mvvm.Vm
 {
     public class HomePageVm : BaseVm
     {
-        public ImageSource DodImage { get; set; }
+        private readonly IPageServiceZero _pageService;
 
+        //Deal of the day Image source property
+        private ImageSource _dodImage;
+
+        public ImageSource DodImage
+        {
+            get => _dodImage;
+            set => base.SetProperty(ref _dodImage, value);
+        }
+
+        //Deal of the day game name property
         private string _dodName;
 
         public string DodName
@@ -24,6 +32,7 @@ namespace csApiApp.Mvvm.Vm
             set => base.SetProperty(ref _dodName, value);
         }
 
+        //Deal of the day origional game price property
         private string _dodOrigPrice;
 
         public string DodOrigPrice
@@ -32,6 +41,7 @@ namespace csApiApp.Mvvm.Vm
             set => base.SetProperty(ref _dodOrigPrice, value);
         }
 
+        //Deal of the day current game price property
         private string _dodCurrentPrice;
 
         public string DodCurrentPrice
@@ -40,33 +50,51 @@ namespace csApiApp.Mvvm.Vm
             set => base.SetProperty(ref _dodCurrentPrice, value);
         }
 
-        public HomePageVm()
+        //Deal of the day game cost saving property
+        private string _dodSaving;
+
+        public string DodSaving
         {
-            DodImage = ImageSource.FromResource("csApiApp.Images.test2.png");
-            InitDealOfTheDay(); // WriteLines show expected values
-            DebugDod(); // All but DodImage return empty strings
+            get => _dodSaving;
+            set => base.SetProperty(ref _dodSaving, value);
         }
 
-        private void DebugDod()
+        private long _count;
+
+        public long Count
         {
-            Debug.WriteLine("---Debug---");
-            Debug.WriteLine(DodName);
-            Debug.WriteLine(DodOrigPrice);
-            Debug.WriteLine(DodCurrentPrice);
-            Debug.WriteLine(DodImage);
-            Debug.WriteLine("-----------");
+            get => _count;
+            set => base.SetProperty(ref _count, value);
+        }
+
+        public ICommand AboutPageCommand { get; }
+
+        public HomePageVm(IPageServiceZero pageService)
+        {
+            _pageService = pageService;
+
+            base.AddPageTimer(10, MainTimerCallback, null, null);
+            DodImage = ImageSource.FromResource("csApiApp.Images.test2.png");
+            InitDealOfTheDay();
+
+            AboutPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<AboutPage, AboutPageVm>((vm) => vm.Init())).SetName("About Us.").Build();
+        }
+
+        private void MainTimerCallback(object obj)
+        {
+            Count++;
         }
 
         private async void InitDealOfTheDay()
         {
             List<GameResultClass> dealsOfTheDay = await _csAPI.GetDealsAsync(Constants.DealOfTheDayEndpoint);
             DodName = dealsOfTheDay[0].Title;
-            DodOrigPrice = $"£{dealsOfTheDay[0].NormalPrice}";
-            DodCurrentPrice = $"£{dealsOfTheDay[0].SalePrice}";
-            Debug.WriteLine(DodName);
-            Debug.WriteLine(DodOrigPrice);
-            Debug.WriteLine(DodCurrentPrice);
-            Debug.WriteLine(DodImage);
+            float costThen = dealsOfTheDay[0].NormalPrice;
+            float costNow = dealsOfTheDay[0].SalePrice;
+            int savingPercent = (int)(((costThen - costNow) / costThen) * 100);
+            DodOrigPrice = $"£{costThen}";
+            DodCurrentPrice = $"£{costNow}";
+            DodSaving = $"{savingPercent}% Off!";
         }
     }
 }

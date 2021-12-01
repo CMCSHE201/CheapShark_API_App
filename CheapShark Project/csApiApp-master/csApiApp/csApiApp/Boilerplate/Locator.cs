@@ -1,13 +1,7 @@
-﻿using FunctionZero.MvvmZero;
-using SimpleInjector;
-using csApiApp.Mvvm.Pages;
+﻿using csApiApp.Mvvm.Pages;
 using csApiApp.Mvvm.Vm;
-using csApiApp.Services;
-using csApiApp.Services.Rest;
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Text;
+using FunctionZero.MvvmZero;
+using SimpleInjector;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -24,6 +18,8 @@ namespace csApiApp.Boilerplate
             _iocc.Register<IPageServiceZero>(GetPageService, Lifestyle.Singleton);
             _iocc.Register<HomePage>(Lifestyle.Singleton);
             _iocc.Register<HomePageVm>(Lifestyle.Singleton);
+            _iocc.Register<AboutPage>(Lifestyle.Singleton);
+            _iocc.Register<AboutPageVm>(Lifestyle.Singleton);
             _iocc.Register<cheapSharkAPI>(Lifestyle.Singleton);
         }
 
