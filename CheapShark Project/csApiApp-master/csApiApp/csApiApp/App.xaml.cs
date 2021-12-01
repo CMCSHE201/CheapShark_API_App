@@ -15,7 +15,7 @@ namespace csApiApp
             // Ask the Locator to get us going. This is an asynchronous call from a constructor, so we're using the 'discard' ...
             _ = locator.SetFirstPage();
 
-            //MainPage = new MainPage();
+            MainPage = new Mvvm.View.NavMenu();
         }
 
         protected override void OnStart()
