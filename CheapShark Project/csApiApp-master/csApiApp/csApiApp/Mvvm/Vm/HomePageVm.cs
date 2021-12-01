@@ -73,9 +73,9 @@ namespace csApiApp.Mvvm.Vm
         {
             _pageService = pageService;
 
-            //base.AddPageTimer(10, MainTimerCallback, null, null);
+            base.AddPageTimer(10, MainTimerCallback, null, null);
             DodImage = ImageSource.FromResource("csApiApp.Images.test2.png");
-            InitDealOfTheDay(); // WriteLines show expected values
+            InitDealOfTheDay();
 
             AboutPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<AboutPage, AboutPageVm>((vm) => vm.Init())).SetName("About Us.").Build();
         }

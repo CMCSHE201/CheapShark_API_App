@@ -5,7 +5,7 @@
              Title="csAPIApp">
 
     <ContentPage.Content>
-        <Grid>
+        <Grid Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
@@ -21,7 +21,7 @@
 
             <Label Grid.Row="2" HorizontalOptions="Center">Deal of the day!</Label>
 
-            <Grid Grid.Row="3" Margin="10" Padding="5" BackgroundColor="Gray">
+            <Grid Grid.Row="3" Margin="5" Padding="15" BackgroundColor="Gray">
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"></RowDefinition>
@@ -30,14 +30,14 @@
                 </Grid.RowDefinitions>
 
                 <Label Text="{Binding DodName}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" HorizontalTextAlignment="Center" />
+                <Label FontSize="16" Text="{Binding DodSaving}" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="End"/>
 
                 <Image Aspect="AspectFit" Grid.Row="1" Grid.ColumnSpan="2" Source="{Binding DodImage}" />
 
                 <StackLayout Grid.Row="2" Orientation="Horizontal">
-                    <Label FontSize="24" Text="{Binding DodOrigPrice}" TextDecorations="Strikethrough" />
-                    <Label FontSize="24" Text="/" />
-                    <Label FontSize="24" Text="{Binding DodCurrentPrice}" />
-                    <Label FontSize="16" Text="{Binding DodSaving}" HorizontalTextAlignment="End" Margin="10" />
+                    <Label FontSize="20" Text="{Binding DodOrigPrice}" TextDecorations="Strikethrough" />
+                    <Label FontSize="20" Text="/" />
+                    <Label FontSize="20" Text="{Binding DodCurrentPrice}" />
                 </StackLayout>
 
                 <Button Grid.Row="3" Grid.Column="0" Text="View More" />
@@ -47,7 +47,7 @@
             <Label HeightRequest="25" HorizontalOptions="Center" Grid.Row="4" Text="Temp Nav" />
 
             <Grid Grid.Row="5">
-                <Button Command="{Binding AboutPageCommand}" Text="{Binding AboutPageCommand.Text}" Grid.Row="0" HeightRequest="50" />
+                <Button Command="{Binding AboutPageCommand}" Text="{Binding AboutPageCommand.Text}" Grid.Row="0" HeightRequest="60" />
             </Grid>
         </Grid>
     </ContentPage.Content>
