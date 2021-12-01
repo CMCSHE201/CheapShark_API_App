@@ -17,15 +17,18 @@
 ## Table of contents
 
 - [Table of contents](#table-of-contents)
+- [Example Image](#example-image)
 - [Quick start](#quick-start)
 - [Status](#status)
-- [What's included](#whats-included)
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Contributing](#contributing)
 - [Creators](#creators)
-- [Thanks](#thanks)
 - [Copyright and license](#copyright-and-license)
 
+<hr>
+
+## Example Image
+<img src="./images/cap.png">
 
 ## Quick start
 
@@ -36,23 +39,6 @@ Some text
 - Instruction 3
 
 ## Status
-
-Here goes all the budgets
-
-## What's included
-
-Some text
-
-```text
-folder1/
-└── folder2/
-    ├── folder3/
-    │   ├── file1
-    │   └── file2
-    └── folder4/
-        ├── file3
-        └── file4
-```
 
 ## Bugs and feature requests
 
@@ -71,9 +57,6 @@ Editor preferences are available in the [editor config](https://reponame/blob/ma
 **Creator 1**
 
 - <https://github.com/usernamecreator1>
-
-## Thanks
-
 
 ## Copyright and license
 
