@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:z="clr-namespace:FunctionZero.zBind.z;assembly=FunctionZero.zBind"
              x:Class="csApiApp.Mvvm.Pages.HomePage"
              Title="csAPIApp">
 
@@ -30,7 +30,7 @@
                 </Grid.RowDefinitions>
 
                 <Label Text="{Binding DodName}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" HorizontalTextAlignment="Center" />
-                <Label FontSize="16" Text="{Binding DodSaving}" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="End"/>
+                <Label FontSize="16" Text="{Binding DodSaving}" TranslationX="{z:Bind Cos(Count / 30.0) * 5}" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="End" />
 
                 <Image Aspect="AspectFit" Grid.Row="1" Grid.ColumnSpan="2" Source="{Binding DodImage}" />
 
