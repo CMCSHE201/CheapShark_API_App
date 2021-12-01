@@ -18,6 +18,8 @@ namespace csApiApp.Boilerplate
             _iocc.Register<IPageServiceZero>(GetPageService, Lifestyle.Singleton);
             _iocc.Register<HomePage>(Lifestyle.Singleton);
             _iocc.Register<HomePageVm>(Lifestyle.Singleton);
+            _iocc.Register<AboutPage>(Lifestyle.Singleton);
+            _iocc.Register<AboutPageVm>(Lifestyle.Singleton);
             _iocc.Register<cheapSharkAPI>(Lifestyle.Singleton);
         }
 

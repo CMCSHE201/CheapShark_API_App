@@ -37,7 +37,7 @@
                     <Label FontSize="24" Text="{Binding DodOrigPrice}" TextDecorations="Strikethrough" />
                     <Label FontSize="24" Text="/" />
                     <Label FontSize="24" Text="{Binding DodCurrentPrice}" />
-                    <Label FontSize="16" Text="{Binding DodSaving}" HorizontalTextAlignment="End" Margin="10"/>
+                    <Label FontSize="16" Text="{Binding DodSaving}" HorizontalTextAlignment="End" Margin="10" />
                 </StackLayout>
 
                 <Button Grid.Row="3" Grid.Column="0" Text="View More" />
@@ -47,7 +47,7 @@
             <Label HeightRequest="25" HorizontalOptions="Center" Grid.Row="4" Text="Temp Nav" />
 
             <Grid Grid.Row="5">
-                <Button Grid.Row="0" Text="About" HeightRequest="50" />
+                <Button Command="{Binding AboutPageCommand}" Text="{Binding AboutPageCommand.Text}" Grid.Row="0" HeightRequest="50" />
             </Grid>
         </Grid>
     </ContentPage.Content>

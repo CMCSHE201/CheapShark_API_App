@@ -1,11 +1,19 @@
-﻿using System;
+﻿using csApiApp.Mvvm.Pages;
+using csApiApp.Mvvm.Vm;
+using FunctionZero.CommandZero;
+using FunctionZero.MvvmZero;
+using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace csApiApp.Mvvm.Vm
 {
     public class HomePageVm : BaseVm
     {
+        private readonly IPageServiceZero _pageService;
+
         //Deal of the day Image source property
         private ImageSource _dodImage;
 
@@ -59,11 +67,17 @@ namespace csApiApp.Mvvm.Vm
             set => base.SetProperty(ref _count, value);
         }
 
-        public HomePageVm()
+        public ICommand AboutPageCommand { get; }
+
+        public HomePageVm(IPageServiceZero pageService)
         {
+            _pageService = pageService;
+
             //base.AddPageTimer(10, MainTimerCallback, null, null);
             DodImage = ImageSource.FromResource("csApiApp.Images.test2.png");
             InitDealOfTheDay(); // WriteLines show expected values
+
+            AboutPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<AboutPage, AboutPageVm>((vm) => vm.Init())).SetName("About Us.").Build();
         }
 
         private void MainTimerCallback(object obj)
