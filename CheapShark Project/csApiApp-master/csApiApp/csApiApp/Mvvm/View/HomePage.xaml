@@ -5,7 +5,8 @@
              Title="csAPIApp">
 
     <ContentPage.Content>
-        <Grid Margin="10">
+        <ScrollView>
+            <Grid Margin="10">
             <Grid.RowDefinitions>
                 <RowDefinition Height="15"></RowDefinition>
                 <RowDefinition Height="55"></RowDefinition>
@@ -52,5 +53,6 @@
                 <Button Command="{Binding AboutPageCommand}" Text="{Binding AboutPageCommand.Text}" />
             </StackLayout>
         </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

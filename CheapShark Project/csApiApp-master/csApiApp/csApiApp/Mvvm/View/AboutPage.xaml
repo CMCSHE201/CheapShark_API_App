@@ -6,7 +6,8 @@
     <ContentPage.Content>
         <StackLayout Margin="25">
 
-            <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel nisi elementum, auctor turpis quis, porta lectus. Donec tellus erat, tristique sed mi eu, molestie consectetur eros. Maecenas nisi massa, posuere sit amet vulputate at, lobortis et magna. Sed rhoncus massa nec lobortis egestas. Mauris lectus nisl, fringilla ac dictum eget, feugiat non elit. Sed vitae purus rutrum, sodales massa eu, viverra nibh. Duis varius leo sed sollicitudin rutrum. Mauris eleifend sit amet enim et placerat. Curabitur a nibh in nibh hendrerit tristique fermentum nec lorem. In quis mi mollis, consectetur arcu sit amet, aliquam felis. Sed sed aliquet sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam vehicula vestibulum felis et tempor. Aenean id pharetra lacus, eu rhoncus risus.
+            <ScrollView>
+                <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel nisi elementum, auctor turpis quis, porta lectus. Donec tellus erat, tristique sed mi eu, molestie consectetur eros. Maecenas nisi massa, posuere sit amet vulputate at, lobortis et magna. Sed rhoncus massa nec lobortis egestas. Mauris lectus nisl, fringilla ac dictum eget, feugiat non elit. Sed vitae purus rutrum, sodales massa eu, viverra nibh. Duis varius leo sed sollicitudin rutrum. Mauris eleifend sit amet enim et placerat. Curabitur a nibh in nibh hendrerit tristique fermentum nec lorem. In quis mi mollis, consectetur arcu sit amet, aliquam felis. Sed sed aliquet sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam vehicula vestibulum felis et tempor. Aenean id pharetra lacus, eu rhoncus risus.
 
 Nam iaculis non orci in lobortis. Donec sit amet semper massa. Vestibulum pretium sit amet magna eu consequat. Nunc aliquam justo sit amet lorem pulvinar, sed euismod erat mollis. Ut consequat, dolor rhoncus mollis blandit, nisi nulla fringilla ante, sit amet faucibus est metus ut nulla. Phasellus non tortor non tellus tincidunt venenatis. Pellentesque tincidunt lacus ut felis condimentum sodales. Pellentesque placerat justo nisi, non elementum purus consequat at. Donec facilisis varius odio fringilla condimentum. Curabitur augue metus, mollis id porttitor a, accumsan et magna.
 
@@ -15,6 +16,7 @@ Quisque consequat pulvinar mauris non euismod. Nunc mauris ipsum, sagittis non m
 Praesent tellus magna, imperdiet non ultrices sed, suscipit id nibh. Maecenas pretium libero nec enim sollicitudin lacinia. Integer eros ante, faucibus eget lorem faucibus, iaculis mattis urna. Morbi semper augue vitae semper dignissim. Nulla sem ligula, tristique ut accumsan at, dapibus vel leo. Nullam auctor dapibus magna, eu facilisis nisi vehicula quis. Ut quis mauris nec sem ornare malesuada.
 
 Donec feugiat ultricies est, sit amet porta nibh malesuada eleifend. Maecenas placerat, justo sed feugiat consequat, ipsum magna tempor ligula, eu sagittis erat nunc vitae ante. Nulla iaculis quis nulla et vehicula. Sed at risus et enim convallis ultrices. Praesent at lectus ipsum. Cras facilisis volutpat sodales. Praesent ligula nunc, varius vel sem et, suscipit rhoncus quam. Proin et massa erat. Donec eu suscipit purus. Donec ut turpis sapien."></Label>
+            </ScrollView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
