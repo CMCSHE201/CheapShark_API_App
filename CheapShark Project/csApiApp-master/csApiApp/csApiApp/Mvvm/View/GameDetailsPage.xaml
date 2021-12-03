@@ -4,9 +4,13 @@
              x:Class="csApiApp.Mvvm.View.GameDetailsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
+            <Label
                 VerticalOptions="CenterAndExpand"
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand">
+                <Label.Text>
+                    <Binding StringFormat="{}ID - {0}" Path="GameId"/>
+                </Label.Text>
+            </Label>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

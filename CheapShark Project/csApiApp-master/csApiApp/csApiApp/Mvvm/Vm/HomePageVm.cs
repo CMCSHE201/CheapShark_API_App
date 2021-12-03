@@ -1,4 +1,5 @@
-﻿using csApiApp.Mvvm.View;
+﻿using csApiApp.Models;
+using csApiApp.Mvvm.View;
 using csApiApp.Mvvm.Vm;
 using FunctionZero.CommandZero;
 using FunctionZero.MvvmZero;
@@ -21,6 +22,14 @@ namespace csApiApp.Mvvm.Vm
         {
             get => _dodImage;
             set => base.SetProperty(ref _dodImage, value);
+        }
+
+        private int _dodGameId;
+
+        public int DodGameId
+        {
+            get => _dodGameId;
+            set => base.SetProperty(ref _dodGameId, value);
         }
 
         //Deal of the day game name property
@@ -78,7 +87,7 @@ namespace csApiApp.Mvvm.Vm
             DodImage = ImageSource.FromResource("csApiApp.Images.test2.png");
             InitDealOfTheDay();
 
-            ViewDetailsCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<GameDetailsPage, GameDetailsPageVm>((vm) => vm.Init())).SetName("View Details").Build();
+            ViewDetailsCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<GameDetailsPage, GameDetailsPageVm>((vm) => vm.Init(DodGameId))).SetName("View Details").Build();
             AboutPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<AboutPage, AboutPageVm>((vm) => vm.Init())).SetName("About Us").Build();
         }
 
@@ -89,7 +98,8 @@ namespace csApiApp.Mvvm.Vm
 
         private async void InitDealOfTheDay()
         {
-            List<GameResultClass> dealsOfTheDay = await _csAPI.GetDealsAsync(Constants.DealOfTheDayEndpoint);
+            List<DealResult> dealsOfTheDay = await _csAPI.GetDealsAsync(Constants.DealOfTheDayEndpoint);
+            DodGameId = dealsOfTheDay[0].GameId;
             DodName = dealsOfTheDay[0].Title;
             float costThen = dealsOfTheDay[0].NormalPrice;
             float costNow = dealsOfTheDay[0].SalePrice;

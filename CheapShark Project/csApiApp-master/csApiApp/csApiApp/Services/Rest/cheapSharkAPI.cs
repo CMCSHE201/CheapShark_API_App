@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using csApiApp.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -24,16 +25,16 @@ namespace csApiApp
             }
         }
 
-        public async Task<List<GameResultClass>> GetDealsAsync(string uri)
+        public async Task<List<DealResult>> GetDealsAsync(string uri)
         {
-            List<GameResultClass> repositories = null;
+            List<DealResult> repositories = null;
             try
             {
                 HttpResponseMessage response = await _client.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    repositories = JsonConvert.DeserializeObject<List<GameResultClass>>(content);
+                    repositories = JsonConvert.DeserializeObject<List<DealResult>>(content);
                 }
             }
             catch (Exception ex)
