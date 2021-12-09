@@ -45,9 +45,9 @@ namespace csApiApp
             return repositories;
         }
 
-        public async Task<GameResultClass> GetDealOfTheDayAsync(string uri)
+        public async Task<GameResult> GetDealOfTheDayAsync(string uri)
         {
-            GameResultClass dealOfTheDay = null;
+            GameResult dealOfTheDay = null;
             try
             {
                 HttpResponseMessage response = await _client.GetAsync(uri);
@@ -55,7 +55,7 @@ namespace csApiApp
                 {
                     string content = await response.Content.ReadAsStringAsync();
                     //content = content.Replace(@"\", string.Empty);
-                    dealOfTheDay = JsonConvert.DeserializeObject<GameResultClass>(content);
+                    dealOfTheDay = JsonConvert.DeserializeObject<GameResult>(content);
                 }
             }
             catch (Exception ex)

@@ -99,7 +99,7 @@ namespace csApiApp.Mvvm.Vm
         private async void InitDealOfTheDay()
         {
             List<DealResult> dealsOfTheDay = await _csAPI.GetDealsAsync(Constants.DealOfTheDayEndpoint);
-            DodGameId = dealsOfTheDay[0].GameId;
+            DodGameId = dealsOfTheDay[0].GameID;
             DodName = dealsOfTheDay[0].Title;
             float costThen = dealsOfTheDay[0].NormalPrice;
             float costNow = dealsOfTheDay[0].SalePrice;
