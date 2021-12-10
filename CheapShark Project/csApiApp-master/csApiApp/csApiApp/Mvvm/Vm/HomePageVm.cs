@@ -1,6 +1,7 @@
 ﻿using csApiApp.Models;
 using csApiApp.Mvvm.View;
 using csApiApp.Mvvm.Vm;
+using csApiApp.Services;
 using FunctionZero.CommandZero;
 using FunctionZero.MvvmZero;
 using System;
@@ -14,6 +15,7 @@ namespace csApiApp.Mvvm.Vm
     public class HomePageVm : BaseVm
     {
         private readonly IPageServiceZero _pageService;
+        private readonly CheapSharkAPI _cheapSharkAPI;
 
         //Deal of the day Image source property
         private ImageSource _dodImage;
@@ -79,14 +81,16 @@ namespace csApiApp.Mvvm.Vm
         public ICommand AboutPageCommand { get; }
         public ICommand ViewDetailsCommand { get; }
 
-        public HomePageVm(IPageServiceZero pageService)
+        public HomePageVm(IPageServiceZero pageService, CheapSharkAPI cheapSharkAPI)
         {
+            _cheapSharkAPI = cheapSharkAPI;
             _pageService = pageService;
 
             base.AddPageTimer(10, MainTimerCallback, null, null);
             DodImage = ImageSource.FromResource("csApiApp.Images.test2.png");
             InitDealOfTheDay();
 
+            //TODO: Change to pass object rather than just ID
             ViewDetailsCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<GameDetailsPage, GameDetailsPageVm>((vm) => vm.Init(DodGameId))).SetName("View Details").Build();
             AboutPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<AboutPage, AboutPageVm>((vm) => vm.Init())).SetName("About Us").Build();
         }
@@ -98,11 +102,11 @@ namespace csApiApp.Mvvm.Vm
 
         private async void InitDealOfTheDay()
         {
-            List<DealResult> dealsOfTheDay = await _csAPI.GetDealsAsync(Constants.DealOfTheDayEndpoint);
+            List<DealResult> dealsOfTheDay = await _cheapSharkAPI.GetDealsAsync(Constants.DealOfTheDayEndpoint);
             DodGameId = dealsOfTheDay[0].GameID;
             DodName = dealsOfTheDay[0].Title;
-            float costThen = dealsOfTheDay[0].NormalPrice;
-            float costNow = dealsOfTheDay[0].SalePrice;
+            decimal costThen = dealsOfTheDay[0].NormalPrice;
+            decimal costNow = dealsOfTheDay[0].SalePrice;
             int savingPercent = (int)(((costThen - costNow) / costThen) * 100);
             DodOrigPrice = $"£{costThen}";
             DodCurrentPrice = $"£{costNow}";

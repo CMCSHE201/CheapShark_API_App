@@ -1,7 +1,9 @@
 ﻿using csApiApp.Mvvm.View;
 using csApiApp.Mvvm.Vm;
+using csApiApp.Services;
 using FunctionZero.MvvmZero;
 using SimpleInjector;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -22,7 +24,8 @@ namespace csApiApp.Boilerplate
             _iocc.Register<AboutPageVm>(Lifestyle.Singleton);
             _iocc.Register<GameDetailsPage>(Lifestyle.Singleton);
             _iocc.Register<GameDetailsPageVm>(Lifestyle.Singleton);
-            _iocc.Register<cheapSharkAPI>(Lifestyle.Singleton);
+            _iocc.Register<HttpClient>(Lifestyle.Singleton);
+            _iocc.Register<CheapSharkAPI>(Lifestyle.Singleton);
         }
 
         /// <summary>

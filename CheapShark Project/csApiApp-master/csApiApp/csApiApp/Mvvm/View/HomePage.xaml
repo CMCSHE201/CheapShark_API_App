@@ -6,15 +6,16 @@
 
     <ContentPage.Content>
         <ScrollView>
-            <Grid Margin="10">
-                <Grid.RowDefinitions>
+            <Grid Margin="10" RowDefinitions="15,55,15,auto,100,75">
+                <!--Does same as above-->
+                <!--<Grid.RowDefinitions>
                     <RowDefinition Height="15"></RowDefinition>
                     <RowDefinition Height="55"></RowDefinition>
                     <RowDefinition Height="15"></RowDefinition>
                     <RowDefinition Height="auto"></RowDefinition>
                     <RowDefinition Height="100"></RowDefinition>
                     <RowDefinition Height="75"></RowDefinition>
-                </Grid.RowDefinitions>
+                </Grid.RowDefinitions>-->
 
                 <Label Grid.Row="0" Text="{Binding Count}" />
 

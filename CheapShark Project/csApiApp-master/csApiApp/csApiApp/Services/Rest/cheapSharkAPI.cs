@@ -1,4 +1,5 @@
 ﻿using csApiApp.Models;
+using csApiApp.Services.Rest;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -8,15 +9,15 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace csApiApp
+namespace csApiApp.Services
 {
-    public class cheapSharkAPI
+    public class CheapSharkAPI
     {
         private HttpClient _client;
 
-        public cheapSharkAPI()
+        public CheapSharkAPI(HttpClient client)
         {
-            _client = new HttpClient();
+            _client = client;
 
             if (Device.RuntimePlatform == Device.UWP)
             {
