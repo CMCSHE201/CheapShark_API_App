@@ -24,8 +24,10 @@ namespace csApiApp.Boilerplate
             _iocc.Register<AboutPageVm>(Lifestyle.Singleton);
             _iocc.Register<GameDetailsPage>(Lifestyle.Singleton);
             _iocc.Register<GameDetailsPageVm>(Lifestyle.Singleton);
-            _iocc.Register<HttpClient>(Lifestyle.Singleton);
             _iocc.Register<CheapSharkAPI>(Lifestyle.Singleton);
+            _iocc.RegisterInstance<HttpClient>(new HttpClient());
+
+            _iocc.Verify();
         }
 
         /// <summary>
