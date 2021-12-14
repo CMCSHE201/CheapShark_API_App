@@ -22,6 +22,8 @@ namespace csApiApp.Boilerplate
             _iocc.Register<HomePageVm>(Lifestyle.Singleton);
             _iocc.Register<AboutPage>(Lifestyle.Singleton);
             _iocc.Register<AboutPageVm>(Lifestyle.Singleton);
+            _iocc.Register<StoreListPage>(Lifestyle.Singleton);
+            _iocc.Register<StoreListVm>(Lifestyle.Singleton);
             _iocc.Register<GameDetailsPage>(Lifestyle.Singleton);
             _iocc.Register<GameDetailsPageVm>(Lifestyle.Singleton);
             _iocc.Register<CheapSharkAPI>(Lifestyle.Singleton);
@@ -42,7 +44,10 @@ namespace csApiApp.Boilerplate
             // () => ((FlyoutPage)App.Current.MainPage).Detail.Navigation
             App.Current.MainPage = new NavigationPage();
             // Ask the PageService to assemble and present our HomePage ...
+
             await _iocc.GetInstance<IPageServiceZero>().PushPageAsync<HomePage, HomePageVm>((vm) => {/* Optionally interact with the vm, e.g. to inject seed-data */ });
+
+            //await _iocc.GetInstance<IPageServiceZero>().PushPageAsync<StoreListPage, StoreListVm>((vm) => vm.Init());
         }
 
         private IPageServiceZero GetPageService()

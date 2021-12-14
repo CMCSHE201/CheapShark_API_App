@@ -37,6 +37,7 @@
                 <BoxView Color="Red" HeightRequest="1" Margin="5" />
                 <Label HorizontalOptions="Center" Text="Temp Nav" />
                 <Button Command="{Binding AboutPageCommand}" Text="{Binding AboutPageCommand.Text}" />
+                <Button Command="{Binding StoreListCommand}" Text="{Binding StoreListCommand.Text}" />
             </StackLayout>
         </Grid>
     </ContentPage.Content>

@@ -80,6 +80,7 @@ namespace csApiApp.Mvvm.Vm
 
         public ICommand AboutPageCommand { get; }
         public ICommand ViewDetailsCommand { get; }
+        public ICommand StoreListCommand { get; }
         public ICommand AddToWishlistCommand { get; }
 
         public HomePageVm(IPageServiceZero pageService, CheapSharkAPI cheapSharkAPI)
@@ -93,6 +94,7 @@ namespace csApiApp.Mvvm.Vm
             //TODO: Change to pass object rather than just ID
             ViewDetailsCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<GameDetailsPage, GameDetailsPageVm>((vm) => vm.Init(_dealResult))).SetName("View Details").Build();
             AboutPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<AboutPage, AboutPageVm>((vm) => vm.Init())).SetName("About Us").Build();
+            StoreListCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<StoreListPage, StoreListVm>((vm) => vm.Init())).SetName("Store List").Build();
             AddToWishlistCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(AddToWishlist).SetName("Wishlish (+)").Build();
         }
 
