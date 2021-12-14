@@ -1,5 +1,4 @@
 ﻿using csApiApp.Models;
-using csApiApp.Services.Rest;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -7,9 +6,10 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using csApiApp.Services.Rest.Endpoints;
 using Xamarin.Forms;
 
-namespace csApiApp.Services
+namespace csApiApp.Services.Rest
 {
     public class CheapSharkAPI
     {
@@ -26,16 +26,21 @@ namespace csApiApp.Services
             }
         }
 
-        public async Task<List<DealResult>> GetDealsAsync(string uri)
+        public async Task<List<DealResult>> GetDealsAsync()
         {
-            List<DealResult> repositories = null;
+            List<DealResult> deals;
             try
             {
-                HttpResponseMessage response = await _client.GetAsync(uri);
+                HttpResponseMessage response = await _client.GetAsync(Constants.DealOfTheDayEndpoint);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    repositories = JsonConvert.DeserializeObject<List<DealResult>>(content);
+                    deals = JsonConvert.DeserializeObject<List<DealResult>>(content);
+                }
+                else
+                {
+                    Debug.Write("\tERROR - HTTP Status Code: {0}", response.StatusCode.ToString());
+                    deals = new List<DealResult>();
                 }
             }
             catch (Exception ex)
@@ -43,28 +48,28 @@ namespace csApiApp.Services
                 Debug.WriteLine("\tERROR {0}", ex.Message);
             }
 
-            return repositories;
+            return deals;
         }
 
-        public async Task<GameResult> GetDealOfTheDayAsync(string uri)
-        {
-            GameResult dealOfTheDay = null;
-            try
-            {
-                HttpResponseMessage response = await _client.GetAsync(uri);
-                if (response.IsSuccessStatusCode)
-                {
-                    string content = await response.Content.ReadAsStringAsync();
-                    //content = content.Replace(@"\", string.Empty);
-                    dealOfTheDay = JsonConvert.DeserializeObject<GameResult>(content);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("\tERROR {0}", ex.Message);
-            }
+        //public async Task<GameResult> GetDealOfTheDayAsync(string uri)
+        //{
+        //    GameResult dealOfTheDay = null;
+        //    try
+        //    {
+        //        HttpResponseMessage response = await _client.GetAsync(uri);
+        //        if (response.IsSuccessStatusCode)
+        //        {
+        //            string content = await response.Content.ReadAsStringAsync();
+        //            //content = content.Replace(@"\", string.Empty);
+        //            dealOfTheDay = JsonConvert.DeserializeObject<GameResult>(content);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Debug.WriteLine("\tERROR {0}", ex.Message);
+        //    }
 
-            return dealOfTheDay;
-        }
+        //    return dealOfTheDay;
+        //}
     }
 }
