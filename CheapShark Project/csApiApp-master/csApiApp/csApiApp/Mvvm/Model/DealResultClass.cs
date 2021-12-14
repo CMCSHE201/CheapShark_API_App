@@ -1,5 +1,4 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace csApiApp
 {
@@ -61,7 +60,5 @@ namespace csApiApp
 
         [JsonProperty("thumb")]
         public string Thumbnail { get; set; }
-
-
     }
 }
