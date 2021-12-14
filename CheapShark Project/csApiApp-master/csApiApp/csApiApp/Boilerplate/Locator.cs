@@ -1,6 +1,6 @@
 ﻿using csApiApp.Mvvm.View;
 using csApiApp.Mvvm.Vm;
-using csApiApp.Services;
+using csApiApp.Services.Rest;
 using FunctionZero.MvvmZero;
 using SimpleInjector;
 using System.Net.Http;
