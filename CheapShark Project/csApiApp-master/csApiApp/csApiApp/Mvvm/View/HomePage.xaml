@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:z="clr-namespace:FunctionZero.zBind.z;assembly=FunctionZero.zBind"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:z="clr-namespace:FunctionZero.zBind.z;assembly=FunctionZero.zBind"
              x:Class="csApiApp.Mvvm.View.HomePage"
              Title="csAPIApp">
 
@@ -36,6 +37,7 @@
                 <BoxView Color="Red" HeightRequest="1" Margin="5" />
                 <Label HorizontalOptions="Center" Text="Temp Nav" />
                 <Button Command="{Binding AboutPageCommand}" Text="{Binding AboutPageCommand.Text}" />
+                <Button Command="{Binding StoreListCommand}" Text="{Binding StoreListCommand.Text}" />
             </StackLayout>
         </Grid>
     </ContentPage.Content>

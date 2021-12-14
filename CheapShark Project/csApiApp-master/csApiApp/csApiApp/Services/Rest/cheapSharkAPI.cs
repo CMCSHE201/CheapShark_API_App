@@ -1,4 +1,5 @@
 ﻿using csApiApp.Models;
+using csApiApp.Services.Rest.Endpoints;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,6 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using csApiApp.Services.Rest.Endpoints;
 using Xamarin.Forms;
 
 namespace csApiApp.Services.Rest
@@ -50,25 +50,28 @@ namespace csApiApp.Services.Rest
             return deals;
         }
 
-        //public async Task<GameResult> GetDealOfTheDayAsync(string uri)
-        //{
-        //    GameResult dealOfTheDay = null;
-        //    try
-        //    {
-        //        HttpResponseMessage response = await _client.GetAsync(uri);
-        //        if (response.IsSuccessStatusCode)
-        //        {
-        //            string content = await response.Content.ReadAsStringAsync();
-        //            //content = content.Replace(@"\", string.Empty);
-        //            dealOfTheDay = JsonConvert.DeserializeObject<GameResult>(content);
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Debug.WriteLine("\tERROR {0}", ex.Message);
-        //    }
+        public async Task<List<StoreResult>> GetStoresAsync()
+        {
+            List<StoreResult> storeList = new List<StoreResult>();
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(Constants.StoreListEndpoint);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    storeList = JsonConvert.DeserializeObject<List<StoreResult>>(content);
+                }
+                else
+                {
+                    Debug.Write("\tERROR - HTTP Status Code: {0}", response.StatusCode.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
 
-        //    return dealOfTheDay;
-        //}
+            return storeList;
+        }
     }
 }
