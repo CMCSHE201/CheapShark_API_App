@@ -5,61 +5,38 @@
              Title="csAPIApp">
 
     <ContentPage.Content>
-        <ScrollView>
-            <Grid Margin="10" RowDefinitions="15,55,15,auto,100,75">
-                <!--Does same as above-->
-                <!--<Grid.RowDefinitions>
-                    <RowDefinition Height="15"></RowDefinition>
-                    <RowDefinition Height="55"></RowDefinition>
-                    <RowDefinition Height="15"></RowDefinition>
-                    <RowDefinition Height="auto"></RowDefinition>
-                    <RowDefinition Height="100"></RowDefinition>
-                    <RowDefinition Height="75"></RowDefinition>
-                </Grid.RowDefinitions>-->
+        <Grid RowDefinitions="auto,auto,auto,auto">
+            <SearchBar Grid.Row="1" Margin="10" x:Name="sb_Search" Placeholder="Search..." PlaceholderColor="LightSlateGray" />
 
-                <Label Grid.Row="0" Text="{Binding Count}" />
+            <Label Grid.Row="2" HorizontalOptions="Center">Deal of the day!</Label>
 
-                <SearchBar Grid.Row="1" Margin="10" x:Name="sb_Search" Placeholder="Search..." PlaceholderColor="LightSlateGray" />
+            <Grid Grid.Row="3" RowDefinitions="auto,325,35">
+                <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" HorizontalTextAlignment="Center" FontAttributes="Bold" HeightRequest="40">
+                    <Label.Text>
+                        <MultiBinding StringFormat="{}{0}">
+                            <Binding Path="DodName" />
+                        </MultiBinding>
+                    </Label.Text>
+                </Label>
+                <Label FontSize="16" Text="{Binding DodSaving}" TranslationX="{z:Bind Cos(Count / 15.0) * 5}" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="End" Margin="0,0,16,0" />
 
-                <Label Grid.Row="2" HorizontalOptions="Center">Deal of the day!</Label>
+                <Image Aspect="AspectFit" Grid.Row="1" Grid.ColumnSpan="2" Source="{Binding DodImage}" />
 
-                <Grid Grid.Row="3">
-
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="auto"></RowDefinition>
-                        <RowDefinition Height="auto"></RowDefinition>
-                        <RowDefinition Height="25"></RowDefinition>
-                        <RowDefinition Height="40"></RowDefinition>
-                    </Grid.RowDefinitions>
-
-                    <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="24" HorizontalTextAlignment="Center" FontAttributes="Bold" HeightRequest="40">
-                        <Label.Text>
-                            <MultiBinding StringFormat="{}{0} - ({1})">
-                                <Binding Path="DodName" />
-                                <Binding Path="DodGameId" />
-                            </MultiBinding>
-                        </Label.Text>
-                    </Label>
-                    <Label FontSize="16" Text="{Binding DodSaving}" TranslationX="{z:Bind Cos(Count / 15.0) * 5}" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="End" Margin="0,0,15,0" />
-
-                    <Image Aspect="AspectFit" Grid.Row="1" Grid.ColumnSpan="2" Source="{Binding DodImage}" />
-
-                    <StackLayout Grid.Row="2" Orientation="Horizontal">
-                        <Label FontSize="20" Text="{Binding DodOrigPrice}" TextDecorations="Strikethrough" />
-                        <Label FontSize="20" Text="/" />
-                        <Label FontSize="20" Text="{Binding DodCurrentPrice}" />
-                    </StackLayout>
-
-                    <Button Grid.Row="3" Grid.Column="0" Text="{Binding ViewDetailsCommand}" Command="{Binding ViewDetailsCommand}" />
-                    <Button Grid.Row="3" Grid.Column="1" Text="Add to Wishlist" />
-                </Grid>
-
-                <StackLayout Grid.Row="4">
-                    <BoxView Color="Red" HeightRequest="1" Margin="5" />
-                    <Label HorizontalOptions="Center" Text="Temp Nav" />
-                    <Button Command="{Binding AboutPageCommand}" Text="{Binding AboutPageCommand.Text}" />
+                <StackLayout Grid.Row="2" Orientation="Horizontal" Margin="10,0,0,0">
+                    <Label FontSize="20" Text="{Binding DodOrigPrice}" TextDecorations="Strikethrough" />
+                    <Label FontSize="20" Text="/" />
+                    <Label FontSize="20" Text="{Binding DodCurrentPrice}" />
                 </StackLayout>
+
+                <Button Grid.Row="3" Grid.Column="0" Text="{Binding ViewDetailsCommand}" Command="{Binding ViewDetailsCommand}" Margin="5,0,0,0" />
+                <Button Grid.Row="3" Grid.Column="1" Text="{Binding AddToWishlistCommand}" Command="{Binding AddToWishlistCommand}" Margin="0,0,5,0" IsTabStop="False" />
             </Grid>
-        </ScrollView>
+
+            <StackLayout Grid.Row="4">
+                <BoxView Color="Red" HeightRequest="1" Margin="5" />
+                <Label HorizontalOptions="Center" Text="Temp Nav" />
+                <Button Command="{Binding AboutPageCommand}" Text="{Binding AboutPageCommand.Text}" />
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
