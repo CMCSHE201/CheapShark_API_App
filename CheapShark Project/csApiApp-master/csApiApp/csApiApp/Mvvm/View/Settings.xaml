@@ -6,25 +6,25 @@
         <StackLayout>
             <Label Text="Settings"
                 FontSize="48"
-                VerticalOptions="Center" 
+                VerticalOptions="Center"
                 HorizontalOptions="CenterAndExpand"
                 Padding="35, 20" />
             <Grid Padding="20, 20">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="6*"/>
-                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="6*" />
+                    <ColumnDefinition Width="4*" />
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="0" 
-                       Grid.Row="0" 
-                       Text="Change Theme" 
+                <Label Grid.Column="0"
+                       Grid.Row="0"
+                       Text="Change Theme"
                        FontSize="26"></Label>
-                <Button Grid.Column="1" 
-                        Grid.Row="0" 
-                        Clicked="OnClick_Change" 
+                <Button Grid.Column="1"
+                        Grid.Row="0"
+                        Clicked="OnClick_Change"
                         Text="Change"
                         FontSize="26"
                         TextTransform="None"></Button>

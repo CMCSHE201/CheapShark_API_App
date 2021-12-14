@@ -1,4 +1,5 @@
 ﻿using csApiApp.Models;
+using csApiApp.Services.Rest.Endpoints;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,6 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using csApiApp.Services.Rest.Endpoints;
 using Xamarin.Forms;
 
 namespace csApiApp.Services.Rest

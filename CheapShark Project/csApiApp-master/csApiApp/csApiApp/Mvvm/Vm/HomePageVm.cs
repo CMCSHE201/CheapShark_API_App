@@ -1,6 +1,5 @@
 ﻿using csApiApp.Models;
 using csApiApp.Mvvm.View;
-using csApiApp.Mvvm.Vm;
 using csApiApp.Services.Rest;
 using FunctionZero.CommandZero;
 using FunctionZero.MvvmZero;
@@ -8,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Xamarin.Forms;
 
 namespace csApiApp.Mvvm.Vm
 {
