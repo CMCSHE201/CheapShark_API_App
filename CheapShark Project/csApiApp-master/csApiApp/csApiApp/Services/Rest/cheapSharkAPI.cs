@@ -28,7 +28,7 @@ namespace csApiApp.Services.Rest
 
         public async Task<List<DealResult>> GetDealsAsync()
         {
-            List<DealResult> deals;
+            List<DealResult> deals = new List<DealResult>();
             try
             {
                 HttpResponseMessage response = await _client.GetAsync(Constants.DealOfTheDayEndpoint);
@@ -40,7 +40,6 @@ namespace csApiApp.Services.Rest
                 else
                 {
                     Debug.Write("\tERROR - HTTP Status Code: {0}", response.StatusCode.ToString());
-                    deals = new List<DealResult>();
                 }
             }
             catch (Exception ex)
