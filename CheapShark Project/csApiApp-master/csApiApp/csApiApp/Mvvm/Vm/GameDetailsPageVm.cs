@@ -1,4 +1,5 @@
-﻿using System;
+﻿using csApiApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,21 +7,21 @@ namespace csApiApp.Mvvm.Vm
 {
     public class GameDetailsPageVm : BaseVm
     {
-        private int _gameId;
+        private DealResult _dealResult;
 
-        public int GameId
+        public DealResult DealResult
         {
-            get => _gameId;
-            set => base.SetProperty(ref _gameId, value);
+            get => _dealResult;
+            set => base.SetProperty(ref _dealResult, value);
         }
 
         public GameDetailsPageVm()
         {
         }
 
-        internal void Init(int gameId)
+        internal void Init(DealResult dealResult)
         {
-            GameId = gameId;
+            DealResult = dealResult;
         }
     }
 }

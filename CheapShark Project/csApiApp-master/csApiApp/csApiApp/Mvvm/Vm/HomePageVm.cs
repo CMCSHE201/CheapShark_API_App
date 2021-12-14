@@ -1,6 +1,7 @@
 ﻿using csApiApp.Models;
 using csApiApp.Mvvm.View;
 using csApiApp.Mvvm.Vm;
+using csApiApp.Services.Rest;
 using FunctionZero.CommandZero;
 using FunctionZero.MvvmZero;
 using System;
@@ -14,11 +15,12 @@ namespace csApiApp.Mvvm.Vm
     public class HomePageVm : BaseVm
     {
         private readonly IPageServiceZero _pageService;
+        private readonly CheapSharkAPI _cheapSharkAPI;
 
         //Deal of the day Image source property
-        private ImageSource _dodImage;
+        private string _dodImage;
 
-        public ImageSource DodImage
+        public string DodImage
         {
             get => _dodImage;
             set => base.SetProperty(ref _dodImage, value);
@@ -76,19 +78,29 @@ namespace csApiApp.Mvvm.Vm
             set => base.SetProperty(ref _count, value);
         }
 
+        private DealResult _dealResult;
+
         public ICommand AboutPageCommand { get; }
         public ICommand ViewDetailsCommand { get; }
+        public ICommand AddToWishlistCommand { get; }
 
-        public HomePageVm(IPageServiceZero pageService)
+        public HomePageVm(IPageServiceZero pageService, CheapSharkAPI cheapSharkAPI)
         {
+            _cheapSharkAPI = cheapSharkAPI;
             _pageService = pageService;
 
             base.AddPageTimer(10, MainTimerCallback, null, null);
-            DodImage = ImageSource.FromResource("csApiApp.Images.test2.png");
             InitDealOfTheDay();
 
-            ViewDetailsCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<GameDetailsPage, GameDetailsPageVm>((vm) => vm.Init(DodGameId))).SetName("View Details").Build();
+            //TODO: Change to pass object rather than just ID
+            ViewDetailsCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<GameDetailsPage, GameDetailsPageVm>((vm) => vm.Init(_dealResult))).SetName("View Details").Build();
             AboutPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<AboutPage, AboutPageVm>((vm) => vm.Init())).SetName("About Us").Build();
+            AddToWishlistCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(AddToWishlist).SetName("Wishlish (+)").Build();
+        }
+
+        private async Task AddToWishlist()
+        {
+            throw new NotImplementedException();
         }
 
         private void MainTimerCallback(object obj)
@@ -98,15 +110,19 @@ namespace csApiApp.Mvvm.Vm
 
         private async void InitDealOfTheDay()
         {
-            List<DealResult> dealsOfTheDay = await _csAPI.GetDealsAsync(Constants.DealOfTheDayEndpoint);
+            List<DealResult> dealsOfTheDay = new List<DealResult>();
+            dealsOfTheDay = await _cheapSharkAPI.GetDealsAsync();
             DodGameId = dealsOfTheDay[0].GameID;
             DodName = dealsOfTheDay[0].Title;
-            float costThen = dealsOfTheDay[0].NormalPrice;
-            float costNow = dealsOfTheDay[0].SalePrice;
+            decimal costThen = dealsOfTheDay[0].NormalPrice;
+            decimal costNow = dealsOfTheDay[0].SalePrice;
             int savingPercent = (int)(((costThen - costNow) / costThen) * 100);
             DodOrigPrice = $"£{costThen}";
             DodCurrentPrice = $"£{costNow}";
             DodSaving = $"{savingPercent}% Off!";
+            DodImage = dealsOfTheDay[0].ThumbnailLink;
+
+            _dealResult = dealsOfTheDay[0];
         }
     }
 }

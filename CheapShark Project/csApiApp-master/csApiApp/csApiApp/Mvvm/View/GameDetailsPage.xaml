@@ -4,13 +4,67 @@
              x:Class="csApiApp.Mvvm.View.GameDetailsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="CenterAndExpand">
+            <Label>
                 <Label.Text>
-                    <Binding StringFormat="{}ID - {0}" Path="GameId"/>
+                    <Binding StringFormat="{}Title - {0}" Path="DealResult.Title" />
                 </Label.Text>
             </Label>
+            <Label>
+                <Label.Text>
+                    <Binding StringFormat="{}GameID - {0}" Path="DealResult.GameID" />
+                </Label.Text>
+            </Label>
+            <Label>
+                <Label.Text>
+                    <Binding StringFormat="{}Normal Price - £{0}" Path="DealResult.NormalPrice" />
+                </Label.Text>
+            </Label>
+            <Label>
+                <Label.Text>
+                    <Binding StringFormat="{}Sale Price - £{0}" Path="DealResult.SalePrice" />
+                </Label.Text>
+            </Label>
+            <Label>
+                <Label.Text>
+                    <Binding StringFormat="{}Savings - {0}%" Path="DealResult.SavingsPercentage" />
+                </Label.Text>
+            </Label>
+            <Label>
+                <Label.Text>
+                    <Binding StringFormat="{}Release - {0}" Path="DealResult.ReleaseDate" />
+                </Label.Text>
+            </Label>
+            <Label>
+                <Label.Text>
+                    <Binding StringFormat="{}Steam Rating - {0}" Path="DealResult.SteamRatingPercent" />
+                </Label.Text>
+            </Label>
+            <Label>
+                <Label.Text>
+                    <Binding StringFormat="{}Steam AppID - {0}" Path="DealResult.SteamAppID" />
+                </Label.Text>
+            </Label>
+            <Label>
+                <Label.Text>
+                    <Binding StringFormat="{}Meta Score - {0}" Path="DealResult.MetaReviewScore" />
+                </Label.Text>
+            </Label>
+            <Label>
+                <Label.Text>
+                    <Binding StringFormat="{}Meta Review Link - {0}" Path="DealResult.MetaReviewLink" />
+                </Label.Text>
+            </Label>
+            <Label>
+                <Label.Text>
+                    <Binding StringFormat="{}Store ID - {0}" Path="DealResult.StoreID" />
+                </Label.Text>
+            </Label>
+            <Label>
+                <Label.Text>
+                    <Binding StringFormat="{}Deal ID - {0}" Path="DealResult.DealID" />
+                </Label.Text>
+            </Label>
+            <Image Source="{Binding DealResult.ThumbnailLink}" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
