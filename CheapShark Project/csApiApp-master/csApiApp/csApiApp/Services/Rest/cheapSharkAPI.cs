@@ -1,4 +1,5 @@
 ﻿using csApiApp.Models;
+using csApiApp.Mvvm.Model;
 using csApiApp.Services.Rest.Endpoints;
 using Newtonsoft.Json;
 using System;
@@ -72,6 +73,26 @@ namespace csApiApp.Services.Rest
             }
 
             return storeList;
+        }
+
+        internal async Task<List<SearchResult>> GetSearchAsync(string uri)
+        {
+            List<SearchResult> results = null;
+            try
+            {
+                HttpResponseMessage response = await _client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    results = JsonConvert.DeserializeObject<List<SearchResult>>(content);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("\tERROR {0}", ex.Message);
+            }
+
+            return results;
         }
     }
 }
