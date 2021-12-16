@@ -76,12 +76,21 @@ namespace csApiApp.Mvvm.Vm
             set => base.SetProperty(ref _count, value);
         }
 
+        private string _searchText;
+
+        public string SearchText
+        {
+            get => _searchText;
+            set => base.SetProperty(ref _searchText, value);
+        }
+
         private DealResult _dealResult;
 
         public ICommand AboutPageCommand { get; }
         public ICommand ViewDetailsCommand { get; }
         public ICommand StoreListCommand { get; }
         public ICommand FAQPageCommand { get; }
+        public ICommand SearchPageCommand { get; }
 
         public ICommand AddToWishlistCommand { get; }
 
@@ -97,6 +106,7 @@ namespace csApiApp.Mvvm.Vm
             AboutPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<AboutPage, AboutPageVm>((vm) => vm.Init())).SetName("About Us").Build();
             StoreListCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<StoreListPage, StoreListVm>((vm) => vm.Init())).SetName("Store List").Build();
             FAQPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<FAQPage, FAQPageVm>((vm) => vm.Init())).SetName("FAQ").Build();
+            SearchPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<SearchPage, SearchPageVm>((vm) => vm.Init(SearchText))).SetName("Search").Build();
 
             AddToWishlistCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(AddToWishlist).SetName("Wishlish (+)").Build();
         }
