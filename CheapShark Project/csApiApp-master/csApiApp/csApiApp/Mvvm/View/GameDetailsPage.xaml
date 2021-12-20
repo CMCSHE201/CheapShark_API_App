@@ -6,16 +6,8 @@
         <StackLayout>
             <Image Source="{Binding DealResult.ThumbnailLink}" Aspect="AspectFit" HeightRequest="300" />
             <StackLayout Padding="15,0">
-                <Label>
-                    <Label.Text>
-                        <Binding StringFormat="{}Title - {0}" Path="DealResult.Title" />
-                    </Label.Text>
-                </Label>
-                <Label>
-                    <Label.Text>
-                        <Binding StringFormat="{}GameID - {0}" Path="DealResult.GameID" />
-                    </Label.Text>
-                </Label>
+                <!--Present Game title with DealResult.Title Binding path-->
+                <Label Text="{Binding DealResult.Title}" FontSize="30" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Start" />
                 <Label>
                     <Label.Text>
                         <Binding StringFormat="{}Normal Price - £{0}" Path="DealResult.NormalPrice" />
@@ -28,22 +20,12 @@
                 </Label>
                 <Label>
                     <Label.Text>
-                        <Binding StringFormat="{}Savings - {0}%" Path="DealResult.SavingsPercentage" />
-                    </Label.Text>
-                </Label>
-                <Label>
-                    <Label.Text>
-                        <Binding StringFormat="{}Release - {0}" Path="DealResult.ReleaseDate" />
+                        <Binding StringFormat="{}Release Year - {0}" Path="DealResult.ReleaseDate" />
                     </Label.Text>
                 </Label>
                 <Label>
                     <Label.Text>
                         <Binding StringFormat="{}Steam Rating - {0}" Path="DealResult.SteamRatingPercent" />
-                    </Label.Text>
-                </Label>
-                <Label>
-                    <Label.Text>
-                        <Binding StringFormat="{}Steam AppID - {0}" Path="DealResult.SteamAppID" />
                     </Label.Text>
                 </Label>
                 <Label>
@@ -54,16 +36,6 @@
                 <Label>
                     <Label.Text>
                         <Binding StringFormat="{}Meta Review Link - {0}" Path="DealResult.MetaReviewLink" />
-                    </Label.Text>
-                </Label>
-                <Label>
-                    <Label.Text>
-                        <Binding StringFormat="{}Store ID - {0}" Path="DealResult.StoreID" />
-                    </Label.Text>
-                </Label>
-                <Label>
-                    <Label.Text>
-                        <Binding StringFormat="{}Deal ID - {0}" Path="DealResult.DealID" />
                     </Label.Text>
                 </Label>
             </StackLayout>
