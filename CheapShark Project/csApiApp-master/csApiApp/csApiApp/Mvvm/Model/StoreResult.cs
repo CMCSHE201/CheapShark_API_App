@@ -24,6 +24,11 @@ namespace csApiApp.Models
             IsActive = isActive;
             Images = images;
         }
+
+        public override string ToString()
+        {
+            return $"{StoreName} ({StoreID})";
+        }
     }
 
     public class StoreImageSet
@@ -42,6 +47,11 @@ namespace csApiApp.Models
             Banner = banner;
             Logo = logo;
             Icon = icon;
+        }
+
+        public override string ToString()
+        {
+            return $"{Banner} {Logo} {Icon}";
         }
     }
 }
