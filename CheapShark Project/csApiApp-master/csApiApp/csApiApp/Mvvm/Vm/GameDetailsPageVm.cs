@@ -1,9 +1,11 @@
 ﻿using csApiApp.Models;
+using FunctionZero.MvvmZero;
 
 namespace csApiApp.Mvvm.Vm
 {
     public class GameDetailsPageVm : BaseVm
     {
+        private readonly IPageServiceZero _pageService;
         private DealResult _dealResult;
 
         public DealResult DealResult
@@ -12,8 +14,9 @@ namespace csApiApp.Mvvm.Vm
             set => base.SetProperty(ref _dealResult, value);
         }
 
-        public GameDetailsPageVm()
+        public GameDetailsPageVm(IPageServiceZero pageService) : base(pageService)
         {
+            _pageService = pageService;
         }
 
         internal void Init(DealResult dealResult)

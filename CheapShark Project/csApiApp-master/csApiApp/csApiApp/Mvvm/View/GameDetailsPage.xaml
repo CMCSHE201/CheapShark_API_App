@@ -4,35 +4,50 @@
              x:Class="csApiApp.Mvvm.View.GameDetailsPage">
     <ContentPage.Content>
         <StackLayout>
+            <!-- Game thumbnail -->
             <Image Source="{Binding DealResult.ThumbnailLink}" Aspect="AspectFit" HeightRequest="300" />
+
             <StackLayout Padding="15,0">
+
                 <!--Present Game title with DealResult.Title Binding path-->
                 <Label Text="{Binding DealResult.Title}" FontSize="30" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Start" />
+
+                <!-- Standard game price -->
                 <Label>
                     <Label.Text>
                         <Binding StringFormat="{}Normal Price - £{0}" Path="DealResult.NormalPrice" />
                     </Label.Text>
                 </Label>
+
+                <!-- Deal Sale price-->
                 <Label>
                     <Label.Text>
                         <Binding StringFormat="{}Sale Price - £{0}" Path="DealResult.SalePrice" />
                     </Label.Text>
                 </Label>
+
+                <!-- Game Release Year-->
                 <Label>
                     <Label.Text>
                         <Binding StringFormat="{}Release Year - {0}" Path="DealResult.ReleaseDate" />
                     </Label.Text>
                 </Label>
+
+                <!-- Game steam rating -->
                 <Label>
                     <Label.Text>
                         <Binding StringFormat="{}Steam Rating - {0}" Path="DealResult.SteamRatingPercent" />
                     </Label.Text>
                 </Label>
+
+                <!-- Meta critic score-->
                 <Label>
                     <Label.Text>
                         <Binding StringFormat="{}Meta Score - {0}" Path="DealResult.MetaReviewScore" />
                     </Label.Text>
                 </Label>
+
+                <!-- Link to meta critic review -->
                 <Label>
                     <Label.Text>
                         <Binding StringFormat="{}Meta Review Link - {0}" Path="DealResult.MetaReviewLink" />

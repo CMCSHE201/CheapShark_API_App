@@ -4,7 +4,7 @@ using System.Text;
 
 namespace csApiApp.Mvvm.Vm
 {
-    internal class DealDetailsVm
+    internal class GameDetailsVm
     {
     }
 }

@@ -32,6 +32,8 @@ namespace csApiApp.Boilerplate
             _iocc.Register<SearchPageVm>(Lifestyle.Singleton);
             _iocc.Register<CheapSharkAPI>(Lifestyle.Singleton);
             _iocc.RegisterInstance<HttpClient>(new HttpClient());
+            _iocc.Register<Settings>(Lifestyle.Singleton);
+            _iocc.Register<SettingsVm>(Lifestyle.Singleton);
 
             _iocc.Verify();
         }
@@ -50,7 +52,7 @@ namespace csApiApp.Boilerplate
 
             // Ask the PageService to assemble and present our HomePage ...
             await _iocc.GetInstance<IPageServiceZero>().PushPageAsync<HomePage, HomePageVm>((vm) => {/* Optionally interact with the vm, e.g. to inject seed-data */ });
-            
+
             //await _iocc.GetInstance<IPageServiceZero>().PushPageAsync<StoreListPage, StoreListVm>((vm) => vm.Init());
             //await _iocc.GetInstance<IPageServiceZero>().PushPageAsync<AboutPage, AboutPageVm>((vm) => {/* Optionally interact with the vm, e.g. to inject seed-data */ });
             //await _iocc.GetInstance<IPageServiceZero>().PushPageAsync<FAQPage, FAQPageVm>((vm) => {/* Optionally interact with the vm, e.g. to inject seed-data */ });

@@ -39,6 +39,7 @@
                 <Button Command="{Binding AboutPageCommand}" Text="{Binding AboutPageCommand.Text}" />
                 <Button Command="{Binding StoreListCommand}" Text="{Binding StoreListCommand.Text}" />
                 <Button Command="{Binding FAQPageCommand}" Text="{Binding FAQPageCommand}" />
+                <Button Command="{Binding SettingsPageCommand}" Text="{Binding SettingsPageCommand}" />
             </StackLayout>
         </Grid>
     </ContentPage.Content>

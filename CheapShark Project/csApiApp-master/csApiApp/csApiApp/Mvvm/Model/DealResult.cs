@@ -4,6 +4,9 @@ namespace csApiApp.Models
 {
     public class DealResult : GameResult
     {
+        [JsonProperty("internalName")]
+        public string InternalName { get; }
+
         [JsonProperty("dealID")]
         public string DealID { get; }
 

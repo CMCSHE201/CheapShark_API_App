@@ -14,6 +14,7 @@ namespace csApiApp.Mvvm.Vm
 {
     internal class SearchPageVm : BaseVm
     {
+        private readonly IPageServiceZero _pageService;
         private CheapSharkAPI _cheapSharkAPI;
 
         public ICommand SearchCommand { get; }
@@ -34,9 +35,10 @@ namespace csApiApp.Mvvm.Vm
             set => base.SetProperty(ref _searchText, value);
         }
 
-        public SearchPageVm(CheapSharkAPI cheapSharkAPI)
+        public SearchPageVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService) : base(pageService)
         {
             _cheapSharkAPI = cheapSharkAPI;
+            _pageService = pageService;
 
             SearchCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(SearchGames).SetName("Search").Build();
         }
