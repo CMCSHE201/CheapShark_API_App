@@ -4,8 +4,76 @@
              x:Class="csApiApp.Mvvm.View.FAQPage"
              Title="FAQ">
     <ContentPage.Content>
-        <StackLayout>
-            
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Margin="15">
+                <!-- Title -->
+            <Label x:Name="lblTitle"
+                   Text="FAQ"
+                   FontSize="30"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Start" />
+
+            <!-- Question 1 -->
+            <Label x:Name="lblQuestion1"
+                   Text="How do I add a new question?"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Start" />
+            <Label x:Name="lblAnswer1" 
+                     Text="Go to the FAQ page and click the 'Add New Question' button. 
+                     Enter the question and answer in the text boxes and click 'Save'. 
+                     The question will be added to the list."
+                     FontSize="20"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Start" />
+
+            <!-- Fullwidth Red Line -->
+            <BoxView
+                     BackgroundColor="Red"
+                     HeightRequest="1"
+                     HorizontalOptions="Fill"
+                     VerticalOptions="Start"
+                     Margin="0,10,0,10"/>
+
+            <!-- Question 2 -->
+            <Label x:Name="lblQuestion2"
+                   Text="How do I edit a question?"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Start" />
+            <Label x:Name="lblAnswer2" 
+                     Text="Go to the FAQ page and click the 'Edit Question' button. 
+                     Enter the question and answer in the text boxes and click 'Save'. 
+                     The question will be updated in the list."
+                     FontSize="20"
+                     HorizontalOptions="Center"
+                     VerticalOptions="End" />
+                     
+            <!-- Fullwidth Red Line -->
+            <BoxView
+                     BackgroundColor="Red"
+                     HeightRequest="1"
+                     HorizontalOptions="Fill"
+                     VerticalOptions="Start"
+                     Margin="0,10,0,10"/>
+
+            <!-- Question 3 -->
+            <Label x:Name="lblQuestion3"
+                   Text="How do I delete a question?"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Start" />
+            <Label x:Name="lblAnswer3" 
+                     Text="Go to the FAQ page and click the 'Delete Question' button. 
+                     The question will be deleted from the list."
+                     FontSize="20"
+                     HorizontalOptions="Center"
+                     VerticalOptions="End" />
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

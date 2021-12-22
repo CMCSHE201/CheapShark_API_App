@@ -1,12 +1,15 @@
 ﻿using FunctionZero.MvvmZero;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
 namespace csApiApp.Mvvm.Vm
 {
-    public class AboutPageVm : BaseVm
+    internal class SettingsVm : BaseVm
     {
         private readonly IPageServiceZero _pageService;
 
-        public AboutPageVm(IPageServiceZero pageService) : base(pageService)
+        public SettingsVm(IPageServiceZero pageService) : base(pageService)
         {
             _pageService = pageService;
         }

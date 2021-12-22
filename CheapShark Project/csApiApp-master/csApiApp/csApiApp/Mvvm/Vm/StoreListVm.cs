@@ -1,5 +1,6 @@
 ﻿using csApiApp.Models;
 using csApiApp.Services.Rest;
+using FunctionZero.MvvmZero;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -10,6 +11,7 @@ namespace csApiApp.Mvvm.Vm
     internal class StoreListVm : BaseVm
     {
         private CheapSharkAPI _cheapSharkAPI;
+        private readonly IPageServiceZero _pageService;
 
         private ObservableCollection<StoreResult> _storeResults;
 
@@ -19,8 +21,9 @@ namespace csApiApp.Mvvm.Vm
             set => base.SetProperty(ref _storeResults, value);
         }
 
-        public StoreListVm(CheapSharkAPI cheapSharkAPI)
+        public StoreListVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService) : base(pageService)
         {
+            _pageService = pageService;
             _cheapSharkAPI = cheapSharkAPI;
         }
 

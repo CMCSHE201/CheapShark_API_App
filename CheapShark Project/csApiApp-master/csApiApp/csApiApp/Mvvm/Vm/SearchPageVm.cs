@@ -1,4 +1,6 @@
-﻿using csApiApp.Mvvm.Model;
+﻿using Android.Content.Res;
+using csApiApp.Mvvm.Model;
+using csApiApp.Mvvm.View;
 using csApiApp.Services.Rest;
 using csApiApp.Services.Rest.Endpoints;
 using FunctionZero.CommandZero;
@@ -9,14 +11,33 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace csApiApp.Mvvm.Vm
 {
     internal class SearchPageVm : BaseVm
     {
+        private readonly IPageServiceZero _pageService;
+
         private CheapSharkAPI _cheapSharkAPI;
 
         public ICommand SearchCommand { get; }
+
+        public ICommand SelectedCommand { get; }
+
+        SearchResult selectedResult;
+
+        public SearchResult SelectedResult{
+            get => selectedResult;
+            set
+            {
+                if (value != null)
+                {
+                    selectedResult = value;
+                    SelectedCommand.Execute(selectedResult); ;
+                }
+            } 
+        } 
 
         private ObservableCollection<SearchResult> _searchResults;
 
@@ -34,11 +55,13 @@ namespace csApiApp.Mvvm.Vm
             set => base.SetProperty(ref _searchText, value);
         }
 
-        public SearchPageVm(CheapSharkAPI cheapSharkAPI)
+        public SearchPageVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService) : base(pageService)
         {
             _cheapSharkAPI = cheapSharkAPI;
+            _pageService = pageService;
 
             SearchCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(SearchGames).SetName("Search").Build();
+            SelectedCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<SearchResultsDetails, SearchResultsDetailsVm>((vm) => vm.Init(selectedResult))).SetName("View Details").Build();
         }
 
         internal async void Init(string text)
