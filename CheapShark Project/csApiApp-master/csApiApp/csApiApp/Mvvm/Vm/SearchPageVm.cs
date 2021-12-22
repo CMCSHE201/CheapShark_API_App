@@ -17,7 +17,8 @@ namespace csApiApp.Mvvm.Vm
 {
     internal class SearchPageVm : BaseVm
     {
-        private IPageServiceZero _pageService;
+        private readonly IPageServiceZero _pageService;
+
         private CheapSharkAPI _cheapSharkAPI;
 
         public ICommand SearchCommand { get; }
@@ -54,7 +55,7 @@ namespace csApiApp.Mvvm.Vm
             set => base.SetProperty(ref _searchText, value);
         }
 
-        public SearchPageVm(IPageServiceZero pageService, CheapSharkAPI cheapSharkAPI)
+        public SearchPageVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService) : base(pageService)
         {
             _cheapSharkAPI = cheapSharkAPI;
             _pageService = pageService;
