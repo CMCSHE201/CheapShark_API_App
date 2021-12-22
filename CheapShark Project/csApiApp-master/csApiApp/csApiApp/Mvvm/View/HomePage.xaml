@@ -19,7 +19,7 @@
                         </MultiBinding>
                     </Label.Text>
                 </Label>
-                <Label FontSize="16" Text="{Binding DodSaving}" TranslationX="{z:Bind Cos(Count / 15.0) * 5}" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="End" Margin="0,0,16,0" />
+                <Label FontSize="16" Text="{Binding DodSaving}" TranslationX="{z:Bind (Sin(Count / 60.0) * 5) - 5}" TranslationY="{z:Bind (Sin(Count / 120.0) * 15) - 15}" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="End" Margin="0,0,16,0" />
 
                 <Image Aspect="AspectFit" Grid.Row="1" Grid.ColumnSpan="2" Source="{Binding DodImage}" />
 
