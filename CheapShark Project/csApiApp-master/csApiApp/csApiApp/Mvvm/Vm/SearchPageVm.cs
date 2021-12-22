@@ -1,5 +1,4 @@
-﻿using Android.Content.Res;
-using csApiApp.Mvvm.Model;
+﻿using csApiApp.Mvvm.Model;
 using csApiApp.Mvvm.View;
 using csApiApp.Services.Rest;
 using csApiApp.Services.Rest.Endpoints;
@@ -25,9 +24,10 @@ namespace csApiApp.Mvvm.Vm
 
         public ICommand SelectedCommand { get; }
 
-        SearchResult selectedResult;
+        private SearchResult selectedResult;
 
-        public SearchResult SelectedResult{
+        public SearchResult SelectedResult
+        {
             get => selectedResult;
             set
             {
@@ -36,8 +36,8 @@ namespace csApiApp.Mvvm.Vm
                     selectedResult = value;
                     SelectedCommand.Execute(selectedResult); ;
                 }
-            } 
-        } 
+            }
+        }
 
         private ObservableCollection<SearchResult> _searchResults;
 
