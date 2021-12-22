@@ -16,22 +16,14 @@ namespace csApiApp.Mvvm.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SearchPage : ContentPage
     {
-        public ICommand SelectedCommand { get; }
-
         public SearchPage()
         {
             InitializeComponent();
         }
 
-        private async void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        private void ListView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var selectedResult = ((ListView)sender).SelectedItem as SearchResult;
-            if (selectedResult == null)
-            {
-                return;
-            }
-
-            await DisplayAlert("Game Selected: ", selectedResult.External, "OK");
         }
     }
 }

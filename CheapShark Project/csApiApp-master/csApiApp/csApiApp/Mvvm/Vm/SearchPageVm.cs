@@ -61,6 +61,8 @@ namespace csApiApp.Mvvm.Vm
             _pageService = pageService;
 
             SearchCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(SearchGames).SetName("Search").Build();
+
+            // Can we not just use game/deal result classes/pages?
             SelectedCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<SearchResultsDetails, SearchResultsDetailsVm>((vm) => vm.Init(selectedResult))).SetName("View Details").Build();
         }
 

@@ -6,7 +6,7 @@
     <ContentPage.Content>
         <StackLayout>
             <SearchBar Placeholder="Search..." Text="{Binding SearchText, Mode=TwoWay}" SearchCommand="{Binding SearchCommand}" Margin="10" />
-            <ListView ItemsSource="{Binding SearchResults}" SelectedItem="{Binding SelectedResult, Mode=TwoWay}">
+            <ListView ItemsSource="{Binding SearchResults}" SelectedItem="{Binding SelectedResult, Mode=TwoWay}" ItemTapped="ListView_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

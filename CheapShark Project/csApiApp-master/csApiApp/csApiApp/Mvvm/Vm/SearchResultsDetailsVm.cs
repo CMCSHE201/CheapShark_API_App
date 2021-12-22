@@ -24,7 +24,7 @@ namespace csApiApp.Mvvm.Vm
             _pageService = pageService;
         }
 
-        internal async void Init(SearchResult searchResult)
+        internal void Init(SearchResult searchResult)
         {
             SearchResult = searchResult;
         }
