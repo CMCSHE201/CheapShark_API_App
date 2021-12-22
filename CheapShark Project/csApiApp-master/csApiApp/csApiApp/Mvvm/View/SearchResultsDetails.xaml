@@ -28,7 +28,7 @@
                 </Label>
                 <Label>
                     <Label.Text>
-                        <Binding StringFormat="{}Steam App ID - {0}%" Path="SearchResult.SteamAppID" />
+                        <Binding StringFormat="{}Steam App ID - {0}" Path="SearchResult.SteamAppID" />
                     </Label.Text>
                 </Label>
                 
