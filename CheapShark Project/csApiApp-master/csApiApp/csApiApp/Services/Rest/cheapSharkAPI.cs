@@ -27,12 +27,12 @@ namespace csApiApp.Services.Rest
             }
         }
 
-        public async Task<List<DealResult>> GetDealsAsync()
+        public async Task<List<DealResult>> GetDealsAsync(string url)
         {
             List<DealResult> deals = new List<DealResult>();
             try
             {
-                HttpResponseMessage response = await _client.GetAsync(Constants.DealOfTheDayEndpoint);
+                HttpResponseMessage response = await _client.GetAsync(url);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();

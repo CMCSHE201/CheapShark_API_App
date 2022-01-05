@@ -36,6 +36,8 @@ namespace csApiApp.Boilerplate
             _iocc.RegisterInstance<HttpClient>(new HttpClient());
             _iocc.Register<Settings>(Lifestyle.Singleton);
             _iocc.Register<SettingsVm>(Lifestyle.Singleton);
+            _iocc.Register<DealsPage>(Lifestyle.Singleton);
+            _iocc.Register<DealsPageVm>(Lifestyle.Singleton);
 
             _iocc.Verify();
         }

@@ -1,6 +1,7 @@
 ﻿using csApiApp.Models;
 using csApiApp.Mvvm.View;
 using csApiApp.Services.Rest;
+using csApiApp.Services.Rest.Endpoints;
 using FunctionZero.CommandZero;
 using FunctionZero.MvvmZero;
 using System;
@@ -92,6 +93,8 @@ namespace csApiApp.Mvvm.Vm
         public ICommand FAQPageCommand { get; }
         public ICommand SearchPageCommand { get; }
 
+        public ICommand DealsPageCommand { get; }
+
         public ICommand AddToWishlistCommand { get; }
 
         public HomePageVm(IPageServiceZero pageService, CheapSharkAPI cheapSharkAPI) : base(pageService)
@@ -107,6 +110,7 @@ namespace csApiApp.Mvvm.Vm
             StoreListCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<StoreListPage, StoreListVm>((vm) => vm.Init())).SetName("Store List").Build();
             FAQPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<FAQPage, FAQPageVm>((vm) => vm.Init())).SetName("FAQ").Build();
             SearchPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<SearchPage, SearchPageVm>((vm) => vm.Init(SearchText))).SetName("Search").Build();
+            DealsPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<DealsPage, DealsPageVm>((vm) => vm.Init())).SetName("View More Deals").Build();
 
             AddToWishlistCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(AddToWishlist).SetName("Wishlish (+)").Build();
         }
@@ -124,7 +128,7 @@ namespace csApiApp.Mvvm.Vm
         private async void InitDealOfTheDay()
         {
             List<DealResult> dealsOfTheDay = new List<DealResult>();
-            dealsOfTheDay = await _cheapSharkAPI.GetDealsAsync();
+            dealsOfTheDay = await _cheapSharkAPI.GetDealsAsync(Constants.DealOfTheDayEndpoint);
             DodGameId = dealsOfTheDay[0].GameID;
             DodName = dealsOfTheDay[0].Title;
             decimal costThen = dealsOfTheDay[0].NormalPrice;
