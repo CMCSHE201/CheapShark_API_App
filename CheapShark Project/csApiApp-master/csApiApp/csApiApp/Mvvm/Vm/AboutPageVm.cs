@@ -1,4 +1,5 @@
-﻿using FunctionZero.MvvmZero;
+﻿using csApiApp.Services.Rest;
+using FunctionZero.MvvmZero;
 
 namespace csApiApp.Mvvm.Vm
 {
@@ -6,7 +7,7 @@ namespace csApiApp.Mvvm.Vm
     {
         private readonly IPageServiceZero _pageService;
 
-        public AboutPageVm(IPageServiceZero pageService) : base(pageService)
+        public AboutPageVm(IPageServiceZero pageService, CheapSharkAPI cheapSharkAPI) : base(pageService, cheapSharkAPI)
         {
             _pageService = pageService;
         }

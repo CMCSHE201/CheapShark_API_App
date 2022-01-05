@@ -21,7 +21,7 @@ namespace csApiApp.Mvvm.Vm
             set => base.SetProperty(ref _storeResults, value);
         }
 
-        public StoreListVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService) : base(pageService)
+        public StoreListVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService) : base(pageService, cheapSharkAPI)
         {
             _pageService = pageService;
             _cheapSharkAPI = cheapSharkAPI;

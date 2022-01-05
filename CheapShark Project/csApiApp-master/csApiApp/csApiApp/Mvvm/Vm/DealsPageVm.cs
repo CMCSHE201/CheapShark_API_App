@@ -13,7 +13,7 @@ using System.Windows.Input;
 
 namespace csApiApp.Mvvm.Vm
 {
-    class DealsPageVm : BaseVm
+    internal class DealsPageVm : BaseVm
     {
         private readonly IPageServiceZero _pageService;
 
@@ -44,7 +44,7 @@ namespace csApiApp.Mvvm.Vm
             set => base.SetProperty(ref _dealResults, value);
         }
 
-        public DealsPageVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService) : base(pageService)
+        public DealsPageVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService) : base(pageService, cheapSharkAPI)
         {
             _cheapSharkAPI = cheapSharkAPI;
             _pageService = pageService;

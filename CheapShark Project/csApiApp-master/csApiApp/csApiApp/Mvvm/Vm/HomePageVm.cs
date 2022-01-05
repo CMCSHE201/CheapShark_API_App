@@ -97,7 +97,7 @@ namespace csApiApp.Mvvm.Vm
 
         public ICommand AddToWishlistCommand { get; }
 
-        public HomePageVm(IPageServiceZero pageService, CheapSharkAPI cheapSharkAPI) : base(pageService)
+        public HomePageVm(IPageServiceZero pageService, CheapSharkAPI cheapSharkAPI) : base(pageService, cheapSharkAPI)
         {
             _cheapSharkAPI = cheapSharkAPI;
             _pageService = pageService;

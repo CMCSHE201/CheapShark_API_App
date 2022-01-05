@@ -55,7 +55,7 @@ namespace csApiApp.Mvvm.Vm
             set => base.SetProperty(ref _searchText, value);
         }
 
-        public SearchPageVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService) : base(pageService)
+        public SearchPageVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService) : base(pageService, cheapSharkAPI)
         {
             _cheapSharkAPI = cheapSharkAPI;
             _pageService = pageService;

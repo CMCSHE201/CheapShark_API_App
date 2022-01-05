@@ -19,7 +19,7 @@ namespace csApiApp.Mvvm.Vm
             set => base.SetProperty(ref _searchResults, value);
         }
 
-        public SearchResultsDetailsVm(IPageServiceZero pageService) : base(pageService)
+        public SearchResultsDetailsVm(IPageServiceZero pageService, CheapSharkAPI cheapSharkAPI) : base(pageService, cheapSharkAPI)
         {
             _pageService = pageService;
         }
