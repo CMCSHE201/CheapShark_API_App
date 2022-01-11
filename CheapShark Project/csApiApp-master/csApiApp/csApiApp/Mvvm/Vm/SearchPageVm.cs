@@ -7,6 +7,7 @@ using FunctionZero.MvvmZero;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -23,6 +24,17 @@ namespace csApiApp.Mvvm.Vm
         public ICommand SearchCommand { get; }
 
         public ICommand SelectedCommand { get; }
+
+        public ICommand SortCommand
+        {
+            get
+            {
+                return new Command(() =>
+                {
+                    SortByLowestPrice();
+                });
+            }
+        }
 
         private SearchResult selectedResult;
 
@@ -77,6 +89,16 @@ namespace csApiApp.Mvvm.Vm
             string url = Constants.searchStartPoint + SearchText + Constants.searchEndPoint;
             var results = await _cheapSharkAPI.GetSearchAsync(url);
             SearchResults = new ObservableCollection<SearchResult>(results);
+        }
+
+        public void SortByLowestPrice()
+        {
+            var sortedResults = SearchResults.OrderBy(x => x.Cheapest).ToList();
+
+            for (int i = 0; i < sortedResults.Count; i++)
+            {
+                SearchResults.Move(SearchResults.IndexOf(sortedResults[i]), i);
+            }
         }
     }
 }
