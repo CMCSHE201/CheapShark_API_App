@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns:view="clr-namespace:csApiApp.Mvvm.View"
+             xmlns:vm="clr-namespace:csApiApp.Mvvm.Vm"
             xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="csApiApp.App">
@@ -14,13 +15,14 @@
                                 <Button Text="&lt;" VerticalOptions="Start" />
                             </StackLayout>
                             <StackLayout>
-                                <StackLayout Grid.Row="4" BindingContext="{Binding Source={RelativeSource Mode=TemplatedParent}}">
+                                <StackLayout Grid.Row="4">
                                     <SearchBar Placeholder="Not yet working..." />
-                                    <Button Command="{TemplateBinding AboutPageCommand}" Text="{TemplateBinding AboutPageCommand.Text}" />
-                                    <Button Command="{TemplateBinding StoreListCommand}" Text="{TemplateBinding StoreListCommand.Text}" />
-                                    <Button Command="{TemplateBinding FAQPageCommand}" Text="{TemplateBinding FAQPageCommand}" />
-                                    <Button Command="{TemplateBinding SettingsPageCommand}" Text="{TemplateBinding SettingsPageCommand}" />
-                                    <Button Command="{TemplateBinding DealsPageCommand}" Text="{TemplateBinding DealsPageCommand}" />
+                                    <Button Command="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type vm:BaseVm}}, Path=HomePageCommand}" Text="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type vm:BaseVm}}, Path=HomePageCommand.Text}" />
+                                    <Button Command="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type vm:BaseVm}}, Path=DealsPageCommand}" Text="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type vm:BaseVm}}, Path=DealsPageCommand.Text}" />
+                                    <Button Command="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type vm:BaseVm}}, Path=StoreListCommand}" Text="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type vm:BaseVm}}, Path=StoreListCommand.Text}" />
+                                    <Button Command="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type vm:BaseVm}}, Path=AboutPageCommand}" Text="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type vm:BaseVm}}, Path=AboutPageCommand.Text}" />
+                                    <Button Command="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type vm:BaseVm}}, Path=FAQPageCommand}" Text="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type vm:BaseVm}}, Path=FAQPageCommand.Text}" />
+                                    <Button Command="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type vm:BaseVm}}, Path=SettingsPageCommand}" Text="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type vm:BaseVm}}, Path=SettingsPageCommand.Text}" />
                                 </StackLayout>
                             </StackLayout>
                         </StackLayout>
