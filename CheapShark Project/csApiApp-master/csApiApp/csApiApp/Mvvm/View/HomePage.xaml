@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<view:BasePage
+             xmlns:view="clr-namespace:csApiApp.Mvvm.View"
+             xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:z="clr-namespace:FunctionZero.zBind.z;assembly=FunctionZero.zBind"
-             x:Class="csApiApp.Mvvm.View.HomePage"
-             Title="csAPIApp">
+             x:Class="csApiApp.Mvvm.View.HomePage">
 
-    <ContentPage.Content>
+    <view:BasePage.Content>
         <Grid RowDefinitions="auto,auto,auto,auto">
             <SearchBar Grid.Row="1" Margin="10" x:Name="sb_Search" Placeholder="Search..." PlaceholderColor="LightSlateGray" Text="{Binding SearchText, Mode=TwoWay}" SearchCommand="{Binding SearchPageCommand}" />
 
@@ -32,16 +33,6 @@
                 <Button Grid.Row="3" Grid.Column="0" Text="{Binding ViewDetailsCommand}" Command="{Binding ViewDetailsCommand}" Margin="5,0,0,0" />
                 <Button Grid.Row="3" Grid.Column="1" Text="{Binding AddToWishlistCommand}" Command="{Binding AddToWishlistCommand}" Margin="0,0,5,0" IsTabStop="False" />
             </Grid>
-
-            <StackLayout Grid.Row="4">
-                <BoxView Color="Red" HeightRequest="1" Margin="5" />
-                <Label HorizontalOptions="Center" Text="Temp Nav" />
-                <Button Command="{Binding AboutPageCommand}" Text="{Binding AboutPageCommand.Text}" />
-                <Button Command="{Binding StoreListCommand}" Text="{Binding StoreListCommand.Text}" />
-                <Button Command="{Binding FAQPageCommand}" Text="{Binding FAQPageCommand}" />
-                <Button Command="{Binding SettingsPageCommand}" Text="{Binding SettingsPageCommand}" />
-                <Button Command="{Binding DealsPageCommand}" Text="{Binding DealsPageCommand}" />
-            </StackLayout>
         </Grid>
-    </ContentPage.Content>
-</ContentPage>
+    </view:BasePage.Content>
+</view:BasePage>

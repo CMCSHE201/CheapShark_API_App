@@ -8,7 +8,6 @@ namespace csApiApp.Mvvm.Vm
     {
         private readonly IPageServiceZero _pageService;
         private readonly CheapSharkAPI _cheapSharkAPI;
-        private DealResult _dealResult;
         private StoreResult _dealStore;
 
         public DealResult DealResult

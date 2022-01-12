@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<view:BasePage xmlns:view="clr-namespace:csApiApp.Mvvm.View"
+    xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="csApiApp.Mvvm.View.SearchResultsDetails">
-    <ContentPage.Content>
+    <view:BasePage.Content>
         <StackLayout>
             <Image Source="{Binding SearchResult.Thumb}" Aspect="AspectFit" HeightRequest="300" />
             <StackLayout Padding="15,0">
@@ -31,8 +32,7 @@
                         <Binding StringFormat="{}Steam App ID - {0}" Path="SearchResult.SteamAppID" />
                     </Label.Text>
                 </Label>
-                
             </StackLayout>
         </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+    </view:BasePage.Content>
+</view:BasePage>

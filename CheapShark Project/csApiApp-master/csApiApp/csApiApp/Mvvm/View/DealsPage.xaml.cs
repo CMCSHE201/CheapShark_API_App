@@ -11,7 +11,7 @@ using Xamarin.Forms.Xaml;
 namespace csApiApp.Mvvm.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DealsPage : ContentPage
+    public partial class DealsPage : BasePage
     {
         public DealsPage()
         {

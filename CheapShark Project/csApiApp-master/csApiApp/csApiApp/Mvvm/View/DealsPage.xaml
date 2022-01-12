@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<view:BasePage
+             xmlns:view="clr-namespace:csApiApp.Mvvm.View"
+    xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="csApiApp.Mvvm.View.DealsPage">
-    <ContentPage.Content>
+    <view:BasePage.Content>
         <StackLayout>
             <ListView ItemsSource="{Binding DealResults}" SelectedItem="{Binding SelectedDeal, Mode=TwoWay}" ItemTapped="ListView_ItemTapped">
                 <ListView.ItemTemplate>
@@ -22,5 +24,5 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+    </view:BasePage.Content>
+</view:BasePage>

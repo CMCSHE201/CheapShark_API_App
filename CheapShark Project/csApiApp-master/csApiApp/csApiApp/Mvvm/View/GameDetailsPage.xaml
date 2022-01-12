@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<view:BasePage xmlns:view="clr-namespace:csApiApp.Mvvm.View"
+             xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="csApiApp.Mvvm.View.GameDetailsPage">
-    <ContentPage.Content>
+    <view:BasePage.Content>
         <StackLayout>
             <!-- Game thumbnail -->
             <Image Source="{Binding DealResult.ThumbnailLink}" Aspect="AspectFit" HeightRequest="300" />
@@ -49,14 +50,14 @@
 
                 <StackLayout Orientation="Horizontal">
                     <!-- Store Name -->
-                    <Label>
+                    <Image HeightRequest="100" Source="{Binding DealStore.Images.Logo, StringFormat='{}https://www.cheapshark.com{0}'}" />
+                    <Label VerticalTextAlignment="Center">
                         <Label.Text>
-                            <Binding StringFormat="{}Store - {0}" Path="DealStore.StoreName" />
+                            <Binding StringFormat="{}{0}" Path="DealStore.StoreName" />
                         </Label.Text>
                     </Label>
-                    <Image HeightRequest="100" Source="{Binding DealStore.Images.Logo, StringFormat='{}https://www.cheapshark.com{0}'}" />
                 </StackLayout>
             </StackLayout>
         </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+    </view:BasePage.Content>
+</view:BasePage>
