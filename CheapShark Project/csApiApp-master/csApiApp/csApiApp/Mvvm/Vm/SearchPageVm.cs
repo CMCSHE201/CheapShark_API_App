@@ -25,13 +25,24 @@ namespace csApiApp.Mvvm.Vm
 
         public ICommand SelectedCommand { get; }
 
-        public ICommand SortCommand
+        public ICommand SortAscCommand
         {
             get
             {
                 return new Command(() =>
                 {
                     SortByLowestPrice();
+                });
+            }
+        }
+
+        public ICommand SortDescCommand
+        {
+            get
+            {
+                return new Command(() =>
+                {
+                    SortByHighestPrice();
                 });
             }
         }
@@ -94,6 +105,16 @@ namespace csApiApp.Mvvm.Vm
         public void SortByLowestPrice()
         {
             var sortedResults = SearchResults.OrderBy(x => x.Cheapest).ToList();
+
+            for (int i = 0; i < sortedResults.Count; i++)
+            {
+                SearchResults.Move(SearchResults.IndexOf(sortedResults[i]), i);
+            }
+        }
+
+        public void SortByHighestPrice()
+        {
+            var sortedResults = SearchResults.OrderByDescending(x => x.Cheapest).ToList();
 
             for (int i = 0; i < sortedResults.Count; i++)
             {
