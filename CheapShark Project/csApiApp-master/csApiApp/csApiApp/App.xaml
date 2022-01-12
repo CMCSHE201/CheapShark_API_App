@@ -3,5 +3,31 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="csApiApp.App">
     <Application.Resources>
+        <ResourceDictionary>
+            <ControlTemplate x:Key="BaseTemplate">
+                <Grid>
+                    <ScrollView Grid.Row="0" Grid.Column="0" BindingContext="csApiApp.Mvvm.Vm.BaseVm">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Menu" HorizontalOptions="CenterAndExpand" />
+                                <Button Text="&lt;" VerticalOptions="Start" />
+                            </StackLayout>
+                            <StackLayout>
+                                <StackLayout Grid.Row="4">
+                                    <Button Command="{TemplateBinding AboutPageCommand}" Text="{TemplateBinding AboutPageCommand.Text}" />
+                                    <Button Command="{TemplateBinding StoreListCommand}" Text="{TemplateBinding StoreListCommand.Text}" />
+                                    <Button Command="{TemplateBinding FAQPageCommand}" Text="{TemplateBinding FAQPageCommand}" />
+                                    <Button Command="{TemplateBinding SettingsPageCommand}" Text="{TemplateBinding SettingsPageCommand}" />
+                                    <Button Command="{TemplateBinding DealsPageCommand}" Text="{TemplateBinding DealsPageCommand}" />
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </ScrollView>
+                    <ScrollView Grid.Row="0" Grid.Column="1">
+                        <ContentPresenter VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+                    </ScrollView>
+                </Grid>
+            </ControlTemplate>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

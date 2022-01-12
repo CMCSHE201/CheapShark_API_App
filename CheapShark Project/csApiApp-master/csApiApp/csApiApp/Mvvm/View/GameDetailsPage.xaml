@@ -49,12 +49,12 @@
 
                 <StackLayout Orientation="Horizontal">
                     <!-- Store Name -->
-                    <Label>
+                    <Image HeightRequest="100" Source="{Binding DealStore.Images.Logo, StringFormat='{}https://www.cheapshark.com{0}'}" />
+                    <Label VerticalTextAlignment="Center">
                         <Label.Text>
-                            <Binding StringFormat="{}Store - {0}" Path="DealStore.StoreName" />
+                            <Binding StringFormat="{}{0}" Path="DealStore.StoreName" />
                         </Label.Text>
                     </Label>
-                    <Image HeightRequest="100" Source="{Binding DealStore.Images.Logo, StringFormat='{}https://www.cheapshark.com{0}'}" />
                 </StackLayout>
             </StackLayout>
         </StackLayout>

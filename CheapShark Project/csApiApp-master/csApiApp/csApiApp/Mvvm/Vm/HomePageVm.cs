@@ -77,26 +77,6 @@ namespace csApiApp.Mvvm.Vm
             set => base.SetProperty(ref _count, value);
         }
 
-        private string _searchText;
-
-        public string SearchText
-        {
-            get => _searchText;
-            set => base.SetProperty(ref _searchText, value);
-        }
-
-        private DealResult _dealResult;
-
-        public ICommand AboutPageCommand { get; }
-        public ICommand ViewDetailsCommand { get; }
-        public ICommand StoreListCommand { get; }
-        public ICommand FAQPageCommand { get; }
-        public ICommand SearchPageCommand { get; }
-
-        public ICommand DealsPageCommand { get; }
-
-        public ICommand AddToWishlistCommand { get; }
-
         public HomePageVm(IPageServiceZero pageService, CheapSharkAPI cheapSharkAPI) : base(pageService, cheapSharkAPI)
         {
             _cheapSharkAPI = cheapSharkAPI;
@@ -104,20 +84,6 @@ namespace csApiApp.Mvvm.Vm
 
             base.AddPageTimer(10, MainTimerCallback, null, null);
             InitDealOfTheDay();
-
-            ViewDetailsCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<GameDetailsPage, GameDetailsPageVm>((vm) => vm.Init(_dealResult))).SetName("View Details").Build();
-            AboutPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<AboutPage, AboutPageVm>((vm) => vm.Init())).SetName("About Us").Build();
-            StoreListCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<StoreListPage, StoreListVm>((vm) => vm.Init())).SetName("Store List").Build();
-            FAQPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<FAQPage, FAQPageVm>((vm) => vm.Init())).SetName("FAQ").Build();
-            SearchPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<SearchPage, SearchPageVm>((vm) => vm.Init(SearchText))).SetName("Search").Build();
-            DealsPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<DealsPage, DealsPageVm>((vm) => vm.Init())).SetName("View More Deals").Build();
-
-            AddToWishlistCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(AddToWishlist).SetName("Wishlish (+)").Build();
-        }
-
-        private Task AddToWishlist()
-        {
-            throw new NotImplementedException();
         }
 
         private void MainTimerCallback(object obj)

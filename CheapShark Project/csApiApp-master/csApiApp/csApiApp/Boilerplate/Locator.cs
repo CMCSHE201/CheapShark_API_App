@@ -38,6 +38,8 @@ namespace csApiApp.Boilerplate
             _iocc.Register<SettingsVm>(Lifestyle.Singleton);
             _iocc.Register<DealsPage>(Lifestyle.Singleton);
             _iocc.Register<DealsPageVm>(Lifestyle.Singleton);
+            _iocc.Register<BasePage>(Lifestyle.Singleton);
+            _iocc.Register<BaseVm>(Lifestyle.Singleton);
 
             _iocc.Verify();
         }
