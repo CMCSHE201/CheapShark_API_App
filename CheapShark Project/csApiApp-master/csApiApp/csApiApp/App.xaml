@@ -16,13 +16,18 @@
                             </StackLayout>
                             <StackLayout>
                                 <StackLayout Grid.Row="4">
-                                    <SearchBar Placeholder="Not yet working..." />
-                                    <Button Command="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type vm:BaseVm}}, Path=HomePageCommand}" Text="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type vm:BaseVm}}, Path=HomePageCommand.Text}" />
-                                    <Button Command="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type vm:BaseVm}}, Path=DealsPageCommand}" Text="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type vm:BaseVm}}, Path=DealsPageCommand.Text}" />
-                                    <Button Command="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type vm:BaseVm}}, Path=StoreListCommand}" Text="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type vm:BaseVm}}, Path=StoreListCommand.Text}" />
-                                    <Button Command="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type vm:BaseVm}}, Path=AboutPageCommand}" Text="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type vm:BaseVm}}, Path=AboutPageCommand.Text}" />
-                                    <Button Command="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type vm:BaseVm}}, Path=FAQPageCommand}" Text="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type vm:BaseVm}}, Path=FAQPageCommand.Text}" />
-                                    <Button Command="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type vm:BaseVm}}, Path=SettingsPageCommand}" Text="{Binding Source={RelativeSource Mode=FindAncestorBindingContext, AncestorType={x:Type vm:BaseVm}}, Path=SettingsPageCommand.Text}" />
+
+                                    <!--<Label Text="{Binding}" />
+
+                                    <Label Text="{TemplateBinding}" />-->
+
+                                    <SearchBar Text="{TemplateBinding BindingContext.SearchText, Mode=TwoWay}" Placeholder="Search..." />
+                                    <Button Command="{TemplateBinding BindingContext.HomePageCommand}" Text="{TemplateBinding BindingContext.HomePageCommand.Text}" />
+                                    <Button Command="{TemplateBinding BindingContext.DealsPageCommand}" Text="{TemplateBinding BindingContext.DealsPageCommand.Text}" />
+                                    <Button Command="{TemplateBinding BindingContext.StoreListCommand}" Text="{TemplateBinding BindingContext.StoreListCommand.Text}" />
+                                    <Button Command="{TemplateBinding BindingContext.AboutPageCommand}" Text="{TemplateBinding BindingContext.AboutPageCommand.Text}" />
+                                    <Button Command="{TemplateBinding BindingContext.FAQPageCommand}" Text="{TemplateBinding BindingContext.FAQPageCommand.Text}" />
+                                    <Button Command="{TemplateBinding BindingContext.SettingsPageCommand}" Text="{TemplateBinding BindingContext.SettingsPageCommand.Text}" />
                                 </StackLayout>
                             </StackLayout>
                         </StackLayout>

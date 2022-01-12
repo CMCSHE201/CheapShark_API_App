@@ -42,10 +42,16 @@ namespace csApiApp.Mvvm.Vm
         {
             _cheapSharkAPI = cheapSharkAPI;
             _pageService = pageService;
-            SettingsPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<Settings, SettingsVm>((vm) => vm.Init())).SetName("Settings").Build();
             GetStores();
 
             HomePageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => { await _pageService.PopToRootAsync(true); }).SetName("Home").Build();
+
+            SettingsPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () =>
+            {
+                await _pageService.PopToRootAsync(false);
+                await _pageService.PushPageAsync<Settings, SettingsVm>((vm) => vm.Init());
+            }).SetName("Settings").Build();
+
             AboutPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () =>
             {
                 await _pageService.PopToRootAsync(false);
