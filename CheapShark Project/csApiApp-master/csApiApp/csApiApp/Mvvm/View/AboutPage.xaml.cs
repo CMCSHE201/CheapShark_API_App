@@ -4,7 +4,7 @@ using Xamarin.Forms.Xaml;
 namespace csApiApp.Mvvm.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AboutPage : ContentPage
+    public partial class AboutPage : BasePage
     {
         public AboutPage()
         {

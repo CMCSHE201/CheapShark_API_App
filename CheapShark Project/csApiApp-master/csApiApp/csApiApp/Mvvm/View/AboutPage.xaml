@@ -1,9 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<view:BasePage
+             xmlns:view="clr-namespace:csApiApp.Mvvm.View"
+    xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="csApiApp.Mvvm.View.AboutPage"
              Title="About Us">
-    <ContentPage.Content>
+    <view:BasePage.Content>
         <StackLayout Margin="10">
 
             <ScrollView>
@@ -18,5 +20,5 @@ Praesent tellus magna, imperdiet non ultrices sed, suscipit id nibh. Maecenas pr
 Donec feugiat ultricies est, sit amet porta nibh malesuada eleifend. Maecenas placerat, justo sed feugiat consequat, ipsum magna tempor ligula, eu sagittis erat nunc vitae ante. Nulla iaculis quis nulla et vehicula. Sed at risus et enim convallis ultrices. Praesent at lectus ipsum. Cras facilisis volutpat sodales. Praesent ligula nunc, varius vel sem et, suscipit rhoncus quam. Proin et massa erat. Donec eu suscipit purus. Donec ut turpis sapien."></Label>
             </ScrollView>
         </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+    </view:BasePage.Content>
+</view:BasePage>

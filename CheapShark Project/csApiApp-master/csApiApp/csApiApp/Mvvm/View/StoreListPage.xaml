@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<view:BasePage
+             xmlns:view="clr-namespace:csApiApp.Mvvm.View"
+    xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="csApiApp.Mvvm.View.StoreListPage">
-    <ContentPage.Content>
+    <view:BasePage.Content>
         <StackLayout>
             <ListView ItemsSource="{Binding StoreResults}">
                 <ListView.ItemTemplate>
@@ -11,16 +13,16 @@
                             <StackLayout Margin="15">
                                 <StackLayout Orientation="Horizontal">
                                     <Image HeightRequest="100" Source="{Binding Images.Logo, StringFormat='{}https://www.cheapshark.com{0}'}" />
-                                    <Label Text="{Binding StoreName}" VerticalTextAlignment="Center"/>
+                                    <Label Text="{Binding StoreName}" VerticalTextAlignment="Center" />
                                 </StackLayout>
-                                <Label Text="{Binding StoreID, StringFormat='{}ID: {0}'}"/>
-                                <Label Text="{Binding IsActive, StringFormat='{}Active: {0}'}"/>
-                                <BoxView HeightRequest="1" Color="Red"/>
+                                <Label Text="{Binding StoreID, StringFormat='{}ID: {0}'}" />
+                                <Label Text="{Binding IsActive, StringFormat='{}Active: {0}'}" />
+                                <BoxView HeightRequest="1" Color="Red" />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+    </view:BasePage.Content>
+</view:BasePage>

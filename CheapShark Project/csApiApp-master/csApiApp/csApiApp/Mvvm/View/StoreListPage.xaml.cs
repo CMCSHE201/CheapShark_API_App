@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace csApiApp.Mvvm.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class StoreListPage : ContentPage
+    public partial class StoreListPage : BasePage
     {
         public StoreListPage()
         {

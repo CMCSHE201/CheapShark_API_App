@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace csApiApp.Mvvm.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SearchResultsDetails : ContentPage
+    public partial class SearchResultsDetails : BasePage
     {
         public SearchResultsDetails()
         {

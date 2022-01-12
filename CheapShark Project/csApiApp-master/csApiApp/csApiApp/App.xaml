@@ -1,19 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms"
+<Application xmlns:view="clr-namespace:csApiApp.Mvvm.View"
+            xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="csApiApp.App">
     <Application.Resources>
         <ResourceDictionary>
             <ControlTemplate x:Key="BaseTemplate">
-                <Grid>
-                    <ScrollView Grid.Row="0" Grid.Column="0" BindingContext="csApiApp.Mvvm.Vm.BaseVm">
-                        <StackLayout>
+                <Grid ColumnDefinitions=".5*">
+                    <ScrollView Grid.Row="0" Grid.Column="0">
+                        <StackLayout BindingContext="csApiApp.Mvvm.Vm.BaseVm">
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="Menu" HorizontalOptions="CenterAndExpand" />
                                 <Button Text="&lt;" VerticalOptions="Start" />
                             </StackLayout>
                             <StackLayout>
-                                <StackLayout Grid.Row="4">
+                                <StackLayout Grid.Row="4" BindingContext="{Binding Source={RelativeSource Mode=TemplatedParent}}">
+                                    <SearchBar Placeholder="Not yet working..." />
                                     <Button Command="{TemplateBinding AboutPageCommand}" Text="{TemplateBinding AboutPageCommand.Text}" />
                                     <Button Command="{TemplateBinding StoreListCommand}" Text="{TemplateBinding StoreListCommand.Text}" />
                                     <Button Command="{TemplateBinding FAQPageCommand}" Text="{TemplateBinding FAQPageCommand}" />

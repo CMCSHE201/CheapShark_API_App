@@ -1,12 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<view:BasePage xmlns:view="clr-namespace:csApiApp.Mvvm.View"
+    xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="csApiApp.Mvvm.View.SearchPage"
              Title="Search Results">
-    <ContentPage.Content>
+    <view:BasePage.Content>
         <StackLayout>
             <SearchBar Placeholder="Search..." Text="{Binding SearchText, Mode=TwoWay}" SearchCommand="{Binding SearchCommand}" Margin="10" />
-            <Button Command="{Binding SortCommand}" Text="Sort Results"/>
+            <Button Command="{Binding SortCommand}" Text="Sort Results" />
             <ListView ItemsSource="{Binding SearchResults}" SelectedItem="{Binding SelectedResult, Mode=TwoWay}" ItemTapped="ListView_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -24,5 +25,5 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+    </view:BasePage.Content>
+</view:BasePage>
