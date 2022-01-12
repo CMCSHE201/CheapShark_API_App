@@ -7,7 +7,8 @@
     <view:BasePage.Content>
         <StackLayout>
             <SearchBar Placeholder="Search..." Text="{Binding SearchText, Mode=TwoWay}" SearchCommand="{Binding SearchCommand}" Margin="10" />
-            <Button Command="{Binding SortCommand}" Text="Sort Results" />
+            <Button Command="{Binding SortAscCommand}" Text="Sort Results - Low to High"/>
+            <Button Command="{Binding SortDescCommand}" Text="Sort Results - High to Low"/>
             <ListView ItemsSource="{Binding SearchResults}" SelectedItem="{Binding SelectedResult, Mode=TwoWay}" ItemTapped="ListView_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
