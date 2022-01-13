@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace csApiApp.Mvvm.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class StoreListPage : BasePage
+    public partial class SearchResultsDetails : BasePage
     {
-        public StoreListPage()
+        public SearchResultsDetails()
         {
             InitializeComponent();
         }

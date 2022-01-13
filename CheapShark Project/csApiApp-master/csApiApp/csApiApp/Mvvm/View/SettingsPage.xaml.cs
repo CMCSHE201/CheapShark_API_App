@@ -6,7 +6,7 @@ using Xamarin.Forms.Xaml;
 namespace csApiApp.Mvvm.View
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Settings : ContentPage
+    public partial class Settings : BasePage
     {
         public Settings()
         {

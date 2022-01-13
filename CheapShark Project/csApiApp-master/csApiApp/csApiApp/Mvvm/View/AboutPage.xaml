@@ -1,10 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<view:BasePage
+             xmlns:view="clr-namespace:csApiApp.Mvvm.View"
+    xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="csApiApp.Mvvm.View.AboutPage"
              Title="About Us">
-    <ContentPage.Content>
+    <view:BasePage.Content>
         <StackLayout Margin="10">
+            <Label Text="About" HorizontalOptions="CenterAndExpand" FontSize="40" Margin="5" />
 
             <ScrollView>
                 <Label Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus vel nisi elementum, auctor turpis quis, porta lectus. Donec tellus erat, tristique sed mi eu, molestie consectetur eros. Maecenas nisi massa, posuere sit amet vulputate at, lobortis et magna. Sed rhoncus massa nec lobortis egestas. Mauris lectus nisl, fringilla ac dictum eget, feugiat non elit. Sed vitae purus rutrum, sodales massa eu, viverra nibh. Duis varius leo sed sollicitudin rutrum. Mauris eleifend sit amet enim et placerat. Curabitur a nibh in nibh hendrerit tristique fermentum nec lorem. In quis mi mollis, consectetur arcu sit amet, aliquam felis. Sed sed aliquet sem. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam vehicula vestibulum felis et tempor. Aenean id pharetra lacus, eu rhoncus risus.
@@ -18,5 +21,5 @@ Praesent tellus magna, imperdiet non ultrices sed, suscipit id nibh. Maecenas pr
 Donec feugiat ultricies est, sit amet porta nibh malesuada eleifend. Maecenas placerat, justo sed feugiat consequat, ipsum magna tempor ligula, eu sagittis erat nunc vitae ante. Nulla iaculis quis nulla et vehicula. Sed at risus et enim convallis ultrices. Praesent at lectus ipsum. Cras facilisis volutpat sodales. Praesent ligula nunc, varius vel sem et, suscipit rhoncus quam. Proin et massa erat. Donec eu suscipit purus. Donec ut turpis sapien."></Label>
             </ScrollView>
         </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+    </view:BasePage.Content>
+</view:BasePage>

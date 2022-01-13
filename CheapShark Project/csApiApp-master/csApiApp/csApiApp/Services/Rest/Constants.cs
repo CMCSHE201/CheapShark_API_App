@@ -2,7 +2,10 @@
 {
     public static class Constants
     {
-        public const string DealOfTheDayEndpoint = "https://www.cheapshark.com/api/1.0/deals?sortBy=Savings&pageSize=1&lowerPrice=0.0001";
+        public const string DealOfTheDayEndpoint = "https://www.cheapshark.com/api/1.0/deals?sortBy=Savings&pageSize=1&lowerPrice=0.01";
+        public const string FindDealsEndpoint = "https://www.cheapshark.com/api/1.0/deals?sortBy=Savings&lowerPrice=0.01";
+
+        public const string StoreListEndpoint = "https://www.cheapshark.com/api/1.0/stores";
 
         public const string StoreListEndpoint = "https://www.cheapshark.com/api/1.0/stores";
 

@@ -1,6 +1,8 @@
 ﻿using csApiApp.Models;
 using csApiApp.Mvvm.View;
 using csApiApp.Services.Rest;
+using csApiApp.Services;
+using csApiApp.Services.Rest.Endpoints;
 using FunctionZero.CommandZero;
 using FunctionZero.MvvmZero;
 using System;
@@ -76,31 +78,13 @@ namespace csApiApp.Mvvm.Vm
             set => base.SetProperty(ref _count, value);
         }
 
-        private DealResult _dealResult;
-
-        public ICommand AboutPageCommand { get; }
-        public ICommand ViewDetailsCommand { get; }
-        public ICommand StoreListCommand { get; }
-        public ICommand AddToWishlistCommand { get; }
-
-        public HomePageVm(IPageServiceZero pageService, CheapSharkAPI cheapSharkAPI)
+        public HomePageVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService) : base(pageService, cheapSharkAPI)
         {
             _cheapSharkAPI = cheapSharkAPI;
             _pageService = pageService;
 
             base.AddPageTimer(10, MainTimerCallback, null, null);
             InitDealOfTheDay();
-
-            //TODO: Change to pass object rather than just ID
-            ViewDetailsCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<GameDetailsPage, GameDetailsPageVm>((vm) => vm.Init(_dealResult))).SetName("View Details").Build();
-            AboutPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<AboutPage, AboutPageVm>((vm) => vm.Init())).SetName("About Us").Build();
-            StoreListCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<StoreListPage, StoreListVm>((vm) => vm.Init())).SetName("Store List").Build();
-            AddToWishlistCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(AddToWishlist).SetName("Wishlish (+)").Build();
-        }
-
-        private async Task AddToWishlist()
-        {
-            throw new NotImplementedException();
         }
 
         private void MainTimerCallback(object obj)
@@ -111,7 +95,7 @@ namespace csApiApp.Mvvm.Vm
         private async void InitDealOfTheDay()
         {
             List<DealResult> dealsOfTheDay = new List<DealResult>();
-            dealsOfTheDay = await _cheapSharkAPI.GetDealsAsync();
+            dealsOfTheDay = await _cheapSharkAPI.GetDealsAsync(Constants.DealOfTheDayEndpoint);
             DodGameId = dealsOfTheDay[0].GameID;
             DodName = dealsOfTheDay[0].Title;
             decimal costThen = dealsOfTheDay[0].NormalPrice;

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<view:BasePage xmlns:view="clr-namespace:csApiApp.Mvvm.View"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="csApiApp.Mvvm.View.SearchResultsDetails">
+    <view:BasePage.Content>
+        <StackLayout>
+            <Image Source="{Binding SearchResult.Thumb}" Aspect="AspectFit" HeightRequest="300" />
+            <StackLayout Padding="15,0">
+                <Label>
+                    <Label.Text>
+                        <Binding StringFormat="{}Title - {0}" Path="SearchResult.External" />
+                    </Label.Text>
+                </Label>
+                <Label>
+                    <Label.Text>
+                        <Binding StringFormat="{}GameID - {0}" Path="SearchResult.GameID" />
+                    </Label.Text>
+                </Label>
+                <Label>
+                    <Label.Text>
+                        <Binding StringFormat="{}Cheapest Price - £{0}" Path="SearchResult.Cheapest" />
+                    </Label.Text>
+                </Label>
+                <Label>
+                    <Label.Text>
+                        <Binding StringFormat="{}Cheapest Deal ID - {0}" Path="SearchResult.CheapestDealID" />
+                    </Label.Text>
+                </Label>
+                <Label>
+                    <Label.Text>
+                        <Binding StringFormat="{}Steam App ID - {0}" Path="SearchResult.SteamAppID" />
+                    </Label.Text>
+                </Label>
+            </StackLayout>
+        </StackLayout>
+    </view:BasePage.Content>
+</view:BasePage>

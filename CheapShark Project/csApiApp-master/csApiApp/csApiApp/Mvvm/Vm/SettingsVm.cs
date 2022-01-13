@@ -1,19 +1,19 @@
 ﻿using csApiApp.Services.Rest;
 using FunctionZero.MvvmZero;
 using System;
+using System.Collections.Generic;
 using csApiApp.Services;
+using System.Text;
 
 namespace csApiApp.Mvvm.Vm
 {
-    internal class FAQPageVm : BaseVm
+    internal class SettingsVm : BaseVm
     {
         private readonly IPageServiceZero _pageService;
-        private CheapSharkAPI _cheapSharkAPI;
 
-        public FAQPageVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService) : base(pageService, cheapSharkAPI)
+        public SettingsVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService) : base(pageService, cheapSharkAPI)
         {
             _pageService = pageService;
-            _cheapSharkAPI = cheapSharkAPI;
         }
 
         internal void Init()
