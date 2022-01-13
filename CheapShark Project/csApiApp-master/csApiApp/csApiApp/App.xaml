@@ -3,6 +3,7 @@
              xmlns:vm="clr-namespace:csApiApp.Mvvm.Vm"
             xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:z="clr-namespace:FunctionZero.zBind.z;assembly=FunctionZero.zBind"
              x:Class="csApiApp.App">
     <Application.Resources>
         <ResourceDictionary>
@@ -21,13 +22,15 @@
 
                                     <Label Text="{TemplateBinding}" />-->
 
-                                    <SearchBar Text="{TemplateBinding BindingContext.SearchText, Mode=TwoWay}" Placeholder="Search..." />
+                                    <!--<label text="{templatebinding bindingcontext.searchtext, mode=oneway}" />-->
+
+                                    <SearchBar Margin="10" x:Name="sb_Search" Placeholder="Search..." PlaceholderColor="LightSlateGray" Text="{TemplateBinding BindingContext.SearchText, Mode=TwoWay}" SearchCommand="{TemplateBinding BindingContext.SearchCommand}" />
                                     <Button Command="{TemplateBinding BindingContext.HomePageCommand}" Text="{TemplateBinding BindingContext.HomePageCommand.Text}" />
                                     <Button Command="{TemplateBinding BindingContext.DealsPageCommand}" Text="{TemplateBinding BindingContext.DealsPageCommand.Text}" />
                                     <Button Command="{TemplateBinding BindingContext.StoreListCommand}" Text="{TemplateBinding BindingContext.StoreListCommand.Text}" />
                                     <Button Command="{TemplateBinding BindingContext.AboutPageCommand}" Text="{TemplateBinding BindingContext.AboutPageCommand.Text}" />
                                     <Button Command="{TemplateBinding BindingContext.FAQPageCommand}" Text="{TemplateBinding BindingContext.FAQPageCommand.Text}" />
-                                    <Button Command="{TemplateBinding BindingContext.SettingsPageCommand}" Text="{TemplateBinding BindingContext.SettingsPageCommand.Text}" />
+                                    <Button Command="{TemplateBinding BindingContext.SettingsPageCommand}" Text="{TemplateBinding BindingContext.SettingsPageCommand.Text}"/>
                                 </StackLayout>
                             </StackLayout>
                         </StackLayout>

@@ -1,6 +1,7 @@
 ﻿using csApiApp.Models;
 using csApiApp.Mvvm.View;
 using csApiApp.Services.Rest;
+using csApiApp.Services;
 using csApiApp.Services.Rest.Endpoints;
 using FunctionZero.CommandZero;
 using FunctionZero.MvvmZero;
@@ -77,7 +78,7 @@ namespace csApiApp.Mvvm.Vm
             set => base.SetProperty(ref _count, value);
         }
 
-        public HomePageVm(IPageServiceZero pageService, CheapSharkAPI cheapSharkAPI) : base(pageService, cheapSharkAPI)
+        public HomePageVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService) : base(pageService, cheapSharkAPI)
         {
             _cheapSharkAPI = cheapSharkAPI;
             _pageService = pageService;

@@ -1,6 +1,7 @@
 ﻿using csApiApp.Services.Rest;
 using FunctionZero.MvvmZero;
 using System;
+using csApiApp.Services;
 
 namespace csApiApp.Mvvm.Vm
 {
@@ -17,6 +18,7 @@ namespace csApiApp.Mvvm.Vm
 
         internal void Init()
         {
+            base.Init(SearchText);
         }
     }
 }

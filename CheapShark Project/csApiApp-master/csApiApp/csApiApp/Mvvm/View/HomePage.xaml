@@ -8,7 +8,6 @@
 
     <view:BasePage.Content>
         <Grid RowDefinitions="auto,auto,auto,auto">
-            <SearchBar Grid.Row="1" Margin="10" x:Name="sb_Search" Placeholder="Search..." PlaceholderColor="LightSlateGray" Text="{Binding SearchText, Mode=TwoWay}" SearchCommand="{Binding SearchPageCommand}" />
 
             <Label Grid.Row="2" HorizontalOptions="Center">Deal of the day!</Label>
 

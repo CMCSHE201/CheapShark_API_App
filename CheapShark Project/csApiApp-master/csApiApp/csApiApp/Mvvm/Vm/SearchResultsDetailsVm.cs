@@ -1,5 +1,6 @@
 ﻿using csApiApp.Mvvm.Model;
 using csApiApp.Services.Rest;
+using csApiApp.Services;
 using FunctionZero.MvvmZero;
 using System;
 using System.Collections.Generic;
@@ -19,13 +20,14 @@ namespace csApiApp.Mvvm.Vm
             set => base.SetProperty(ref _searchResults, value);
         }
 
-        public SearchResultsDetailsVm(IPageServiceZero pageService, CheapSharkAPI cheapSharkAPI) : base(pageService, cheapSharkAPI)
+        public SearchResultsDetailsVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService) : base(pageService, cheapSharkAPI)
         {
             _pageService = pageService;
         }
 
-        internal void Init(SearchResult searchResult)
+        internal void Init(string searchText, SearchResult searchResult)
         {
+            base.Init(searchText);
             SearchResult = searchResult;
         }
     }

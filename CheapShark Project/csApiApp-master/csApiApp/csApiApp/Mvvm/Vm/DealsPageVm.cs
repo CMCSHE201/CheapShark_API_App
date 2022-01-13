@@ -1,5 +1,6 @@
 ﻿using csApiApp.Models;
 using csApiApp.Mvvm.View;
+using csApiApp.Services;
 using csApiApp.Services.Rest;
 using csApiApp.Services.Rest.Endpoints;
 using FunctionZero.CommandZero;
@@ -50,11 +51,12 @@ namespace csApiApp.Mvvm.Vm
             _pageService = pageService;
 
             // Can we not just use game/deal result classes/pages?
-            SelectedCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<GameDetailsPage, GameDetailsPageVm>((vm) => vm.Init(selectedDeal))).SetName("View Details").Build();
+            SelectedCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<GameDetailsPage, GameDetailsPageVm>((vm) => vm.Init(SearchText, selectedDeal))).SetName("View Details").Build();
         }
 
         internal async void Init()
         {
+            base.Init(SearchText);
             await FindDeals();
         }
 

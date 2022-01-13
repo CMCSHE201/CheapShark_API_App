@@ -1,5 +1,6 @@
 ﻿using csApiApp.Mvvm.Model;
 using csApiApp.Mvvm.View;
+using csApiApp.Services;
 using csApiApp.Services.Rest;
 using csApiApp.Services.Rest.Endpoints;
 using FunctionZero.CommandZero;
@@ -70,8 +71,6 @@ namespace csApiApp.Mvvm.Vm
             set => base.SetProperty(ref _searchResults, value);
         }
 
-        private string _searchText;
-
         public SearchPageVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService) : base(pageService, cheapSharkAPI)
         {
             _cheapSharkAPI = cheapSharkAPI;
@@ -79,12 +78,12 @@ namespace csApiApp.Mvvm.Vm
 
             SearchCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(SearchGames).SetName("Search").Build();
 
-            SelectedCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<SearchResultsDetails, SearchResultsDetailsVm>((vm) => vm.Init(selectedResult))).SetName("View Details").Build();
+            SelectedCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<SearchResultsDetails, SearchResultsDetailsVm>((vm) => vm.Init(SearchText, selectedResult))).SetName("View Details").Build();
         }
 
-        internal async void Init(string text)
+        internal async void Init(string searchText)
         {
-            SearchText = text;
+            base.Init(searchText);
             await SearchGames();
         }
 

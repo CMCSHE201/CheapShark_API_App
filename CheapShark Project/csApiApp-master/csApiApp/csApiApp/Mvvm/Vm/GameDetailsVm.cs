@@ -1,4 +1,5 @@
 ﻿using csApiApp.Services.Rest;
+using csApiApp.Services;
 using FunctionZero.MvvmZero;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace csApiApp.Mvvm.Vm
     {
         private readonly IPageServiceZero _pageService;
 
-        public GameDetailsVm(IPageServiceZero pageService, CheapSharkAPI cheapSharkAPI) : base(pageService, cheapSharkAPI)
+        public GameDetailsVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService) : base(pageService, cheapSharkAPI)
         {
             _pageService = pageService;
         }

@@ -4,6 +4,7 @@ using FunctionZero.MvvmZero;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using csApiApp.Services;
 using System.Text;
 
 namespace csApiApp.Mvvm.Vm
@@ -29,6 +30,7 @@ namespace csApiApp.Mvvm.Vm
 
         internal async void Init()
         {
+            base.Init(SearchText);
             var stores = await _cheapSharkAPI.GetStoresAsync();
             StoreResults = new ObservableCollection<StoreResult>(stores);
         }

@@ -1,5 +1,6 @@
 ﻿using csApiApp.Models;
 using csApiApp.Mvvm.View;
+using csApiApp.Services;
 using csApiApp.Services.Rest;
 using FunctionZero.CommandZero;
 using FunctionZero.MvvmZero;
@@ -24,7 +25,7 @@ namespace csApiApp.Mvvm.Vm
         public ICommand ViewDetailsCommand { get; }
         public ICommand StoreListCommand { get; }
         public ICommand FAQPageCommand { get; }
-        public ICommand SearchPageCommand { get; }
+        public ICommand SearchCommand { get; }
         public ICommand DealsPageCommand { get; }
         public ICommand AddToWishlistCommand { get; }
 
@@ -44,33 +45,37 @@ namespace csApiApp.Mvvm.Vm
             _pageService = pageService;
             GetStores();
 
-            HomePageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => { await _pageService.PopToRootAsync(true); }).SetName("Home").Build();
+            HomePageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () =>
+            {
+                await _pageService.PopToRootAsync(false);
+                await _pageService.PushPageAsync<HomePage, HomePageVm>((vm) => vm.Init(SearchText));
+            }).SetName("Home").Build();
 
             SettingsPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () =>
             {
                 await _pageService.PopToRootAsync(false);
-                await _pageService.PushPageAsync<Settings, SettingsVm>((vm) => vm.Init());
+                await _pageService.PushPageAsync<Settings, SettingsVm>((vm) => vm.Init(SearchText));
             }).SetName("Settings").Build();
 
             AboutPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () =>
             {
                 await _pageService.PopToRootAsync(false);
-                await _pageService.PushPageAsync<AboutPage, AboutPageVm>((vm) => vm.Init());
+                await _pageService.PushPageAsync<AboutPage, AboutPageVm>((vm) => vm.Init(SearchText));
             }).SetName("About Us").Build();
 
             StoreListCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () =>
             {
                 await _pageService.PopToRootAsync(false);
-                await _pageService.PushPageAsync<StoreListPage, StoreListVm>((vm) => vm.Init());
+                await _pageService.PushPageAsync<StoreListPage, StoreListVm>((vm) => vm.Init(SearchText));
             }).SetName("Store List").Build();
 
             FAQPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () =>
             {
                 await _pageService.PopToRootAsync(false);
-                await _pageService.PushPageAsync<FAQPage, FAQPageVm>((vm) => vm.Init());
+                await _pageService.PushPageAsync<FAQPage, FAQPageVm>((vm) => vm.Init(SearchText));
             }).SetName("FAQ").Build();
 
-            SearchPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () =>
+            SearchCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () =>
             {
                 await _pageService.PopToRootAsync(false);
                 await _pageService.PushPageAsync<SearchPage, SearchPageVm>((vm) => vm.Init(SearchText));
@@ -79,12 +84,17 @@ namespace csApiApp.Mvvm.Vm
             DealsPageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () =>
             {
                 await _pageService.PopToRootAsync(false);
-                await _pageService.PushPageAsync<DealsPage, DealsPageVm>((vm) => vm.Init());
+                await _pageService.PushPageAsync<DealsPage, DealsPageVm>((vm) => vm.Init(SearchText));
             }).SetName("View More Deals").Build();
 
-            ViewDetailsCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<GameDetailsPage, GameDetailsPageVm>((vm) => vm.Init(_dealResult))).SetName("View Details").Build();
+            ViewDetailsCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<GameDetailsPage, GameDetailsPageVm>((vm) => vm.Init(SearchText, _dealResult))).SetName("View Details").Build();
 
             AddToWishlistCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(AddToWishlist).SetName("Wishlish (+)").Build();
+        }
+
+        public void Init(string searchText)
+        {
+            SearchText = searchText;
         }
 
         internal async void GetStores()

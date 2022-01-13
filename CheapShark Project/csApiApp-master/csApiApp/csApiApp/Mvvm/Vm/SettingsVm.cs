@@ -2,6 +2,7 @@
 using FunctionZero.MvvmZero;
 using System;
 using System.Collections.Generic;
+using csApiApp.Services;
 using System.Text;
 
 namespace csApiApp.Mvvm.Vm
@@ -10,13 +11,14 @@ namespace csApiApp.Mvvm.Vm
     {
         private readonly IPageServiceZero _pageService;
 
-        public SettingsVm(IPageServiceZero pageService, CheapSharkAPI cheapSharkAPI) : base(pageService, cheapSharkAPI)
+        public SettingsVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService) : base(pageService, cheapSharkAPI)
         {
             _pageService = pageService;
         }
 
         internal void Init()
         {
+            base.Init(SearchText);
         }
     }
 }

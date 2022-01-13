@@ -1,5 +1,6 @@
 ﻿using csApiApp.Models;
 using csApiApp.Services.Rest;
+using csApiApp.Services;
 using FunctionZero.MvvmZero;
 
 namespace csApiApp.Mvvm.Vm
@@ -22,14 +23,15 @@ namespace csApiApp.Mvvm.Vm
             set => base.SetProperty(ref _dealStore, value);
         }
 
-        public GameDetailsPageVm(IPageServiceZero pageService, CheapSharkAPI cheapSharkAPI) : base(pageService, cheapSharkAPI)
+        public GameDetailsPageVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService) : base(pageService, cheapSharkAPI)
         {
             _pageService = pageService;
             _cheapSharkAPI = cheapSharkAPI;
         }
 
-        internal void Init(DealResult dealResult)
+        internal void Init(string searchText, DealResult dealResult)
         {
+            base.Init(searchText);
             DealResult = dealResult;
 
             int storeId = int.Parse(DealResult.StoreID);
