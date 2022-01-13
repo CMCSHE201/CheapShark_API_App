@@ -54,9 +54,9 @@ namespace csApiApp.Mvvm.Vm
             SelectedCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<GameDetailsPage, GameDetailsPageVm>((vm) => vm.Init(SearchText, selectedDeal))).SetName("View Details").Build();
         }
 
-        internal async void Init()
+        internal async void Init(string searchText)
         {
-            base.Init(SearchText);
+            base.Init(searchText);
             await FindDeals();
         }
 

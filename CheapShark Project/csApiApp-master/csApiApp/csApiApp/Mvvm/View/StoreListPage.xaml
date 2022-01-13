@@ -6,6 +6,7 @@
              x:Class="csApiApp.Mvvm.View.StoreListPage">
     <view:BasePage.Content>
         <StackLayout>
+            <Label Text="Stores" HorizontalOptions="CenterAndExpand" FontSize="40" Margin="5" />
             <ListView ItemsSource="{Binding StoreResults}">
                 <ListView.ItemTemplate>
                     <DataTemplate>

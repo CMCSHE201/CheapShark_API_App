@@ -28,9 +28,9 @@ namespace csApiApp.Mvvm.Vm
             _cheapSharkAPI = cheapSharkAPI;
         }
 
-        internal async void Init()
+        internal async void Init(string searchText)
         {
-            base.Init(SearchText);
+            base.Init(searchText);
             var stores = await _cheapSharkAPI.GetStoresAsync();
             StoreResults = new ObservableCollection<StoreResult>(stores);
         }

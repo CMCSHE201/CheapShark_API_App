@@ -9,12 +9,7 @@
         <ScrollView>
             <StackLayout Margin="15">
                 <!-- Title -->
-                <Label x:Name="lblTitle"
-                   Text="FAQ"
-                   FontSize="30"
-                   FontAttributes="Bold"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Start" />
+                <Label Text="FAQ" HorizontalOptions="CenterAndExpand" FontSize="40" Margin="5" />
 
                 <!-- Question 1 -->
                 <Label x:Name="lblQuestion1"

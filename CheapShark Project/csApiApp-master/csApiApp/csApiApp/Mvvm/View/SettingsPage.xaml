@@ -6,11 +6,7 @@
              x:Class="csApiApp.Mvvm.View.Settings">
     <view:BasePage.Content>
         <StackLayout>
-            <Label Text="Settings"
-                FontSize="48"
-                VerticalOptions="Center"
-                HorizontalOptions="CenterAndExpand"
-                Padding="35, 20" />
+            <Label Text="Settings" HorizontalOptions="CenterAndExpand" FontSize="40" Margin="5" />
             <Grid Padding="20, 20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />

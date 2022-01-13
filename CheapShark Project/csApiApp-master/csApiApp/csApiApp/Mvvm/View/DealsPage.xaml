@@ -6,6 +6,7 @@
              x:Class="csApiApp.Mvvm.View.DealsPage">
     <view:BasePage.Content>
         <StackLayout>
+            <Label Text="Deals" HorizontalOptions="CenterAndExpand" FontSize="40" Margin="5" />
             <ListView ItemsSource="{Binding DealResults}" SelectedItem="{Binding SelectedDeal, Mode=TwoWay}" ItemTapped="ListView_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
