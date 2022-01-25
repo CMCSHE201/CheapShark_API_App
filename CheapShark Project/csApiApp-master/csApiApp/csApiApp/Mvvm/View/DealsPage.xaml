@@ -5,25 +5,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="csApiApp.Mvvm.View.DealsPage">
     <view:BasePage.Content>
-        <StackLayout>
-            <Label Text="Deals" HorizontalOptions="CenterAndExpand" FontSize="40" Margin="5" />
-            <ListView ItemsSource="{Binding DealResults}" SelectedItem="{Binding SelectedDeal, Mode=TwoWay}" ItemTapped="ListView_ItemTapped">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Margin="15">
-                                <StackLayout Orientation="Horizontal">
-                                    <Image HeightRequest="100" Source="{Binding ThumbnailLink}" />
-                                    <Label Text="{Binding Title}" VerticalTextAlignment="Center" />
+        <Grid>
+            <StackLayout HorizontalOptions="StartAndExpand">
+                <Label Grid.Row="0" Text="Deals" HorizontalOptions="CenterAndExpand" FontSize="40" Margin="5" />
+                <Button Grid.Row="1" Grid.Column="0" Command="{Binding SortAscCommand}" Text="Sort Results - Price - Low to High"/>
+                <Button Grid.Row="1" Grid.Column="1" Command="{Binding SortDescCommand}" Text="Sort Results - Price - High to Low"/>
+
+                <ListView ItemsSource="{Binding DealResults}" SelectedItem="{Binding SelectedDeal, Mode=TwoWay}" ItemTapped="ListView_ItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Margin="15">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Image HeightRequest="100" Source="{Binding ThumbnailLink}" />
+                                        <Label Text="{Binding Title}" VerticalTextAlignment="Center" />
+                                    </StackLayout>
+                                    <Label Text="{Binding SalePrice, StringFormat='{}Sale Price: £{0}'}" />
+                                    <Label Text="{Binding NormalPrice, StringFormat='{}Normal Price: £{0}'}" />
+                                    <BoxView HeightRequest="1" Color="Red" />
                                 </StackLayout>
-                                <Label Text="{Binding SalePrice, StringFormat='{}Sale Price: £{0}'}" />
-                                <Label Text="{Binding NormalPrice, StringFormat='{}Normal Price: £{0}'}" />
-                                <BoxView HeightRequest="1" Color="Red" />
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </Grid>
     </view:BasePage.Content>
 </view:BasePage>

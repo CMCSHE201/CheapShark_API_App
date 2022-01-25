@@ -8,9 +8,11 @@ using FunctionZero.MvvmZero;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace csApiApp.Mvvm.Vm
 {
@@ -21,6 +23,28 @@ namespace csApiApp.Mvvm.Vm
         private CheapSharkAPI _cheapSharkAPI;
 
         public ICommand SelectedCommand { get; }
+
+        public ICommand SortAscCommand
+        {
+            get
+            {
+                return new Command(() =>
+                {
+                    SortByLowestPrice();
+                });
+            }
+        }
+
+        public ICommand SortDescCommand
+        {
+            get
+            {
+                return new Command(() =>
+                {
+                    SortByHighestPrice();
+                });
+            }
+        }
 
         private DealResult selectedDeal;
 
@@ -65,6 +89,26 @@ namespace csApiApp.Mvvm.Vm
             string url = Constants.FindDealsEndpoint;
             var results = await _cheapSharkAPI.GetDealsAsync(url);
             DealResults = new ObservableCollection<DealResult>(results);
+        }
+
+        public void SortByLowestPrice()
+        {
+            var sortedResults = DealResults.OrderBy(x => x.SalePrice).ToList();
+
+            for (int i = 0; i < sortedResults.Count; i++)
+            {
+                DealResults.Move(DealResults.IndexOf(sortedResults[i]), i);
+            }
+        }
+
+        public void SortByHighestPrice()
+        {
+            var sortedResults = DealResults.OrderByDescending(x => x.SalePrice).ToList();
+
+            for (int i = 0; i < sortedResults.Count; i++)
+            {
+                DealResults.Move(DealResults.IndexOf(sortedResults[i]), i);
+            }
         }
     }
 }
