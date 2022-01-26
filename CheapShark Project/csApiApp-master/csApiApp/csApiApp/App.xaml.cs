@@ -1,4 +1,5 @@
 ﻿using csApiApp.Boilerplate;
+using csApiApp.Themes;
 using Xamarin.Forms;
 
 namespace csApiApp
@@ -14,6 +15,8 @@ namespace csApiApp
 
             // Ask the Locator to get us going. This is an asynchronous call from a constructor, so we're using the 'discard' ...
             _ = locator.SetFirstPage();
+
+            ThemeSet.Set();
         }
 
         protected override void OnStart()

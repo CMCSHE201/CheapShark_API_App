@@ -3,7 +3,8 @@
              xmlns:view="clr-namespace:csApiApp.Mvvm.View"
             xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="csApiApp.Mvvm.View.Settings">
+    xmlns:local="clr-namespace:csApiApp.Themes"
+    x:Class="csApiApp.Mvvm.View.Settings">
     <view:BasePage.Content>
         <StackLayout>
             <Label Text="Settings" HorizontalOptions="CenterAndExpand" FontSize="40" Margin="5" />
@@ -20,12 +21,12 @@
                        Grid.Row="0"
                        Text="Change Theme"
                        FontSize="26"></Label>
-                <Button Grid.Column="1"
-                        Grid.Row="0"
-                        Clicked="OnClick_Change"
-                        Text="Change"
-                        FontSize="26"
-                        TextTransform="None"></Button>
+                <local:EnumPicker Grid.Column="1"
+                          Grid.Row="0"
+                          EnumType="{x:Type local:Theme}"
+                          Title="Choose Theme"
+                          SelectedIndexChanged="OnPickerSelectionChanged" >
+                </local:EnumPicker>
             </Grid>
         </StackLayout>
     </view:BasePage.Content>
