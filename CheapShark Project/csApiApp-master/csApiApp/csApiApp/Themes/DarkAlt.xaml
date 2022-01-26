@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="csApiApp.Themes.DarkAlt">
+    <Color x:Key="BackgroundColor">#070B47</Color>
+    <Color x:Key="NavigationBarColor">#070766</Color>
+    <Color x:Key="PrimaryAccentColor">#070766</Color>
+    <Color x:Key="SecondaryAccentColor">#5952AB</Color>
+    <Color x:Key="PrimaryTextColor">#E9E9EE</Color>
+    <Color x:Key="SecondaryTextColor">#E9E9EE</Color>
+    <Color x:Key="TertiaryTextColor">#E9E9EE</Color>
+    <Color x:Key="InactiveColor">Gray</Color>
+</ResourceDictionary>
