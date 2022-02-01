@@ -14,15 +14,15 @@ namespace csApiApp.Mvvm.Vm
         private CheapSharkAPI _cheapSharkAPI;
         private readonly IPageServiceZero _pageService;
 
-        private ObservableCollection<StoreResult> _storeResults;
+        private ObservableCollection<Store> _storeResults;
 
-        public ObservableCollection<StoreResult> StoreResults
+        public ObservableCollection<Store> StoreResults
         {
             get => _storeResults;
             set => base.SetProperty(ref _storeResults, value);
         }
 
-        public StoreListVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService) : base(pageService, cheapSharkAPI)
+        public StoreListVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService, SQLiteInterface sqliteInterface) : base(pageService, cheapSharkAPI, sqliteInterface)
         {
             _pageService = pageService;
             _cheapSharkAPI = cheapSharkAPI;
@@ -32,7 +32,7 @@ namespace csApiApp.Mvvm.Vm
         {
             base.Init(searchText);
             var stores = await _cheapSharkAPI.GetStoresAsync();
-            StoreResults = new ObservableCollection<StoreResult>(stores);
+            StoreResults = new ObservableCollection<Store>(stores);
         }
     }
 }
