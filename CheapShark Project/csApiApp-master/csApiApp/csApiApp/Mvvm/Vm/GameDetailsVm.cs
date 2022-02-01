@@ -11,7 +11,7 @@ namespace csApiApp.Mvvm.Vm
     {
         private readonly IPageServiceZero _pageService;
 
-        public GameDetailsVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService) : base(pageService, cheapSharkAPI)
+        public GameDetailsVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService, SQLiteInterface sqliteInterface) : base(pageService, cheapSharkAPI, sqliteInterface)
         {
             _pageService = pageService;
         }

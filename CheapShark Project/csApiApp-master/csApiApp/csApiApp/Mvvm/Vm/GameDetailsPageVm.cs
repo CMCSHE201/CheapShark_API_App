@@ -9,7 +9,8 @@ namespace csApiApp.Mvvm.Vm
     {
         private readonly IPageServiceZero _pageService;
         private readonly CheapSharkAPI _cheapSharkAPI;
-        private StoreResult _dealStore;
+
+        private Store _dealStore;
 
         public DealResult DealResult
         {
@@ -17,13 +18,13 @@ namespace csApiApp.Mvvm.Vm
             set => base.SetProperty(ref _dealResult, value);
         }
 
-        public StoreResult DealStore
+        public Store DealStore
         {
             get => _dealStore;
             set => base.SetProperty(ref _dealStore, value);
         }
 
-        public GameDetailsPageVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService) : base(pageService, cheapSharkAPI)
+        public GameDetailsPageVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService, SQLiteInterface sqliteInterface) : base(pageService, cheapSharkAPI, sqliteInterface)
         {
             _pageService = pageService;
             _cheapSharkAPI = cheapSharkAPI;
@@ -36,7 +37,7 @@ namespace csApiApp.Mvvm.Vm
 
             int storeId = int.Parse(DealResult.StoreID);
 
-            foreach (StoreResult store in StoreList)
+            foreach (Store store in StoreList)
             {
                 if (store.StoreID == storeId)
                 {
