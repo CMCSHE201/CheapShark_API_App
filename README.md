@@ -14,6 +14,7 @@
 
 - [Table of contents](#table-of-contents)
 - [Example Image](#example-image)
+- [Installation](#installation)
 - [Quick start](#quick-start)
 - [Status](#status)
 - [Bugs and feature requests](#bugs-and-feature-requests)
@@ -25,6 +26,11 @@
 
 ## Example Image
 <img src="./images/cap.png">
+
+## Installation
+To install the application. Head to https://github.com/CMCSHE201/CheapShark_API_App/tree/main and click on the green button labelled "Code". A link will be displayed, copy this link and open Visual Studio. In the Git header, beside View, select "Clone Repository", paste the link into the Repository Location field and press the "Clone" button.
+
+After the application is downloaded, run the project using local machine and the appllication will open in a new window.
 
 ## Quick start
 <img src="./images/DoTD.png">
