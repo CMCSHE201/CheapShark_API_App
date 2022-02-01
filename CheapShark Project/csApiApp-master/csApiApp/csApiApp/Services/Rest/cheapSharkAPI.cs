@@ -51,16 +51,16 @@ namespace csApiApp.Services.Rest
             return deals;
         }
 
-        public async Task<List<StoreResult>> GetStoresAsync()
+        public async Task<List<Store>> GetStoresAsync()
         {
-            List<StoreResult> storeList = new List<StoreResult>();
+            List<Store> storeList = new List<Store>();
             try
             {
                 HttpResponseMessage response = await _client.GetAsync(Constants.StoreListEndpoint);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
-                    storeList = JsonConvert.DeserializeObject<List<StoreResult>>(content);
+                    storeList = JsonConvert.DeserializeObject<List<Store>>(content);
                 }
                 else
                 {
