@@ -36,11 +36,27 @@ namespace csApiApp.Services
             }
         }
 
-        public void InsertStore(Store store)
+        public void AddStore(Store store)
         {
             using (var db = new SQLiteConnection(dbPath))
             {
                 db.InsertOrReplace(store);
+            }
+        }
+
+        public void AddStores(List<Store> stores)
+        {
+            using (var db = new SQLiteConnection(dbPath))
+            {
+                db.InsertAll(stores);
+            }
+        }
+
+        public List<Store> GetStores()
+        {
+            using (var db = new SQLiteConnection(dbPath))
+            {
+                return db.Table<Store>().ToList();
             }
         }
     }

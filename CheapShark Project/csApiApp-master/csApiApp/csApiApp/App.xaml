@@ -40,6 +40,18 @@
                     </ScrollView>
                 </Grid>
             </ControlTemplate>
+            
+            <Style TargetType="Label">
+                <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryAccentColor}" />
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryAccentColor}" />
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+            </Style>
+            <Style TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}" />
+            </Style>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

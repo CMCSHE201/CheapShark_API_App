@@ -8,8 +8,8 @@
 
   <Identity
     Name="383eb1ef-db39-401c-b272-94f46bc76bf8"
-    Publisher="CN=316de364-581d-4243-954e-418e8774088a"
-    Version="1.0.0.0" />
+    Publisher="CN=csApiApp-team"
+    Version="1.0.1.0" />
 
   <mp:PhoneIdentity PhoneProductId="ec0cc741-fd3e-485c-81be-68815c480690" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
