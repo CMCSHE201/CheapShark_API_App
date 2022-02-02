@@ -104,10 +104,7 @@ namespace csApiApp.Mvvm.Vm
             var stores = await _cheapSharkAPI.GetStoresAsync();
             StoreList = new ObservableCollection<Store>(stores);
             // Add the stores to the database
-            foreach (var store in stores)
-            {
-                _sqliteInterface.InsertStore(store);
-            }
+            _sqliteInterface.AddStores(stores);
         }
 
         private Task AddToWishlist()
