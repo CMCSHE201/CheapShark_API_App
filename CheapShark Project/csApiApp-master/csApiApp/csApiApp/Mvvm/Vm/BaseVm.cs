@@ -105,6 +105,7 @@ namespace csApiApp.Mvvm.Vm
             StoreList = new ObservableCollection<Store>(stores);
             // Add the stores to the database
             _sqliteInterface.AddStores(stores);
+
         }
 
         private Task AddToWishlist()
