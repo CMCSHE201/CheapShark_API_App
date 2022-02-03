@@ -32,6 +32,8 @@ To install the application. Head to https://github.com/CMCSHE201/CheapShark_API_
 
 After the application is downloaded, run the project using local machine and the appllication will open in a new window.
 
+Or head to https://github.com/CMCSHE201/CheapShark_API_App/releases to download the latest releases of the project.
+
 ## Quick start
 <img src="./images/DoTD.png">
 
