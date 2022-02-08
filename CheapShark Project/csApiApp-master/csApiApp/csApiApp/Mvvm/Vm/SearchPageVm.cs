@@ -96,7 +96,7 @@ namespace csApiApp.Mvvm.Vm
 
         public void SortByLowestPrice()
         {
-            if (SearchResults.Count != 0)
+            if (SearchResults != null)
             {
                 var sortedResults = SearchResults.OrderBy(x => x.Cheapest).ToList();
 
@@ -109,7 +109,7 @@ namespace csApiApp.Mvvm.Vm
 
         public void SortByHighestPrice()
         {
-            if (SearchResults.Count != 0)
+            if (SearchResults != null)
             {
                 var sortedResults = SearchResults.OrderByDescending(x => x.Cheapest).ToList();
 

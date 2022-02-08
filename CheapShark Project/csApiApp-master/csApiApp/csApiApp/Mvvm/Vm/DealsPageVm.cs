@@ -93,7 +93,7 @@ namespace csApiApp.Mvvm.Vm
 
         public void SortByLowestPrice()
         {
-            if (DealResults.Count != 0)
+            if (DealResults != null)
             {
                 var sortedResults = DealResults.OrderBy(x => x.SalePrice).ToList();
 
@@ -106,7 +106,7 @@ namespace csApiApp.Mvvm.Vm
 
         public void SortByHighestPrice()
         {
-            if (DealResults.Count != 0)
+            if (DealResults != null)
             {
                 var sortedResults = DealResults.OrderByDescending(x => x.SalePrice).ToList();
 
