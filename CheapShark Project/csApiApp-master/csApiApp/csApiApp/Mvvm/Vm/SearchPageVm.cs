@@ -96,21 +96,27 @@ namespace csApiApp.Mvvm.Vm
 
         public void SortByLowestPrice()
         {
-            var sortedResults = SearchResults.OrderBy(x => x.Cheapest).ToList();
-
-            for (int i = 0; i < sortedResults.Count; i++)
+            if (SearchResults != null)
             {
-                SearchResults.Move(SearchResults.IndexOf(sortedResults[i]), i);
+                var sortedResults = SearchResults.OrderBy(x => x.Cheapest).ToList();
+
+                for (int i = 0; i < sortedResults.Count; i++)
+                {
+                    SearchResults.Move(SearchResults.IndexOf(sortedResults[i]), i);
+                }
             }
         }
 
         public void SortByHighestPrice()
         {
-            var sortedResults = SearchResults.OrderByDescending(x => x.Cheapest).ToList();
-
-            for (int i = 0; i < sortedResults.Count; i++)
+            if (SearchResults != null)
             {
-                SearchResults.Move(SearchResults.IndexOf(sortedResults[i]), i);
+                var sortedResults = SearchResults.OrderByDescending(x => x.Cheapest).ToList();
+
+                for (int i = 0; i < sortedResults.Count; i++)
+                {
+                    SearchResults.Move(SearchResults.IndexOf(sortedResults[i]), i);
+                }
             }
         }
     }
