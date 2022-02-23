@@ -48,6 +48,22 @@
                     </Label.Text>
                 </Label>
 
+                <Label x:Name="MetaReviewLabel">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Meta Review Link - " />
+                            <Span Text= "Click Here"
+                                  TextColor="Blue"
+                                  TextDecorations="Underline">
+                                <Span.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding TapCommand}"/>
+                                </Span.GestureRecognizers>
+                            </Span>
+                            <Span Text="." />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
                 <StackLayout Orientation="Horizontal">
                     <!-- Store Name -->
                     <Image HeightRequest="100" Source="{Binding DealStore.Images.Logo, StringFormat='{}https://www.cheapshark.com{0}'}" />

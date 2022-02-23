@@ -2,6 +2,9 @@
 using csApiApp.Services.Rest;
 using csApiApp.Services;
 using FunctionZero.MvvmZero;
+using Xamarin.Forms;
+using System;
+using System.Windows.Input;
 
 namespace csApiApp.Mvvm.Vm
 {
@@ -9,6 +12,18 @@ namespace csApiApp.Mvvm.Vm
     {
         private readonly IPageServiceZero _pageService;
         private readonly CheapSharkAPI _cheapSharkAPI;
+
+        public string reviewUrl;
+        public ICommand TapCommand
+        {
+            get
+            {
+                return new Command(() =>
+                {
+                    OpenBrowser();
+                });
+            }
+        }
 
         private Store _dealStore;
 
@@ -23,6 +38,7 @@ namespace csApiApp.Mvvm.Vm
             get => _dealStore;
             set => base.SetProperty(ref _dealStore, value);
         }
+        public object MetaReviewLabel { get; private set; }
 
         public GameDetailsPageVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService, SQLiteInterface sqliteInterface) : base(pageService, cheapSharkAPI, sqliteInterface)
         {
@@ -44,6 +60,13 @@ namespace csApiApp.Mvvm.Vm
                     DealStore = store;
                 }
             }
+            
+             reviewUrl = "https://www.metacritic.com" + DealResult.MetaReviewLink;
+        }
+
+        void OpenBrowser()
+        {
+            Device.OpenUri(new Uri(reviewUrl));
         }
     }
 }
