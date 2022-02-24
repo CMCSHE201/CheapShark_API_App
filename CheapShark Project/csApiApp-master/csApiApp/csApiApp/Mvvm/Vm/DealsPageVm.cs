@@ -22,6 +22,8 @@ namespace csApiApp.Mvvm.Vm
 
         private CheapSharkAPI _cheapSharkAPI;
 
+        private readonly Logger _logger;
+
         public ICommand SelectedCommand { get; }
 
         public ICommand SortAscCommand
@@ -69,12 +71,12 @@ namespace csApiApp.Mvvm.Vm
             set => base.SetProperty(ref _dealResults, value);
         }
 
-        public DealsPageVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService, SQLiteInterface sqliteInterface) : base(pageService, cheapSharkAPI, sqliteInterface)
+        public DealsPageVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService, SQLiteInterface sqliteInterface, Logger logger) : base(pageService, cheapSharkAPI, sqliteInterface, logger)
         {
             _cheapSharkAPI = cheapSharkAPI;
             _pageService = pageService;
+            _logger = logger;
 
-            // Can we not just use game/deal result classes/pages?
             SelectedCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () => await _pageService.PushPageAsync<GameDetailsPage, GameDetailsPageVm>((vm) => vm.Init(SearchText, selectedDeal))).SetName("View Details").Build();
         }
 
@@ -86,6 +88,7 @@ namespace csApiApp.Mvvm.Vm
 
         internal async Task FindDeals()
         {
+            _logger.Log("Finding deals");
             string url = Constants.FindDealsEndpoint;
             var results = await _cheapSharkAPI.GetDealsAsync(url);
             DealResults = new ObservableCollection<DealResult>(results);
@@ -93,6 +96,7 @@ namespace csApiApp.Mvvm.Vm
 
         public void SortByLowestPrice()
         {
+            _logger.Log("Sorting by lowest price");
             if (DealResults != null)
             {
                 var sortedResults = DealResults.OrderBy(x => x.SalePrice).ToList();
@@ -106,6 +110,7 @@ namespace csApiApp.Mvvm.Vm
 
         public void SortByHighestPrice()
         {
+            _logger.Log("Sorting by highest price");
             if (DealResults != null)
             {
                 var sortedResults = DealResults.OrderByDescending(x => x.SalePrice).ToList();

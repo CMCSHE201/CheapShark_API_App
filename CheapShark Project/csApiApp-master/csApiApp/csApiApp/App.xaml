@@ -30,7 +30,7 @@
                                     <Button Command="{TemplateBinding BindingContext.StoreListCommand}" Text="{TemplateBinding BindingContext.StoreListCommand.Text}" />
                                     <Button Command="{TemplateBinding BindingContext.AboutPageCommand}" Text="{TemplateBinding BindingContext.AboutPageCommand.Text}" />
                                     <Button Command="{TemplateBinding BindingContext.FAQPageCommand}" Text="{TemplateBinding BindingContext.FAQPageCommand.Text}" />
-                                    <Button Command="{TemplateBinding BindingContext.SettingsPageCommand}" Text="{TemplateBinding BindingContext.SettingsPageCommand.Text}"/>
+                                    <Button Command="{TemplateBinding BindingContext.SettingsPageCommand}" Text="{TemplateBinding BindingContext.SettingsPageCommand.Text}" />
                                 </StackLayout>
                             </StackLayout>
                         </StackLayout>
@@ -40,7 +40,7 @@
                     </ScrollView>
                 </Grid>
             </ControlTemplate>
-            
+
             <Style TargetType="Label">
                 <Setter Property="BackgroundColor" Value="{DynamicResource PrimaryAccentColor}" />
                 <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />

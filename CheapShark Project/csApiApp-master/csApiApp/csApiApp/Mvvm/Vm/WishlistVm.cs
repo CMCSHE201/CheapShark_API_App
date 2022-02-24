@@ -9,7 +9,7 @@ namespace csApiApp.Mvvm.Vm
 {
     public class WishlistVm : BaseVm
     {
-        public WishlistVm(IPageServiceZero pageService, CheapSharkAPI cheapSharkAPI, SQLiteInterface sqliteInterface) : base(pageService, cheapSharkAPI, sqliteInterface)
+        public WishlistVm(IPageServiceZero pageService, CheapSharkAPI cheapSharkAPI, SQLiteInterface sqliteInterface, Logger logger) : base(pageService, cheapSharkAPI, sqliteInterface, logger)
         {
             GetStores();
         }

@@ -21,6 +21,7 @@ namespace csApiApp.Mvvm.Vm
         private readonly IPageServiceZero _pageService;
 
         private CheapSharkAPI _cheapSharkAPI;
+        private readonly Logger _logger;
 
         public ICommand SearchCommand { get; }
 
@@ -71,7 +72,7 @@ namespace csApiApp.Mvvm.Vm
             set => base.SetProperty(ref _searchResults, value);
         }
 
-        public SearchPageVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService, SQLiteInterface sqliteInterface) : base(pageService, cheapSharkAPI, sqliteInterface)
+        public SearchPageVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService, SQLiteInterface sqliteInterface, Logger logger) : base(pageService, cheapSharkAPI, sqliteInterface, logger)
         {
             _cheapSharkAPI = cheapSharkAPI;
             _pageService = pageService;
@@ -89,13 +90,22 @@ namespace csApiApp.Mvvm.Vm
 
         internal async Task SearchGames()
         {
+            _logger.Log($"Searching for {SearchText}");
+            try
+            {
             string url = Constants.searchStartPoint + SearchText + Constants.searchEndPoint;
             var results = await _cheapSharkAPI.GetSearchAsync(url);
             SearchResults = new ObservableCollection<SearchResult>(results);
+            }
+            catch (Exception ex)
+            {
+                _logger.Log(ex.Message);
+            }
         }
 
         public void SortByLowestPrice()
         {
+            _logger.Log("Sorting by lowest price");
             if (SearchResults != null)
             {
                 var sortedResults = SearchResults.OrderBy(x => x.Cheapest).ToList();
@@ -109,6 +119,7 @@ namespace csApiApp.Mvvm.Vm
 
         public void SortByHighestPrice()
         {
+            _logger.Log("Sorting by highest price");
             if (SearchResults != null)
             {
                 var sortedResults = SearchResults.OrderByDescending(x => x.Cheapest).ToList();

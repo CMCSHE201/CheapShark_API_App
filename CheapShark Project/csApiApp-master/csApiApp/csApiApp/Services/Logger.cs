@@ -44,7 +44,7 @@ namespace csApiApp.Services
             }
 
             // Log to console.
-            Console.WriteLine(message);
+            Debug.WriteLine(message);
         }
     }
 }
