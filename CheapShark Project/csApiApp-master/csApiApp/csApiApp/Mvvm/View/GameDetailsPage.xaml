@@ -42,13 +42,13 @@
                 </Label>
 
                 <!-- Link to meta critic review -->
-                <Label>
+                <Label IsVisible="{Binding LinkVisibility, Mode=TwoWay}">
                     <Label.Text>
                         <Binding StringFormat="{}Meta Review Link - https://www.metacritic.com{0}" Path="DealResult.MetaReviewLink" />
                     </Label.Text>
                 </Label>
 
-                <Label x:Name="MetaReviewLabel">
+                <Label x:Name="MetaReviewLabel" IsVisible="{Binding LinkVisibility, Mode=TwoWay}">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="Meta Review Link - " />

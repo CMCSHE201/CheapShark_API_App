@@ -14,6 +14,18 @@ namespace csApiApp.Mvvm.Vm
         private readonly CheapSharkAPI _cheapSharkAPI;
 
         public string reviewUrl;
+
+        private bool _linkVisibility;
+        public bool LinkVisibility
+        {
+            get => _linkVisibility;
+            set
+            {
+                _linkVisibility = value;
+                OnPropertyChanged();
+            }
+        }
+
         public ICommand TapCommand
         {
             get
@@ -60,8 +72,17 @@ namespace csApiApp.Mvvm.Vm
                     DealStore = store;
                 }
             }
+
+            if (DealResult.MetaReviewLink != null)
+            {
+                reviewUrl = "https://www.metacritic.com" + DealResult.MetaReviewLink;
+                LinkVisibility = true;
+            }
+            else
+            {
+                LinkVisibility = false;
+            }
             
-             reviewUrl = "https://www.metacritic.com" + DealResult.MetaReviewLink;
         }
 
         void OpenBrowser()
