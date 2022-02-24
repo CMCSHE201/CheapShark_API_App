@@ -13,8 +13,16 @@ namespace csApiApp.Mvvm.Vm
         private readonly IPageServiceZero _pageService;
         private readonly CheapSharkAPI _cheapSharkAPI;
 
-        public string reviewUrl;
-
+        public string _reviewUrl;
+        public string ReviewUrl
+        {
+            get => _reviewUrl;
+            set
+            {
+                _reviewUrl = value;
+                OnPropertyChanged();
+            }
+        }
         private bool _linkVisibility;
         public bool LinkVisibility
         {
@@ -75,7 +83,7 @@ namespace csApiApp.Mvvm.Vm
 
             if (DealResult.MetaReviewLink != null)
             {
-                reviewUrl = "https://www.metacritic.com" + DealResult.MetaReviewLink;
+                ReviewUrl = "https://www.metacritic.com" + DealResult.MetaReviewLink;
                 LinkVisibility = true;
             }
             else
@@ -87,7 +95,7 @@ namespace csApiApp.Mvvm.Vm
 
         void OpenBrowser()
         {
-            Device.OpenUri(new Uri(reviewUrl));
+            Device.OpenUri(new Uri(ReviewUrl));
         }
     }
 }

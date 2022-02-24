@@ -42,24 +42,17 @@
                 </Label>
 
                 <!-- Link to meta critic review -->
-                <Label IsVisible="{Binding LinkVisibility, Mode=TwoWay}">
-                    <Label.Text>
-                        <Binding StringFormat="{}Meta Review Link - https://www.metacritic.com{0}" Path="DealResult.MetaReviewLink" />
-                    </Label.Text>
-                </Label>
-
                 <Label x:Name="MetaReviewLabel" IsVisible="{Binding LinkVisibility, Mode=TwoWay}">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="Meta Review Link - " />
-                            <Span Text= "Click Here"
+                            <Span Text= "{Binding ReviewUrl}"
                                   TextColor="Blue"
                                   TextDecorations="Underline">
                                 <Span.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding TapCommand}"/>
                                 </Span.GestureRecognizers>
                             </Span>
-                            <Span Text="." />
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
