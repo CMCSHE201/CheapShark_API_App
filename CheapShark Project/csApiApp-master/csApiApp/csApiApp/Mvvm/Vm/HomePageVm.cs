@@ -16,6 +16,7 @@ namespace csApiApp.Mvvm.Vm
     {
         private readonly IPageServiceZero _pageService;
         private readonly CheapSharkAPI _cheapSharkAPI;
+        private readonly Logger _logger;
 
         //Deal of the day Image source property
         private string _dodImage;
@@ -75,15 +76,18 @@ namespace csApiApp.Mvvm.Vm
         public long Count
         {
             get => _count;
-            set => base.SetProperty(ref _count, value);
+            set => SetProperty(ref _count, value);
         }
 
-        public HomePageVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService, SQLiteInterface sqliteInterface) : base(pageService, cheapSharkAPI, sqliteInterface)
+        public HomePageVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService, SQLiteInterface sqliteInterface, Logger logger) : base(pageService, cheapSharkAPI, sqliteInterface, logger)
         {
             _cheapSharkAPI = cheapSharkAPI;
             _pageService = pageService;
+            _logger = logger;
 
+            _logger.Log("Start Animation timer");
             base.AddPageTimer(10, MainTimerCallback, null, null);
+
             InitDealOfTheDay();
         }
 
@@ -94,16 +98,29 @@ namespace csApiApp.Mvvm.Vm
 
         private async void InitDealOfTheDay()
         {
+            _logger.Log("Start Get Deals of the day");
             List<DealResult> dealsOfTheDay = new List<DealResult>();
+            
             dealsOfTheDay = await _cheapSharkAPI.GetDealsAsync(Constants.DealOfTheDayEndpoint);
+
+            _logger.Log("Deal of the day Id: " + dealsOfTheDay[0].GameID);
             DodGameId = dealsOfTheDay[0].GameID;
+
+            _logger.Log("Deal of the day Name: " + dealsOfTheDay[0].Title);
             DodName = dealsOfTheDay[0].Title;
+
+            _logger.Log("Deal of the day Original Price: " + dealsOfTheDay[0].NormalPrice);
             decimal costThen = dealsOfTheDay[0].NormalPrice;
+
+            _logger.Log("Deal of the day Current Price: " + dealsOfTheDay[0].SalePrice);
             decimal costNow = dealsOfTheDay[0].SalePrice;
+
             int savingPercent = (int)(((costThen - costNow) / costThen) * 100);
             DodOrigPrice = $"£{costThen}";
             DodCurrentPrice = $"£{costNow}";
             DodSaving = $"{savingPercent}% Off!";
+
+            _logger.Log("Deal of the day Image: " + dealsOfTheDay[0].ThumbnailLink);
             DodImage = dealsOfTheDay[0].ThumbnailLink;
 
             _dealResult = dealsOfTheDay[0];

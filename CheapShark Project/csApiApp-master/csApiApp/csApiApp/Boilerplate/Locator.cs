@@ -42,6 +42,7 @@ namespace csApiApp.Boilerplate
             _iocc.Register<BasePage>(Lifestyle.Singleton);
             _iocc.Register<BaseVm>(Lifestyle.Singleton);
             _iocc.RegisterInstance<SQLiteInterface>(new SQLiteInterface());
+            _iocc.Register<Logger>(Lifestyle.Singleton);
 
             _iocc.Verify();
         }

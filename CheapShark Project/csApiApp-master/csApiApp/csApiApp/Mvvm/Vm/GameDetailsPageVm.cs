@@ -12,6 +12,7 @@ namespace csApiApp.Mvvm.Vm
     {
         private readonly IPageServiceZero _pageService;
         private readonly CheapSharkAPI _cheapSharkAPI;
+        private readonly Logger _logger;
 
         public string _reviewUrl;
         public string ReviewUrl
@@ -60,10 +61,11 @@ namespace csApiApp.Mvvm.Vm
         }
         public object MetaReviewLabel { get; private set; }
 
-        public GameDetailsPageVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService, SQLiteInterface sqliteInterface) : base(pageService, cheapSharkAPI, sqliteInterface)
+        public GameDetailsPageVm(CheapSharkAPI cheapSharkAPI, IPageServiceZero pageService, SQLiteInterface sqliteInterface, Logger logger) : base(pageService, cheapSharkAPI, sqliteInterface, logger)
         {
             _pageService = pageService;
             _cheapSharkAPI = cheapSharkAPI;
+            _logger = logger;
         }
 
         internal void Init(string searchText, DealResult dealResult)
@@ -73,10 +75,12 @@ namespace csApiApp.Mvvm.Vm
 
             int storeId = int.Parse(DealResult.StoreID);
 
+            _logger.Log($"Getting store with id {storeId}");
             foreach (Store store in StoreList)
             {
                 if (store.StoreID == storeId)
                 {
+                    _logger.Log($"Found store with id {storeId}");
                     DealStore = store;
                 }
             }

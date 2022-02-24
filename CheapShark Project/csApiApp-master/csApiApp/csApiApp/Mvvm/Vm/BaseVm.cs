@@ -16,6 +16,7 @@ namespace csApiApp.Mvvm.Vm
         private readonly IPageServiceZero _pageService;
         private readonly CheapSharkAPI _cheapSharkAPI;
         private readonly SQLiteInterface _sqliteInterface;
+        private readonly Logger _logger;
 
         public ICommand SettingsPageCommand { get; }
 
@@ -40,11 +41,13 @@ namespace csApiApp.Mvvm.Vm
 
         public DealResult _dealResult;
 
-        public BaseVm(IPageServiceZero pageService, CheapSharkAPI cheapSharkAPI, SQLiteInterface sqliteInterface)
+        public BaseVm(IPageServiceZero pageService, CheapSharkAPI cheapSharkAPI, SQLiteInterface sqliteInterface, Logger logger)
         {
             _cheapSharkAPI = cheapSharkAPI;
             _pageService = pageService;
             _sqliteInterface = sqliteInterface;
+            _logger = logger;
+
             GetStores();
 
             HomePageCommand = new CommandBuilder().AddGuard(this).SetExecuteAsync(async () =>
@@ -101,16 +104,20 @@ namespace csApiApp.Mvvm.Vm
 
         internal async void GetStores()
         {
+            _logger.Log("Getting Stores");
             var stores = await _cheapSharkAPI.GetStoresAsync();
             StoreList = new ObservableCollection<Store>(stores);
+
             // Add the stores to the database
             _sqliteInterface.AddStores(stores);
+            _logger.Log("Stores Added");
 
         }
 
         private Task AddToWishlist()
         {
-            throw new NotImplementedException();
+            _logger.Log("Adding to wishlist");
+            return Task.CompletedTask;
         }
     }
 }
